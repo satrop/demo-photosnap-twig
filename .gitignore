@@ -1,5 +1,6 @@
 # dependencies
 /node_modules
+/vendor
 /.pnp
 .pnp.*
 
@@ -8,12 +9,7 @@
 
 # misc
 .DS_Store
-
-# env files (can opt-in for committing if needed)
 .env*
-
-# vercel
-.vercel
 
 # PHP files (if you don't want to track them)
 *.php
