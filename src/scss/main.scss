@@ -1,0 +1,10 @@
+// Global styles
+@use "global-scss/layout";
+@use "global-scss/button";
+@use "global-scss/typography";
+@use "global-scss/colors";
+@use "global-scss/utils";
+@use "global-scss/mixins";
+
+// Components
+@use "../templates/components/footer/footer" as footer;
