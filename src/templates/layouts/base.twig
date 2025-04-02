@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Default Title{% endblock %}</title>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+  <header>
+    {% block header %}
+      {% include 'partials/header.twig' %}
+    {% endblock %}
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer>
+    {% block footer %}
+      {% include 'partials/footer.twig' %}
+    {% endblock %}
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>
