@@ -1,126 +1,95 @@
-<footer
-      class="footer background--black grid-container"
-      role="contentinfo"
-    >
-      <div class="container main-width">
-        <div class="col">
-          <div class="logoSection">
-            <Link
-              href="/"
-              aria-label="Photosnap home"
-            >
-              <Logo />
-            </Link>
-          </div>
-
-          <nav
-            class="socialLinks"
-            aria-label="Social media links"
-          >
-            <h2 class="visually-hidden">Social Media Links</h2>
-            <ul role="list">
-              <li>
-                <a
-                  href="https://facebook.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Visit our Facebook page (opens in new window)"
-                >
-                  <FaFacebook
-                    aria-hidden="true"
-                    focusable="false"
-                  />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://youtube.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Visit our YouTube channel (opens in new window)"
-                >
-                  <FaYoutube
-                    aria-hidden="true"
-                    focusable="false"
-                  />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Visit our Twitter page (opens in new window)"
-                >
-                  <FaTwitter
-                    aria-hidden="true"
-                    focusable="false"
-                  />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://pinterest.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Visit our Pinterest page (opens in new window)"
-                >
-                  <FaPinterest
-                    aria-hidden="true"
-                    focusable="false"
-                  />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://instagram.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Visit our Instagram page (opens in new window)"
-                >
-                  <FaInstagram
-                    aria-hidden="true"
-                    focusable="false"
-                  />
-                </a>
-              </li>
-            </ul>
-          </nav>
-
-          <nav
-            class="pageLinks"
-            aria-label="Site pages"
-          >
-            <h2 class="visually-hidden">Site Navigation</h2>
-            <ul role="list">
-              <li>
-                <Link href="/">Home</Link>
-              </li>
-              <li>
-                <Link href="/stories">Stories</Link>
-              </li>
-              <li>
-                <Link href="/features">Features</Link>
-              </li>
-              <li>
-                <Link href="/pricing">Pricing</Link>
-              </li>
-            </ul>
-          </nav>
-        </div>
-
-        <div class="col">
-          <Button
-            class="inviteButton"
-            variant="secondary"
-            aria-label="Get an invite to join Photosnap"
-          >
-            Get an invite
-          </Button>
-
-          <div class="copyright">
-            <p>Copyright &copy; {{ "now"|date("Y") }}. All Rights Reserved</p>
-          </div>
-        </div>
+<footer class="footer background--black grid-container" role="contentinfo">
+  <div class="container main-width">
+    <div class="col">
+      <div class="logoSection">
+        <a href="/" aria-label="Photosnap home">
+          <Logo />
+        </a>
       </div>
-    </footer>
+
+      <nav class="socialLinks" aria-label="Social media links">
+        <h2 class="visually-hidden">Social Media Links</h2>
+        <ul role="list">
+          <li>
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit our Facebook page (opens in new window)"
+            >
+              <FaFacebook aria-hidden="true" focusable="false" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit our YouTube channel (opens in new window)"
+            >
+              <FaYoutube aria-hidden="true" focusable="false" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit our Twitter page (opens in new window)"
+            >
+              <FaTwitter aria-hidden="true" focusable="false" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://pinterest.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit our Pinterest page (opens in new window)"
+            >
+              <FaPinterest aria-hidden="true" focusable="false" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit our Instagram page (opens in new window)"
+            >
+              <FaInstagram aria-hidden="true" focusable="false" />
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <nav class="pageLinks" aria-label="Site pages">
+        <h2 class="visually-hidden">Site Navigation</h2>
+        <ul role="list">
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/stories">Stories</a>
+          </li>
+          <li>
+            <a href="/features">Features</a>
+          </li>
+          <li>
+            <a href="/pricing">Pricing</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="col">
+      <button class="inviteButton" variant="secondary" aria-label="Get an invite to join Photosnap">
+        Get an invite
+      </button>
+
+      <div class="copyright">
+        <p>Copyright &copy; {{ "now"|date("Y") }}. All Rights Reserved</p>
+      </div>
+    </div>
+  </div>
+</footer>

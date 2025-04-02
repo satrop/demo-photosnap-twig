@@ -2,8 +2,7 @@
 
 :root {
   // Fonts
-  --font-primary: var(--font-dm-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-primary: "DM Sans", sans-serif;
 
   // Sizes
   --xxl: clamp(#{functions.rem(32px)}, 3vw, #{functions.rem(40px)}); // H1
@@ -43,6 +42,7 @@ h4,
   padding: 0;
   font-family: var(--font-primary);
   font-weight: var(--bold);
+  font-optical-sizing: auto;
   text-wrap: balance;
 }
 

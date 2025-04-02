@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}Default Title{% endblock %}</title>
-  <link rel="stylesheet" href="./css/main.css">
-</head>
-<body>
-  <header>
-    {% block header %}
-      {% include 'partials/header.twig' %}
-    {% endblock %}
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Default Title{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
+    <header>
+      {% block header %}
+        {# {% include 'partials/header.twig' %} #}
+      {% endblock %}
+    </header>
 
-  <main>
-    {% block content %}{% endblock %}
-  </main>
+    <main>
+      {% block content %}{% endblock %}
+    </main>
 
-  <footer>
-    {% block footer %}
-      {% include 'components/footer/footer.twig' %}
-    {% endblock %}
-  </footer>
+    <footer>
+      {% block footer %}
+        {% include 'components/footer/footer.twig' %}
+      {% endblock %}
+    </footer>
 
-  <!-- <script src="./js/main.js"></script> -->
-  {% block scripts %}{% endblock %}
-</body>
+    <!-- <script src="./js/main.js"></script> -->
+    {% block scripts %}{% endblock %}
+  </body>
 </html>
