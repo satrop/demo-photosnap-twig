@@ -1,15 +1,20 @@
-# dependencies
-/node_modules
-/vendor
-/.pnp
-.pnp.*
+# Dependencies
+/vendor/
+/node_modules/
 
-# production
-/build
+# Build output
+/build/
 
-# misc
+# Environment files
+.env
+.env.*
+!.env.example
+
+# OS files
 .DS_Store
-.env*
+Thumbs.db
 
-# PHP files (if you don't want to track them)
-*.php
+# IDE files
+.idea/
+.vscode/
+*.sublime-*
