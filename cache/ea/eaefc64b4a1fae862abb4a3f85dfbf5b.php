@@ -54,20 +54,17 @@ class __TwigTemplate_b76a7aa391161a2d0e8e1af56b00e4e5 extends Template
     public function block_content(array $context, array $blocks = []): iterable
     {
         $macros = $this->macros;
-        // line 4
-        yield "  ";
         // line 5
-        yield "  ";
-        yield from $this->loadTemplate("components/hero/hero.twig", "pages/features.twig", 5)->unwrap()->yield(CoreExtension::merge($context, ["image" => "/features/desktop/hero.jpg", "imageAlt" => "Person taking a photo with a vintage camera", "title" => "Features", "excerpt" => "We make sure all of our features are designed to be loved by every aspiring and even professional photographers who wanted to share their stories.", "variant" => "side-by-side", "backgroundColor" => "black", "standout" => true, "short" => true]));
+        yield from $this->loadTemplate("components/hero/hero.twig", "pages/features.twig", 5)->unwrap()->yield(CoreExtension::merge($context, ["image" => "images/features/desktop/hero.jpg", "imageAlt" => "Person taking a photo with a vintage camera", "title" => "Features", "excerpt" => "We make sure all of our features are designed to be loved by every aspiring and even professional photographers who wanted to share their stories.", "variant" => "side-by-side", "backgroundColor" => "black", "standout" => true, "short" => true]));
         // line 15
         yield "
-  ";
+";
         // line 17
-        yield "  <section class=\"features-section\">
-    <div class=\"feature-cards-container\">
-      ";
+        yield "<section class=\"features-section\">
+\t<div class=\"feature-cards-container\">
+\t\t";
         // line 19
-        $context["features"] = [["icon" => "/features/desktop/responsive.svg", "title" => "100% Responsive", "description" => "No matter which device you're on, our site is fully responsive and stories look beautiful on any screen.", "width" => 72, "height" => 72], ["icon" => "/features/desktop/no-limit.svg", "title" => "No Photo Upload Limit", "description" => "Our tool has no limits on uploads or bandwidth. Freely upload in bulk and share all of your stories in one go.", "width" => 72, "height" => 36], ["icon" => "/features/desktop/embed.svg", "title" => "Available to Embed", "description" => "Embed Tweets, Facebook posts, Instagram media, Vimeo or YouTube videos, Google Maps, and more.", "width" => 71, "height" => 72], ["icon" => "/features/desktop/custom-domain.svg", "title" => "Custom Domain", "description" => "With Photosnap subscriptions you can host your stories on your own domain. You can also remove our branding!", "width" => 81, "height" => 72], ["icon" => "/features/desktop/boost-exposure.svg", "title" => "Boost Your Exposure", "description" => "Users that viewed your story or gallery can easily get notified of new and featured stories with our built in mailing list.", "width" => 72, "height" => 72], ["icon" => "/features/desktop/drag-drop.svg", "title" => "Drag & Drop Image", "description" => "Easily drag and drop your image and get beautiful shots every time. No over the top tooling to add friction to creating stories.", "width" => 91, "height" => 72]];
+        $context["features"] = [["icon" => "images/features/desktop/responsive.svg", "title" => "100% Responsive", "description" => "No matter which device you're on, our site is fully responsive and stories look beautiful on any screen.", "width" => 72, "height" => 72], ["icon" => "images/features/desktop/no-limit.svg", "title" => "No Photo Upload Limit", "description" => "Our tool has no limits on uploads or bandwidth. Freely upload in bulk and share all of your stories in one go.", "width" => 72, "height" => 36], ["icon" => "images/features/desktop/embed.svg", "title" => "Available to Embed", "description" => "Embed Tweets, Facebook posts, Instagram media, Vimeo or YouTube videos, Google Maps, and more.", "width" => 71, "height" => 72], ["icon" => "images/features/desktop/custom-domain.svg", "title" => "Custom Domain", "description" => "With Photosnap subscriptions you can host your stories on your own domain. You can also remove our branding!", "width" => 81, "height" => 72], ["icon" => "images/features/desktop/boost-exposure.svg", "title" => "Boost Your Exposure", "description" => "Users that viewed your story or gallery can easily get notified of new and featured stories with our built in mailing list.", "width" => 72, "height" => 72], ["icon" => "images/features/desktop/drag-drop.svg", "title" => "Drag & Drop Image", "description" => "Easily drag and drop your image and get beautiful shots every time. No over the top tooling to add friction to creating stories.", "width" => 91, "height" => 72]];
         // line 63
         yield "
       ";
@@ -133,7 +130,7 @@ class __TwigTemplate_b76a7aa391161a2d0e8e1af56b00e4e5 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  109 => 67,  95 => 66,  92 => 65,  75 => 64,  72 => 63,  70 => 19,  66 => 17,  63 => 15,  60 => 5,  58 => 4,  51 => 3,  40 => 1,);
+        return array (  106 => 67,  92 => 66,  89 => 65,  72 => 64,  69 => 63,  67 => 19,  63 => 17,  60 => 15,  58 => 5,  51 => 3,  40 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -141,9 +138,9 @@ class __TwigTemplate_b76a7aa391161a2d0e8e1af56b00e4e5 extends Template
         return new Source("{% extends 'layouts/base.twig' %}
 
 {% block content %}
-  {# Hero Section #}
-  {% include 'components/hero/hero.twig' with {
-    image: '/features/desktop/hero.jpg',
+{# Hero Section #}
+{% include 'components/hero/hero.twig' with {
+    image: 'images/features/desktop/hero.jpg',
     imageAlt: 'Person taking a photo with a vintage camera',
     title: 'Features',
     excerpt: 'We make sure all of our features are designed to be loved by every aspiring and even professional photographers who wanted to share their stories.',
@@ -153,47 +150,47 @@ class __TwigTemplate_b76a7aa391161a2d0e8e1af56b00e4e5 extends Template
     short: true
   } %}
 
-  {# Features Section #}
-  <section class=\"features-section\">
-    <div class=\"feature-cards-container\">
-      {% set features = [
+{# Features Section #}
+<section class=\"features-section\">
+\t<div class=\"feature-cards-container\">
+\t\t{% set features = [
         {
-          icon: '/features/desktop/responsive.svg',
+          icon: 'images/features/desktop/responsive.svg',
           title: '100% Responsive',
           description: 'No matter which device you\\'re on, our site is fully responsive and stories look beautiful on any screen.',
           width: 72,
           height: 72
         },
         {
-          icon: '/features/desktop/no-limit.svg',
+          icon: 'images/features/desktop/no-limit.svg',
           title: 'No Photo Upload Limit',
           description: 'Our tool has no limits on uploads or bandwidth. Freely upload in bulk and share all of your stories in one go.',
           width: 72,
           height: 36
         },
         {
-          icon: '/features/desktop/embed.svg',
+          icon: 'images/features/desktop/embed.svg',
           title: 'Available to Embed',
           description: 'Embed Tweets, Facebook posts, Instagram media, Vimeo or YouTube videos, Google Maps, and more.',
           width: 71,
           height: 72
         },
         {
-          icon: '/features/desktop/custom-domain.svg',
+          icon: 'images/features/desktop/custom-domain.svg',
           title: 'Custom Domain',
           description: 'With Photosnap subscriptions you can host your stories on your own domain. You can also remove our branding!',
           width: 81,
           height: 72
         },
         {
-          icon: '/features/desktop/boost-exposure.svg',
+          icon: 'images/features/desktop/boost-exposure.svg',
           title: 'Boost Your Exposure',
           description: 'Users that viewed your story or gallery can easily get notified of new and featured stories with our built in mailing list.',
           width: 72,
           height: 72
         },
         {
-          icon: '/features/desktop/drag-drop.svg',
+          icon: 'images/features/desktop/drag-drop.svg',
           title: 'Drag & Drop Image',
           description: 'Easily drag and drop your image and get beautiful shots every time. No over the top tooling to add friction to creating stories.',
           width: 91,
@@ -206,6 +203,7 @@ class __TwigTemplate_b76a7aa391161a2d0e8e1af56b00e4e5 extends Template
       {% endfor %}
     </div>
   </section>
-{% endblock %}", "pages/features.twig", "/Users/stevenportas/WorkBox/Sites/demos/demo-photosnap-twig/src/templates/pages/features.twig");
+{% endblock %}
+", "pages/features.twig", "/Users/stevenportas/WorkBox/Sites/demos/demo-photosnap-twig/src/templates/pages/features.twig");
     }
 }

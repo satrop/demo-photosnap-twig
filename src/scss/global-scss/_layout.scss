@@ -14,6 +14,12 @@
   --height: 72px;
 }
 
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 // Grid Layout System
 .grid-container {
   display: grid;

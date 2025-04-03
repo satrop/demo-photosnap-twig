@@ -55,11 +55,8 @@ class __TwigTemplate_2427e33c91ca53d08ccbac1d943dd081 extends Template
     public function block_content(array $context, array $blocks = []): iterable
     {
         $macros = $this->macros;
-        // line 4
-        yield "  ";
         // line 5
-        yield "  ";
-        yield from $this->loadTemplate("components/hero/hero.twig", "pages/pricing.twig", 5)->unwrap()->yield(CoreExtension::merge($context, ["variant" => "side-by-side", "image" => "/pricing/desktop/hero.jpg", "imageAlt" => "Professional camera on a tripod", "title" => "Pricing", "excerpt" => "Create a your stories, Photosnap is a platform for photographers and visual storytellers. It's the simple way to create and share your photos.", "backgroundColor" => "black", "standout" => true, "short" => true]));
+        yield from $this->loadTemplate("components/hero/hero.twig", "pages/pricing.twig", 5)->unwrap()->yield(CoreExtension::merge($context, ["variant" => "side-by-side", "image" => "images/pricing/desktop/hero.jpg", "imageAlt" => "Professional camera on a tripod", "title" => "Pricing", "excerpt" => "Create a your stories, Photosnap is a platform for photographers and visual storytellers. It's the simple way to create and share your photos.", "backgroundColor" => "black", "standout" => true, "short" => true]));
         // line 15
         yield "
   ";
@@ -220,7 +217,7 @@ class __TwigTemplate_2427e33c91ca53d08ccbac1d943dd081 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  161 => 91,  155 => 87,  148 => 86,  142 => 83,  138 => 80,  136 => 78,  135 => 77,  134 => 76,  131 => 75,  129 => 61,  126 => 60,  124 => 50,  118 => 46,  104 => 45,  101 => 44,  84 => 43,  81 => 42,  79 => 22,  75 => 20,  72 => 19,  70 => 18,  67 => 17,  64 => 15,  61 => 5,  59 => 4,  52 => 3,  41 => 1,);
+        return array (  158 => 91,  152 => 87,  145 => 86,  139 => 83,  135 => 80,  133 => 78,  132 => 77,  131 => 76,  128 => 75,  126 => 61,  123 => 60,  121 => 50,  115 => 46,  101 => 45,  98 => 44,  81 => 43,  78 => 42,  76 => 22,  72 => 20,  69 => 19,  67 => 18,  64 => 17,  61 => 15,  59 => 5,  52 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -228,10 +225,10 @@ class __TwigTemplate_2427e33c91ca53d08ccbac1d943dd081 extends Template
         return new Source("{% extends 'layouts/base.twig' %}
 
 {% block content %}
-  {# Hero Section #}
-  {% include 'components/hero/hero.twig' with {
+{# Hero Section #}
+{% include 'components/hero/hero.twig' with {
     variant: 'side-by-side',
-    image: '/pricing/desktop/hero.jpg',
+    image: 'images/pricing/desktop/hero.jpg',
     imageAlt: 'Professional camera on a tripod',
     title: 'Pricing',
     excerpt: 'Create a your stories, Photosnap is a platform for photographers and visual storytellers. It\\'s the simple way to create and share your photos.',
@@ -351,6 +348,7 @@ class __TwigTemplate_2427e33c91ca53d08ccbac1d943dd081 extends Template
     });
   });
 </script>
-{% endblock %}", "pages/pricing.twig", "/Users/stevenportas/WorkBox/Sites/demos/demo-photosnap-twig/src/templates/pages/pricing.twig");
+{% endblock %}
+", "pages/pricing.twig", "/Users/stevenportas/WorkBox/Sites/demos/demo-photosnap-twig/src/templates/pages/pricing.twig");
     }
 }
