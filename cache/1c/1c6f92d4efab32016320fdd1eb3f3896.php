@@ -58,25 +58,15 @@ class __TwigTemplate_b68037ac9d51dae2ee0e14f3d1041fbf extends Template
         yield "\t";
         // line 5
         yield "\t";
-        $context["featuredStory"] = ["image" => "images/stories/desktop/moon-of-appalacia.jpg", "title" => "Hazy full moon of Appalachia", "author" => "John Doe", "date" => "March 2nd 2020", "href" => "/dummy-link/", "excerpt" => "The dissected plateau area, while not actually made up of geological mountains, is popularly called \"mountains,\" especially in eastern Kentucky and West Virginia, and while the ridges are not high, the terrain is extremely rugged."];
-        // line 13
+        yield from $this->loadTemplate("components/hero/hero.twig", "pages/stories.twig", 5)->unwrap()->yield(CoreExtension::merge($context, ($context["featuredStory"] ?? null)));
+        // line 6
         yield "
 \t";
-        // line 14
-        yield from $this->loadTemplate("components/hero/hero.twig", "pages/stories.twig", 14)->unwrap()->yield(CoreExtension::merge($context, Twig\Extension\CoreExtension::merge(($context["featuredStory"] ?? null), ["variant" => "overlay", "eyebrow" => "Last month's featured story", "buttonText" => "Read the story", "backgroundColor" => "black"])));
-        // line 20
-        yield "
-  ";
-        // line 22
-        yield "  <section class=\"stories-section full-width\" data-featured>
-    <div class=\"story-cards-grid\">
-      ";
-        // line 24
-        $context["stories"] = [["image" => "images/stories/desktop/mountains.jpg", "title" => "The Mountains", "author" => "John Appleseed", "href" => "/dummy-link/", "date" => "April 16th 2020"], ["image" => "images/stories/desktop/cityscapes.jpg", "title" => "Sunset Cityscapes", "author" => "Benjamin Cruz", "href" => "/dummy-link/", "date" => "April 14th 2020"], ["image" => "images/stories/desktop/18-days-voyage.jpg", "title" => "18 Days Voyage", "author" => "Alexei Borodin", "href" => "/dummy-link/", "date" => "April 11th 2020"], ["image" => "images/stories/desktop/architecturals.jpg", "title" => "Architecturals", "author" => "Samantha Brooks", "href" => "/dummy-link/", "date" => "April 10th 2020"], ["image" => "images/stories/desktop/world-tour.jpg", "title" => "World Tour 2019", "author" => "Timothy Wagner", "href" => "/dummy-link/", "date" => "April 9th 2020"], ["image" => "images/stories/desktop/unforeseen-corners.jpg", "title" => "Unforeseen Corners", "author" => "William Malcolm", "href" => "/dummy-link/", "date" => "April 8th 2020"], ["image" => "images/stories/desktop/king-on-africa.jpg", "title" => "King on Africa: Part II", "author" => "Tim Hillenburg", "href" => "/dummy-link/", "date" => "April 7th 2020"], ["image" => "images/stories/desktop/trip-to-nowhere.jpg", "title" => "The Trip to Nowhere", "author" => "Felicia Rourke", "href" => "/dummy-link/", "date" => "April 6th 2020"], ["image" => "images/stories/desktop/rage-of-the-sea.jpg", "title" => "Rage of The Sea", "author" => "Mohammed Abdul", "href" => "/dummy-link/", "date" => "April 5th 2020"], ["image" => "images/stories/desktop/running-free.jpg", "title" => "Running Free", "author" => "Michelle Thomas", "href" => "/dummy-link/", "date" => "April 4th 2020"], ["image" => "images/stories/desktop/behind-the-waves.jpg", "title" => "Behind the Waves", "author" => "Lamarr Wilson", "href" => "/dummy-link/", "date" => "April 3rd 2020"], ["image" => "images/stories/desktop/calm-waters.jpg", "title" => "Calm Waters", "author" => "Samantha Brooke", "href" => "/dummy-link/", "date" => "April 3rd 2020"], ["image" => "images/stories/desktop/milky-way.jpg", "title" => "The Milky Way", "author" => "Benjamin Cruz", "href" => "/dummy-link/", "date" => "April 2nd 2020"], ["image" => "images/stories/desktop/dark-forest.jpg", "title" => "Dark Forest", "author" => "Mohammed Abdul", "href" => "/dummy-link/", "date" => "April 1st 2020"], ["image" => "images/stories/desktop/somwarpet.jpg", "title" => "Somwarpet's Beauty", "author" => "Michelle Thomas", "href" => "/dummy-link/", "date" => "March 31st 2020"], ["image" => "images/stories/desktop/land-of-dreams.jpg", "title" => "Land of Dreams", "author" => "William Malcolm", "href" => "/dummy-link/", "date" => "March 30th 2020"]];
-        // line 138
-        yield "
-\t";
-        // line 139
+        // line 8
+        yield "\t<section class=\"stories-section full-width\">
+\t\t<div class=\"story-cards-grid\">
+\t\t\t";
+        // line 10
         $context['_parent'] = $context;
         $context['_seq'] = CoreExtension::ensureTraversable(($context["stories"] ?? null));
         $context['loop'] = [
@@ -93,11 +83,11 @@ class __TwigTemplate_b68037ac9d51dae2ee0e14f3d1041fbf extends Template
             $context['loop']['last'] = 1 === $length;
         }
         foreach ($context['_seq'] as $context["_key"] => $context["story"]) {
-            // line 140
-            yield "\t\t";
-            yield from $this->loadTemplate("components/story-card/story-card.twig", "pages/stories.twig", 140)->unwrap()->yield(CoreExtension::merge($context, $context["story"]));
-            // line 141
-            yield "\t";
+            // line 11
+            yield "\t\t\t\t";
+            yield from $this->loadTemplate("components/story-card/story-card.twig", "pages/stories.twig", 11)->unwrap()->yield(CoreExtension::merge($context, $context["story"]));
+            // line 12
+            yield "\t\t\t";
             ++$context['loop']['index0'];
             ++$context['loop']['index'];
             $context['loop']['first'] = false;
@@ -110,8 +100,10 @@ class __TwigTemplate_b68037ac9d51dae2ee0e14f3d1041fbf extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['story'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 142
-        yield "</div></section>";
+        // line 13
+        yield "\t\t</div>
+\t</section>
+";
         yield from [];
     }
 
@@ -136,7 +128,7 @@ class __TwigTemplate_b68037ac9d51dae2ee0e14f3d1041fbf extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  114 => 142,  100 => 141,  97 => 140,  80 => 139,  77 => 138,  75 => 24,  71 => 22,  68 => 20,  66 => 14,  63 => 13,  60 => 5,  58 => 4,  51 => 3,  40 => 1,);
+        return array (  104 => 13,  90 => 12,  87 => 11,  70 => 10,  66 => 8,  63 => 6,  60 => 5,  58 => 4,  51 => 3,  40 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -145,144 +137,17 @@ class __TwigTemplate_b68037ac9d51dae2ee0e14f3d1041fbf extends Template
 
 {% block content %}
 \t{# Featured Story Hero #}
-\t{% set featuredStory = {
-    image: 'images/stories/desktop/moon-of-appalacia.jpg',
-    title: 'Hazy full moon of Appalachia',
-    author: 'John Doe',
-    date: 'March 2nd 2020',
-    href: '/dummy-link/',
-    excerpt: 'The dissected plateau area, while not actually made up of geological mountains, is popularly called \"mountains,\" especially in eastern Kentucky and West Virginia, and while the ridges are not high, the terrain is extremely rugged.'
-  } %}
+\t{% include 'components/hero/hero.twig' with featuredStory %}
 
-\t{% include 'components/hero/hero.twig' with featuredStory|merge({
-    variant: 'overlay',
-    eyebrow: 'Last month\\'s featured story',
-    buttonText: 'Read the story',
-    backgroundColor: 'black'
-  }) %}
-
-  {# Stories Grid #}
-  <section class=\"stories-section full-width\" data-featured>
-    <div class=\"story-cards-grid\">
-      {% set stories = [
-        {
-          image: 'images/stories/desktop/mountains.jpg',
-          title: 'The Mountains',
-          author: 'John Appleseed',
-          href: '/dummy-link/',
-          date: 'April 16th 2020'
-        },
-        {
-          image: 'images/stories/desktop/cityscapes.jpg',
-          title: 'Sunset Cityscapes',
-          author: 'Benjamin Cruz',
-          href: '/dummy-link/',
-          date: 'April 14th 2020'
-        },
-        {
-          image: 'images/stories/desktop/18-days-voyage.jpg',
-          title: '18 Days Voyage',
-          author: 'Alexei Borodin',
-          href: '/dummy-link/',
-          date: 'April 11th 2020'
-        },
-        {
-          image: 'images/stories/desktop/architecturals.jpg',
-          title: 'Architecturals',
-          author: 'Samantha Brooks',
-          href: '/dummy-link/',
-          date: 'April 10th 2020'
-        },
-        {
-          image: 'images/stories/desktop/world-tour.jpg',
-          title: 'World Tour 2019',
-          author: 'Timothy Wagner',
-          href: '/dummy-link/',
-          date: 'April 9th 2020'
-        },
-        {
-          image: 'images/stories/desktop/unforeseen-corners.jpg',
-          title: 'Unforeseen Corners',
-          author: 'William Malcolm',
-          href: '/dummy-link/',
-          date: 'April 8th 2020'
-        },
-        {
-          image: 'images/stories/desktop/king-on-africa.jpg',
-          title: 'King on Africa: Part II',
-          author: 'Tim Hillenburg',
-          href: '/dummy-link/',
-          date: 'April 7th 2020'
-        },
-        {
-          image: 'images/stories/desktop/trip-to-nowhere.jpg',
-          title: 'The Trip to Nowhere',
-          author: 'Felicia Rourke',
-          href: '/dummy-link/',
-          date: 'April 6th 2020'
-        },
-        {
-          image: 'images/stories/desktop/rage-of-the-sea.jpg',
-          title: 'Rage of The Sea',
-          author: 'Mohammed Abdul',
-          href: '/dummy-link/',
-          date: 'April 5th 2020'
-        },
-        {
-          image: 'images/stories/desktop/running-free.jpg',
-          title: 'Running Free',
-          author: 'Michelle Thomas',
-          href: '/dummy-link/',
-          date: 'April 4th 2020'
-        },
-        {
-          image: 'images/stories/desktop/behind-the-waves.jpg',
-          title: 'Behind the Waves',
-          author: 'Lamarr Wilson',
-          href: '/dummy-link/',
-          date: 'April 3rd 2020'
-        },
-        {
-          image: 'images/stories/desktop/calm-waters.jpg',
-          title: 'Calm Waters',
-          author: 'Samantha Brooke',
-          href: '/dummy-link/',
-          date: 'April 3rd 2020'
-        },
-        {
-          image: 'images/stories/desktop/milky-way.jpg',
-          title: 'The Milky Way',
-          author: 'Benjamin Cruz',
-          href: '/dummy-link/',
-          date: 'April 2nd 2020'
-        },
-        {
-          image: 'images/stories/desktop/dark-forest.jpg',
-          title: 'Dark Forest',
-          author: 'Mohammed Abdul',
-          href: '/dummy-link/',
-          date: 'April 1st 2020'
-        },
-        {
-          image: 'images/stories/desktop/somwarpet.jpg',
-          title: 'Somwarpet\\'s Beauty',
-          author: 'Michelle Thomas',
-          href: '/dummy-link/',
-          date: 'March 31st 2020'
-        },
-        {
-          image: 'images/stories/desktop/land-of-dreams.jpg',
-          title: 'Land of Dreams',
-          author: 'William Malcolm',
-          href: '/dummy-link/',
-          date: 'March 30th 2020'
-        }
-      ] %}
-
-\t{% for story in stories %}
-\t\t{% include 'components/story-card/story-card.twig' with story %}
-\t{% endfor %}
-</div></section>{% endblock %}
+\t{# Stories Section #}
+\t<section class=\"stories-section full-width\">
+\t\t<div class=\"story-cards-grid\">
+\t\t\t{% for story in stories %}
+\t\t\t\t{% include 'components/story-card/story-card.twig' with story %}
+\t\t\t{% endfor %}
+\t\t</div>
+\t</section>
+{% endblock %}
 ", "pages/stories.twig", "/Users/stevenportas/WorkBox/Sites/demos/demo-photosnap-twig/src/templates/pages/stories.twig");
     }
 }

@@ -1,6 +1,5 @@
 // Import global styles
 @use '../scss/global-scss/breakpoints';
-// @use '../scss/global-scss/button';
 @use '../scss/global-scss/colors';
 @use '../scss/global-scss/functions';
 @use '../scss/global-scss/layout';
@@ -9,9 +8,9 @@
 @use '../scss/global-scss/utils';
 
 // Import all component styles
-@use 'components/hero';
+@use '../templates/components/hero/hero';
 @use 'components/button';
-@use 'components/story-card';
+@use '../templates/components/story-card/story-card';
 @use 'components/feature-card';
 @use 'components/price-card';
 @use 'components/price-toggle';

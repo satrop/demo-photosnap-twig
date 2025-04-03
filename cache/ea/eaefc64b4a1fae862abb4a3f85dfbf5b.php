@@ -54,21 +54,19 @@ class __TwigTemplate_b76a7aa391161a2d0e8e1af56b00e4e5 extends Template
     public function block_content(array $context, array $blocks = []): iterable
     {
         $macros = $this->macros;
+        // line 4
+        yield "\t";
         // line 5
-        yield from $this->loadTemplate("components/hero/hero.twig", "pages/features.twig", 5)->unwrap()->yield(CoreExtension::merge($context, ["image" => "images/features/desktop/hero.jpg", "imageAlt" => "Person taking a photo with a vintage camera", "title" => "Features", "excerpt" => "We make sure all of our features are designed to be loved by every aspiring and even professional photographers who wanted to share their stories.", "variant" => "side-by-side", "backgroundColor" => "black", "standout" => true, "short" => true]));
-        // line 15
+        yield "\t";
+        yield from $this->loadTemplate("components/hero/hero.twig", "pages/features.twig", 5)->unwrap()->yield(CoreExtension::merge($context, ($context["featuredStory"] ?? null)));
+        // line 6
         yield "
-";
-        // line 17
-        yield "<section class=\"features-section\">
-\t<div class=\"feature-cards-container\">
-\t\t";
-        // line 19
-        $context["features"] = [["icon" => "images/features/desktop/responsive.svg", "title" => "100% Responsive", "description" => "No matter which device you're on, our site is fully responsive and stories look beautiful on any screen.", "width" => 72, "height" => 72], ["icon" => "images/features/desktop/no-limit.svg", "title" => "No Photo Upload Limit", "description" => "Our tool has no limits on uploads or bandwidth. Freely upload in bulk and share all of your stories in one go.", "width" => 72, "height" => 36], ["icon" => "images/features/desktop/embed.svg", "title" => "Available to Embed", "description" => "Embed Tweets, Facebook posts, Instagram media, Vimeo or YouTube videos, Google Maps, and more.", "width" => 71, "height" => 72], ["icon" => "images/features/desktop/custom-domain.svg", "title" => "Custom Domain", "description" => "With Photosnap subscriptions you can host your stories on your own domain. You can also remove our branding!", "width" => 81, "height" => 72], ["icon" => "images/features/desktop/boost-exposure.svg", "title" => "Boost Your Exposure", "description" => "Users that viewed your story or gallery can easily get notified of new and featured stories with our built in mailing list.", "width" => 72, "height" => 72], ["icon" => "images/features/desktop/drag-drop.svg", "title" => "Drag & Drop Image", "description" => "Easily drag and drop your image and get beautiful shots every time. No over the top tooling to add friction to creating stories.", "width" => 91, "height" => 72]];
-        // line 63
-        yield "
-      ";
-        // line 64
+\t";
+        // line 8
+        yield "\t<section class=\"features-section\">
+\t\t<div class=\"feature-cards-container\">
+\t\t\t";
+        // line 10
         $context['_parent'] = $context;
         $context['_seq'] = CoreExtension::ensureTraversable(($context["features"] ?? null));
         $context['loop'] = [
@@ -85,11 +83,11 @@ class __TwigTemplate_b76a7aa391161a2d0e8e1af56b00e4e5 extends Template
             $context['loop']['last'] = 1 === $length;
         }
         foreach ($context['_seq'] as $context["_key"] => $context["feature"]) {
-            // line 65
-            yield "        ";
-            yield from $this->loadTemplate("components/feature-card/feature-card.twig", "pages/features.twig", 65)->unwrap()->yield(CoreExtension::merge($context, $context["feature"]));
-            // line 66
-            yield "      ";
+            // line 11
+            yield "\t\t\t\t";
+            yield from $this->loadTemplate("components/feature-card/feature-card.twig", "pages/features.twig", 11)->unwrap()->yield(CoreExtension::merge($context, $context["feature"]));
+            // line 12
+            yield "\t\t\t";
             ++$context['loop']['index0'];
             ++$context['loop']['index'];
             $context['loop']['first'] = false;
@@ -102,9 +100,9 @@ class __TwigTemplate_b76a7aa391161a2d0e8e1af56b00e4e5 extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['feature'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 67
-        yield "    </div>
-  </section>
+        // line 13
+        yield "\t\t</div>
+\t</section>
 ";
         yield from [];
     }
@@ -130,7 +128,7 @@ class __TwigTemplate_b76a7aa391161a2d0e8e1af56b00e4e5 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  106 => 67,  92 => 66,  89 => 65,  72 => 64,  69 => 63,  67 => 19,  63 => 17,  60 => 15,  58 => 5,  51 => 3,  40 => 1,);
+        return array (  104 => 13,  90 => 12,  87 => 11,  70 => 10,  66 => 8,  63 => 6,  60 => 5,  58 => 4,  51 => 3,  40 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -138,71 +136,17 @@ class __TwigTemplate_b76a7aa391161a2d0e8e1af56b00e4e5 extends Template
         return new Source("{% extends 'layouts/base.twig' %}
 
 {% block content %}
-{# Hero Section #}
-{% include 'components/hero/hero.twig' with {
-    image: 'images/features/desktop/hero.jpg',
-    imageAlt: 'Person taking a photo with a vintage camera',
-    title: 'Features',
-    excerpt: 'We make sure all of our features are designed to be loved by every aspiring and even professional photographers who wanted to share their stories.',
-    variant: 'side-by-side',
-    backgroundColor: 'black',
-    standout: true,
-    short: true
-  } %}
+\t{# Hero Section #}
+\t{% include 'components/hero/hero.twig' with featuredStory %}
 
-{# Features Section #}
-<section class=\"features-section\">
-\t<div class=\"feature-cards-container\">
-\t\t{% set features = [
-        {
-          icon: 'images/features/desktop/responsive.svg',
-          title: '100% Responsive',
-          description: 'No matter which device you\\'re on, our site is fully responsive and stories look beautiful on any screen.',
-          width: 72,
-          height: 72
-        },
-        {
-          icon: 'images/features/desktop/no-limit.svg',
-          title: 'No Photo Upload Limit',
-          description: 'Our tool has no limits on uploads or bandwidth. Freely upload in bulk and share all of your stories in one go.',
-          width: 72,
-          height: 36
-        },
-        {
-          icon: 'images/features/desktop/embed.svg',
-          title: 'Available to Embed',
-          description: 'Embed Tweets, Facebook posts, Instagram media, Vimeo or YouTube videos, Google Maps, and more.',
-          width: 71,
-          height: 72
-        },
-        {
-          icon: 'images/features/desktop/custom-domain.svg',
-          title: 'Custom Domain',
-          description: 'With Photosnap subscriptions you can host your stories on your own domain. You can also remove our branding!',
-          width: 81,
-          height: 72
-        },
-        {
-          icon: 'images/features/desktop/boost-exposure.svg',
-          title: 'Boost Your Exposure',
-          description: 'Users that viewed your story or gallery can easily get notified of new and featured stories with our built in mailing list.',
-          width: 72,
-          height: 72
-        },
-        {
-          icon: 'images/features/desktop/drag-drop.svg',
-          title: 'Drag & Drop Image',
-          description: 'Easily drag and drop your image and get beautiful shots every time. No over the top tooling to add friction to creating stories.',
-          width: 91,
-          height: 72
-        }
-      ] %}
-
-      {% for feature in features %}
-        {% include 'components/feature-card/feature-card.twig' with feature %}
-      {% endfor %}
-    </div>
-  </section>
+\t{# Features Section #}
+\t<section class=\"features-section\">
+\t\t<div class=\"feature-cards-container\">
+\t\t\t{% for feature in features %}
+\t\t\t\t{% include 'components/feature-card/feature-card.twig' with feature %}
+\t\t\t{% endfor %}
+\t\t</div>
+\t</section>
 {% endblock %}
 ", "pages/features.twig", "/Users/stevenportas/WorkBox/Sites/demos/demo-photosnap-twig/src/templates/pages/features.twig");
     }

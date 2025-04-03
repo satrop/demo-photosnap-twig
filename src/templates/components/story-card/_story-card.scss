@@ -1,4 +1,4 @@
-@use '../global-scss/breakpoints' as bp;
+@use '../../../scss/global-scss/breakpoints' as bp;
 
 .stories-section:not([data-featured]) {
   .story-card {

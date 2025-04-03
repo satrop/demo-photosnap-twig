@@ -18,11 +18,6 @@ $twig->addFunction(new \Twig\TwigFunction('load_json', function ($path) use ($lo
     return null;
 }));
 
-// Get the current route
-$requestUri = $_SERVER['REQUEST_URI'];
-$path = parse_url($requestUri, PHP_URL_PATH);
-$path = trim($path, '/');
-
 // Set default font classes
 $fontClasses = 'font-dm-sans';
 
@@ -35,38 +30,59 @@ $commonData = [
     'footer' => $footerData['footer']
 ];
 
-// Handle routing
-switch ($path) {
-    case '':
-        echo $twig->render('pages/index.twig', array_merge($commonData, [
-            'title' => 'Photosnap',
-            'maxStories' => 4
-        ]));
-        break;
+// Scan components directory for JSON files
+$componentsDir = __DIR__ . '/../src/templates/components/';
+$routes = [];
 
-    case 'stories':
-        echo $twig->render('pages/stories.twig', array_merge($commonData, [
-            'title' => 'Stories - Photosnap'
-        ]));
-        break;
+foreach (scandir($componentsDir) as $component) {
+    if ($component === '.' || $component === '..') continue;
 
-    case 'features':
-        echo $twig->render('pages/features.twig', array_merge($commonData, [
-            'title' => 'Features - Photosnap'
-        ]));
-        break;
+    $jsonPath = $componentsDir . $component . '/' . $component . '.json';
+    if (file_exists($jsonPath)) {
+        $routes[$component] = json_decode(file_get_contents($jsonPath), true);
+    }
+}
 
-    case 'pricing':
-        echo $twig->render('pages/pricing.twig', array_merge($commonData, [
-            'title' => 'Pricing - Photosnap'
-        ]));
-        break;
+// Get the current route
+$path = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
 
-    default:
-        // 404 page
-        header('HTTP/1.0 404 Not Found');
-        echo $twig->render('pages/404.twig', array_merge($commonData, [
-            'title' => '404 - Page Not Found - Photosnap'
-        ]));
-        break;
+// Special handling for home page
+if ($path === '') {
+    echo $twig->render('pages/index.twig', array_merge($commonData, [
+        'title' => 'Photosnap',
+        'maxStories' => 4,
+        'stories' => $routes['story-card']['stories'],
+        'heros' => $routes['hero']['heros'],
+        'features' => $routes['feature-card']['features'],
+    ]));
+} 
+// Check if a matching Twig template exists for the current path
+elseif (file_exists(__DIR__ . "/../src/templates/pages/{$path}.twig")) {
+    $data = $commonData;
+    $data['title'] = ucfirst($path) . ' - Photosnap';
+
+    // Add specific data based on the route
+    switch ($path) {
+        case 'stories':
+            $data['stories'] = $routes['story-card']['stories'];
+            $data['featuredStory'] = $routes['hero']['featured_story'];
+            break;
+        case 'features':
+            $data['features'] = $routes['feature-card']['features'];
+            $data['featuredStory'] = $routes['hero']['featured_hero'];
+            break;
+        case 'pricing':
+            $data['pricing'] = $routes['price-card']['pricing'] ?? [];
+            $data['featuredStory'] = $routes['hero']['featured_pricing'];
+            break;
+    }
+
+    echo $twig->render("pages/{$path}.twig", $data);
+}
+// Handle 404
+else {
+    header('HTTP/1.0 404 Not Found');
+    echo $twig->render('pages/404.twig', array_merge($commonData, [
+        'title' => '404 - Page Not Found - Photosnap'
+    ]));
 }
