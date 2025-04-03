@@ -14,7 +14,7 @@
 @use 'components/feature-card';
 @use 'components/price-card';
 @use 'components/price-toggle';
-@use 'components/feature-table';
+@use '../templates/components/feature-table/feature-table';
 @use 'components/beta-section';
 @use 'components/navigation';
 @use '../templates/components/footer/footer';

@@ -121,43 +121,31 @@ class __TwigTemplate_2427e33c91ca53d08ccbac1d943dd081 extends Template
 
 \t\t";
         // line 41
-        $context["features"] = [["title" => "UNLIMITED STORY POSTING"], ["title" => "UNLIMITED PHOTO UPLOAD"], ["title" => "EMBEDDING CUSTOM CONTENT"], ["title" => "CUSTOMIZE METADATA"], ["title" => "ADVANCED METRICS"], ["title" => "PHOTO DOWNLOADS"], ["title" => "SEARCH ENGINE INDEXING"], ["title" => "CUSTOM ANALYTICS"]];
-        // line 51
-        yield "
-\t\t";
-        // line 52
-        $context["featurePlans"] = [["name" => "Basic", "features" => [true, true, false, false, false, false, false, false]], ["name" => "Pro", "features" => [true, true, true, true, true, false, false, false]], ["name" => "Business", "features" => [true, true, true, true, true, true, true, true]]];
-        // line 66
-        yield "
-\t\t";
-        // line 67
-        yield from $this->loadTemplate("components/feature-table/feature-table.twig", "pages/pricing.twig", 67)->unwrap()->yield(CoreExtension::merge($context, ["features" =>         // line 68
-($context["features"] ?? null), "plans" =>         // line 69
-($context["featurePlans"] ?? null)]));
-        // line 71
+        yield from $this->loadTemplate("components/feature-table/feature-table.twig", "pages/pricing.twig", 41)->unwrap()->yield($context);
+        // line 42
         yield "\t</section>
 
 \t";
-        // line 74
+        // line 45
         yield "\t";
-        yield from $this->loadTemplate("components/beta-section/beta-section.twig", "pages/pricing.twig", 74)->unwrap()->yield($context);
+        yield from $this->loadTemplate("components/beta-section/beta-section.twig", "pages/pricing.twig", 45)->unwrap()->yield($context);
         yield from [];
     }
 
-    // line 77
+    // line 48
     /**
      * @return iterable<null|scalar|\Stringable>
      */
     public function block_scripts(array $context, array $blocks = []): iterable
     {
         $macros = $this->macros;
-        // line 78
+        // line 49
         yield "\t<script>
 \t\tdocument.addEventListener('DOMContentLoaded', function () {
 const toggle = document.querySelector('[data-action=\"toggle-billing\"]');
 const cards = document.querySelectorAll('.price-card');
 let isYearly = ";
-        // line 82
+        // line 53
         yield ((($context["isYearly"] ?? null)) ? ("true") : ("false"));
         yield ";
 
@@ -222,7 +210,7 @@ updatePrices();
      */
     public function getDebugInfo(): array
     {
-        return array (  161 => 82,  155 => 78,  148 => 77,  142 => 74,  138 => 71,  136 => 69,  135 => 68,  134 => 67,  131 => 66,  129 => 52,  126 => 51,  124 => 41,  118 => 37,  104 => 36,  101 => 35,  84 => 34,  81 => 33,  79 => 13,  75 => 11,  72 => 10,  70 => 9,  67 => 8,  64 => 6,  61 => 5,  59 => 4,  52 => 3,  41 => 1,);
+        return array (  149 => 53,  143 => 49,  136 => 48,  130 => 45,  126 => 42,  124 => 41,  118 => 37,  104 => 36,  101 => 35,  84 => 34,  81 => 33,  79 => 13,  75 => 11,  72 => 10,  70 => 9,  67 => 8,  64 => 6,  61 => 5,  59 => 4,  52 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -267,36 +255,7 @@ updatePrices();
 
 \t\t<h2 class=\"section-title h1\">Compare</h2>
 
-\t\t{% set features = [
-      { title: 'UNLIMITED STORY POSTING' },
-      { title: 'UNLIMITED PHOTO UPLOAD' },
-      { title: 'EMBEDDING CUSTOM CONTENT' },
-      { title: 'CUSTOMIZE METADATA' },
-      { title: 'ADVANCED METRICS' },
-      { title: 'PHOTO DOWNLOADS' },
-      { title: 'SEARCH ENGINE INDEXING' },
-      { title: 'CUSTOM ANALYTICS' }
-    ] %}
-
-\t\t{% set featurePlans = [
-      {
-        name: 'Basic',
-        features: [true, true, false, false, false, false, false, false]
-      },
-      {
-        name: 'Pro',
-        features: [true, true, true, true, true, false, false, false]
-      },
-      {
-        name: 'Business',
-        features: [true, true, true, true, true, true, true, true]
-      }
-    ] %}
-
-\t\t{% include 'components/feature-table/feature-table.twig' with {
-      features: features,
-      plans: featurePlans
-    } %}
+\t\t{% include 'components/feature-table/feature-table.twig' %}
 \t</section>
 
 \t{# Beta Section #}

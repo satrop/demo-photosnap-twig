@@ -1,7 +1,6 @@
 {# 
   FeatureTable Component
   @param {array} features - Array of feature objects with title property
-  @param {array} plans - Array of plan objects with name and features array
 #}
 
 <div class="feature-table" role="region" aria-label="Feature comparison">
@@ -9,28 +8,49 @@
 		<caption class="visually-hidden">Compare features across different plans</caption>
 		<thead>
 			<tr>
-				<th scope="col">THE FEATURES</th>
-				{% for plan in plans %}
-					<th scope="col">{{ plan.name }}</th>
-				{% endfor %}
+				<th scope="col">The Features</th>
+				<th scope="col">Basic</th>
+				<th scope="col">Pro</th>
+				<th scope="col">Business</th>
 			</tr>
 		</thead>
 		<tbody>
 			{% for feature in features %}
 				<tr>
 					<th scope="row">{{ feature.title }}</th>
-					{% for plan in plans %}
+					{% if feature.feature_set is defined %}
+						{% for plan in ['basic', 'pro', 'business'] %}
+							<td>
+								{% if plan in feature.feature_set %}
+									<img src="/images/pricing/desktop/check.svg" alt="{{ feature.title }} is included in {{ plan }} plan" width="16" height="12"/>
+								{% else %}
+									<span class="visually-hidden">Not included in {{ plan }} plan</span>
+								{% endif %}
+							</td>
+						{% endfor %}
+					{% else %}
 						<td>
-							<div>{{ plan.name }}</div>
-							{% if plan.features[loop.parent.loop.index0] %}
-								<img src="images/pricing/desktop/check.svg" alt="{{ feature.title }} is included in {{ plan.name }} plan" width="16" height="12"/>
-							{% else %}
-								<span class="visually-hidden">Not included in
-									{{ plan.name }}
-									plan</span>
-							{% endif %}
-						</td>
-					{% endfor %}
+              {% if feature.basic %}
+                <img src="/images/pricing/desktop/check.svg" alt="{{ feature.title }} is included in basic plan" width="16" height="12"/>
+              {% else %}
+                <span class="visually-hidden">Not included in basic plan</span>
+              {% endif %}
+            </td>
+						<td>
+              {% if feature.pro %}
+                <img src="/images/pricing/desktop/check.svg" alt="{{ feature.title }} is included in pro plan" width="16" height="12"/>
+              {% else %}
+                <span class="visually-hidden">Not included in pro plan</span>
+              {% endif %}
+            </td>
+						<td>
+              {% if feature.business %}
+                <img src="/images/pricing/desktop/check.svg" alt="{{ feature.title }} is included in business plan" width="16" height="12"/>
+              {% else %}
+                <span class="visually-hidden">Not included in business plan</span>
+              {% endif %}
+            </td>
+					{% endif %}
 				</tr>
 			{% endfor %}
 		</tbody>

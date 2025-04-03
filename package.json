@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Photosnap website built with Twig",
   "scripts": {
-    "sass:watch": "sass --watch src/scss:public/css",
-    "sass:build": "sass src/scss:public/css --style=compressed",
+    "sass:watch": "sass --watch src/scss:public/css src/templates/components:public/css",
+    "sass:build": "sass src/scss:public/css src/templates/components:public/css --style=compressed",
     "start": "php -S localhost:8000 -t public",
     "start:alt": "php -S localhost:3000 -t public"
   },

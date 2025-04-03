@@ -1,4 +1,4 @@
-@use '../global-scss/breakpoints' as bp;
+@use '../../../scss/global-scss/_breakpoints.scss' as bp;
 
 .feature-table {
   width: 100%;
@@ -12,20 +12,20 @@
 
   thead {
     tr {
+      border-bottom: 2px solid black;
+
       @media (max-width: bp.$bp-sm) {
         th:not(:first-child) {
           display: none;
         }
       }
     }
-
-    th {
-      border-color: black;
-    }
   }
 
   tbody {
     tr {
+      border-bottom: 1px solid var(--gray);
+
       @media (max-width: bp.$bp-sm) {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -63,7 +63,6 @@
   td {
     padding: 1.5rem 1rem;
     text-align: left;
-    border-bottom: 1px solid var(--gray);
 
     @media (min-width: bp.$bp-sm) {
       &:not(:first-child) {

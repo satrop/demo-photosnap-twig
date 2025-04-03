@@ -38,36 +38,7 @@
 
 		<h2 class="section-title h1">Compare</h2>
 
-		{% set features = [
-      { title: 'UNLIMITED STORY POSTING' },
-      { title: 'UNLIMITED PHOTO UPLOAD' },
-      { title: 'EMBEDDING CUSTOM CONTENT' },
-      { title: 'CUSTOMIZE METADATA' },
-      { title: 'ADVANCED METRICS' },
-      { title: 'PHOTO DOWNLOADS' },
-      { title: 'SEARCH ENGINE INDEXING' },
-      { title: 'CUSTOM ANALYTICS' }
-    ] %}
-
-		{% set featurePlans = [
-      {
-        name: 'Basic',
-        features: [true, true, false, false, false, false, false, false]
-      },
-      {
-        name: 'Pro',
-        features: [true, true, true, true, true, false, false, false]
-      },
-      {
-        name: 'Business',
-        features: [true, true, true, true, true, true, true, true]
-      }
-    ] %}
-
-		{% include 'components/feature-table/feature-table.twig' with {
-      features: features,
-      plans: featurePlans
-    } %}
+		{% include 'components/feature-table/feature-table.twig' %}
 	</section>
 
 	{# Beta Section #}
