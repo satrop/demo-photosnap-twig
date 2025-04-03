@@ -1,53 +1,71 @@
 .button {
+  font-size: var(--sm);
+  font-weight: var(--bold);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
   display: inline-flex;
   align-items: center;
-  gap: 1rem;
-  background: transparent;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-size: 0.75rem;
-  letter-spacing: 0.166666667em;
-  transition: all 0.3s ease;
-  font-weight: 700;
+  justify-content: center;
+  line-height: 1;
+  letter-spacing: var(--ls-sm);
+  transition: color var(--anim), background-color var(--anim), outline var(--anim);
+
+  span {
+    --color: black;
+
+    margin-left: 1em;
+    display: inline-block;
+    width: 42px;
+    height: 1px;
+    position: relative;
+    background-color: var(--color);
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      right: 1px;
+      width: 8px;
+      height: 8px;
+      border-top: 1px solid var(--color);
+      border-right: 1px solid var(--color);
+      transform: rotate(45deg);
+    }
+  }
 
   &--primary {
-    padding: 0.75rem 2rem;
-    background-color: var(--black);
-    color: var(--white);
-
-    .background--black & {
-      background-color: var(--white);
-      color: var(--black);
-    }
+    padding: 0.7817rem 1.5rem;
+    background-color: black;
+    color: white;
 
     &:hover {
-      background-color: var(--light-grey);
-      color: var(--black);
+      background-color: var(--gray);
+      color: black;
+    }
 
-      .background--black & {
-        background-color: var(--light-grey);
-        color: var(--black);
-      }
+    &:focus {
+      outline-offset: 3px;
+      outline: 3px solid black;
     }
   }
 
   &--secondary {
-    color: inherit;
+    background-color: transparent;
+    color: black;
 
-    &::after {
-      content: '';
-      display: inline-block;
-      width: 2rem;
-      height: 1px;
-      background-color: currentColor;
-      transition: width 0.3s ease;
+    .background--black & {
+      background-color: black;
+      color: white;
+
+      span {
+        --color: white;
+      }
     }
 
-    &:hover::after {
-      width: 3rem;
+    &:hover {
+      text-decoration: underline;
     }
   }
 }
