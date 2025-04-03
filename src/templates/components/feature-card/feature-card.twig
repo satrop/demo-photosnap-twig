@@ -1,0 +1,23 @@
+{# 
+  FeatureCard Component
+  @param {string} icon - The icon URL
+  @param {string} title - The feature title
+  @param {string} description - The feature description
+  @param {number} width - Optional icon width
+  @param {number} height - Optional icon height
+#}
+
+<article class="feature-card">
+  <div class="feature-card__icon" aria-hidden="true">
+    <img src="{{ icon }}"
+         alt=""
+         width="{{ width|default(72) }}"
+         height="{{ height|default(72) }}"
+         aria-hidden="true"
+    />
+  </div>
+  <h3 class="feature-card__title">{{ title }}</h3>
+  <p class="feature-card__description" style="color: var(--text-muted)">
+    {{ description }}
+  </p>
+</article>

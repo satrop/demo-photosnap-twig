@@ -1,0 +1,33 @@
+{# 
+  PriceToggle Component 
+  @param {boolean} isYearly - Whether toggle is in yearly state
+#}
+
+<div class="price-toggle" role="group" aria-label="Billing frequency">
+  <span class="price-toggle__label{{ not isYearly ? ' price-toggle__label--active' }}"
+        {% if isYearly %}aria-hidden="true"{% endif %}>
+    Monthly
+  </span>
+
+  <button class="price-toggle__switch{{ isYearly ? ' price-toggle__switch--yearly' }}"
+          data-action="toggle-billing"
+          aria-label="Toggle billing frequency"
+          role="switch"
+          aria-checked="{{ isYearly ? 'true' : 'false' }}">
+    <span class="visually-hidden">{{ isYearly ? 'Switch to monthly billing' : 'Switch to yearly billing' }}</span>
+    <span class="price-toggle__handle" aria-hidden="true"></span>
+  </button>
+
+  <span class="price-toggle__label{{ isYearly ? ' price-toggle__label--active' }}"
+        {% if not isYearly %}aria-hidden="true"{% endif %}>
+    Yearly
+  </span>
+</div>
+
+{# Add this script to initialize the toggle behavior #}
+<script>
+  document.querySelector('[data-action="toggle-billing"]').addEventListener('click', function() {
+    // We'll need to add JavaScript to handle the toggle state and pricing updates
+    // This will be handled by the page-level JavaScript
+  });
+</script>

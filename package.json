@@ -1,24 +1,14 @@
 {
   "name": "demo-photosnap-twig",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Photosnap website built with Twig",
   "scripts": {
-    "format": "prettier --write \"src/templates/**/*.twig\"",
-    "format:check": "prettier --check \"src/templates/**/*.twig\"",
-    "sass:watch": "sass --watch src/scss/main.scss:public/css/main.css --style=compressed",
-    "serve": "php -S localhost:8000 -t public",
-    "browser-sync": "browser-sync start --proxy 'localhost:8000' --files 'public/css/*.css, public/**/*.php, src/templates/**/*.twig' --no-inject-changes",
-    "dev": "npm-run-all --parallel sass:watch serve browser-sync",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "sass:watch": "sass --watch src/scss:public/css",
+    "sass:build": "sass src/scss:public/css --style=compressed",
+    "start": "php -S localhost:8000 -t public",
+    "start:alt": "php -S localhost:3000 -t public"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.29.3",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^3.5.3",
-    "sass": "^1.85.1"
+    "sass": "^1.71.1"
   }
 }

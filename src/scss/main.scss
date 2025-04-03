@@ -1,10 +1,112 @@
-// Global styles
-@use "global-scss/layout";
-@use "global-scss/button";
-@use "global-scss/typography";
-@use "global-scss/colors";
-@use "global-scss/utils";
-@use "global-scss/mixins";
+// Import global styles
+@use '../scss/global-scss/breakpoints';
+// @use '../scss/global-scss/button';
+@use '../scss/global-scss/colors';
+@use '../scss/global-scss/functions';
+@use '../scss/global-scss/layout';
+@use '../scss/global-scss/mixins';
+@use '../scss/global-scss/typography';
+@use '../scss/global-scss/utils';
 
-// Components
-@use "../templates/components/footer/footer" as footer;
+// Import all component styles
+@use 'components/hero';
+@use 'components/button';
+@use 'components/story-card';
+@use 'components/feature-card';
+@use 'components/price-card';
+@use 'components/price-toggle';
+@use 'components/feature-table';
+@use 'components/beta-section';
+@use 'components/navigation';
+@use 'components/footer';
+
+body,
+h1,
+h2,
+h3,
+h4,
+.h1,
+.h2,
+.h3,
+.h4 {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-primary);
+  font-weight: var(--bold);
+  text-wrap: balance;
+}
+
+body {
+  padding-top: var(--height);
+  font-size: var(--md);
+  font-weight: var(--regular);
+  line-height: var(--lh-md);
+  letter-spacing: var(--ls-md);
+}
+
+h1,
+.h1 {
+  font-size: var(--xxl);
+  line-height: var(--lh-xxl);
+  letter-spacing: var(--ls-xxl);
+  text-transform: uppercase;
+}
+
+h2,
+.h2 {
+  font-size: var(--xl);
+  line-height: var(--lh-xl);
+}
+
+h3,
+.h3 {
+  font-size: var(--lg);
+  line-height: var(--lh-lg);
+}
+
+h4,
+.h4 {
+  font-size: var(--sm);
+  line-height: var(--lh-sm);
+  letter-spacing: var(--ls-sm);
+  text-transform: uppercase;
+}
+
+.background--black {
+  color: white;
+}
+
+.section-title {
+  padding-block: var(--pad-lg);
+  padding-bottom: 0;
+  text-align: center;
+}
+
+// Accessibility
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--black);
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  z-index: 100;
+  text-decoration: none;
+
+  &:focus {
+    top: 0;
+  }
+}

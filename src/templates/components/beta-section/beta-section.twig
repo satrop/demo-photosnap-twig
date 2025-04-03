@@ -1,0 +1,14 @@
+{# BetaSection Component #}
+
+<section class="beta-section background--black full-width">
+  <div class="grid-container">
+    <div class="container main-width">
+      <h2>We're in beta. Get your invite today!</h2>
+      {% include 'components/button/button.twig' with {
+        text: 'Get an invite',
+        variant: 'secondary',
+        ariaLabel: 'Get an invite to join the beta'
+      } %}
+    </div>
+  </div>
+</section>

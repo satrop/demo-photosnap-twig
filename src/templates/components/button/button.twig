@@ -1,0 +1,36 @@
+{# 
+  Button Component
+  @param {string} text - The button text
+  @param {string} variant - The button variant (primary|secondary)
+  @param {string} href - Optional URL to make the button a link
+  @param {string} ariaLabel - The aria-label for accessibility
+  @param {string} class - Optional additional classes
+  @param {boolean} ariaHidden - Optional aria-hidden attribute
+  @param {number} tabindex - Optional tabindex value
+#}
+
+{% set buttonClass = ['button', 'button--' ~ variant|default('primary'), class|default('')]|join(' ')|trim %}
+
+{% if href %}
+  <a href="{{ href }}"
+     class="{{ buttonClass }}"
+     aria-label="{{ ariaLabel }}"
+     {% if ariaHidden %}aria-hidden="true"{% endif %}
+     {% if tabindex is defined %}tabindex="{{ tabindex }}"{% endif %}>
+    {{ text }}
+    {% if variant == 'secondary' %}
+      <span></span>
+    {% endif %}
+  </a>
+{% else %}
+  <button type="button"
+          class="{{ buttonClass }}"
+          aria-label="{{ ariaLabel }}"
+          {% if ariaHidden %}aria-hidden="true"{% endif %}
+          {% if tabindex is defined %}tabindex="{{ tabindex }}"{% endif %}>
+    {{ text }}
+    {% if variant == 'secondary' %}
+      <span></span>
+    {% endif %}
+  </button>
+{% endif %}

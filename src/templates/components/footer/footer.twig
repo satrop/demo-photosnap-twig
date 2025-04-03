@@ -1,9 +1,10 @@
+{# Footer Component #}
 <footer class="footer background--black grid-container" role="contentinfo">
   <div class="container main-width">
     <div class="col">
       <div class="logoSection">
         <a href="/" aria-label="Photosnap home">
-          <Logo />
+          {% include 'components/logo/logo.twig' %}
         </a>
       </div>
 
@@ -11,53 +12,43 @@
         <h2 class="visually-hidden">Social Media Links</h2>
         <ul role="list">
           <li>
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit our Facebook page (opens in new window)"
-            >
-              <FaFacebook aria-hidden="true" focusable="false" />
+            <a href="https://facebook.com" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               aria-label="Visit our Facebook page (opens in new window)">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
             </a>
           </li>
           <li>
-            <a
-              href="https://youtube.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit our YouTube channel (opens in new window)"
-            >
-              <FaYoutube aria-hidden="true" focusable="false" />
+            <a href="https://youtube.com" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               aria-label="Visit our YouTube channel (opens in new window)">
+              <i class="fa fa-youtube-play" aria-hidden="true"></i>
             </a>
           </li>
           <li>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit our Twitter page (opens in new window)"
-            >
-              <FaTwitter aria-hidden="true" focusable="false" />
+            <a href="https://twitter.com" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               aria-label="Visit our Twitter page (opens in new window)">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
             </a>
           </li>
           <li>
-            <a
-              href="https://pinterest.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit our Pinterest page (opens in new window)"
-            >
-              <FaPinterest aria-hidden="true" focusable="false" />
+            <a href="https://pinterest.com" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               aria-label="Visit our Pinterest page (opens in new window)">
+              <i class="fa fa-pinterest" aria-hidden="true"></i>
             </a>
           </li>
           <li>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit our Instagram page (opens in new window)"
-            >
-              <FaInstagram aria-hidden="true" focusable="false" />
+            <a href="https://instagram.com" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               aria-label="Visit our Instagram page (opens in new window)">
+              <i class="fa fa-instagram" aria-hidden="true"></i>
             </a>
           </li>
         </ul>
@@ -66,29 +57,24 @@
       <nav class="pageLinks" aria-label="Site pages">
         <h2 class="visually-hidden">Site Navigation</h2>
         <ul role="list">
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="/stories">Stories</a>
-          </li>
-          <li>
-            <a href="/features">Features</a>
-          </li>
-          <li>
-            <a href="/pricing">Pricing</a>
-          </li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/stories">Stories</a></li>
+          <li><a href="/features">Features</a></li>
+          <li><a href="/pricing">Pricing</a></li>
         </ul>
       </nav>
     </div>
 
     <div class="col">
-      <button class="inviteButton" variant="secondary" aria-label="Get an invite to join Photosnap">
-        Get an invite
-      </button>
+      {% include 'components/button/button.twig' with {
+        text: 'Get an invite',
+        variant: 'secondary',
+        ariaLabel: 'Get an invite to join Photosnap',
+        class: 'inviteButton'
+      } %}
 
       <div class="copyright">
-        <p>Copyright &copy; {{ "now"|date("Y") }}. All Rights Reserved</p>
+        <p>Copyright {{ "now"|date("Y") }}. All Rights Reserved</p>
       </div>
     </div>
   </div>

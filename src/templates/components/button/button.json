@@ -1,0 +1,7 @@
+{
+  "default": {
+    "text": "Submit",
+    "variant": "primary",
+    "ariaLabel": "Submit button"
+  }
+}

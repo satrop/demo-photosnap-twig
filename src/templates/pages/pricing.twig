@@ -1,0 +1,127 @@
+{% extends 'layouts/base.twig' %}
+
+{% block content %}
+  {# Hero Section #}
+  {% include 'components/hero/hero.twig' with {
+    variant: 'side-by-side',
+    image: '/pricing/desktop/hero.jpg',
+    imageAlt: 'Professional camera on a tripod',
+    title: 'Pricing',
+    excerpt: 'Create a your stories, Photosnap is a platform for photographers and visual storytellers. It\'s the simple way to create and share your photos.',
+    backgroundColor: 'black',
+    standout: true,
+    short: true
+  } %}
+
+  {# Pricing Section #}
+  <section class="pricing-section main-width">
+    {% set isYearly = false %}
+    {% include 'components/price-toggle/price-toggle.twig' with { isYearly: isYearly } %}
+
+    <div class="pricing-cards">
+      {% set plans = [
+        {
+          title: 'Basic',
+          description: 'Includes basic usage of our platform. Recommended for new and aspiring photographers.',
+          price: 19,
+          popular: false
+        },
+        {
+          title: 'Pro',
+          description: 'More advanced features available. Recommended for photography veterans and professionals.',
+          price: 39,
+          popular: true
+        },
+        {
+          title: 'Business',
+          description: 'Additional features available such as more detailed metrics. Recommended for business owners.',
+          price: 99,
+          popular: false
+        }
+      ] %}
+
+      {% for plan in plans %}
+        {% include 'components/price-card/price-card.twig' with plan|merge({ isYearly: isYearly }) %}
+      {% endfor %}
+    </div>
+
+    <h2 class="section-title h1">Compare</h2>
+
+    {% set features = [
+      { title: 'UNLIMITED STORY POSTING' },
+      { title: 'UNLIMITED PHOTO UPLOAD' },
+      { title: 'EMBEDDING CUSTOM CONTENT' },
+      { title: 'CUSTOMIZE METADATA' },
+      { title: 'ADVANCED METRICS' },
+      { title: 'PHOTO DOWNLOADS' },
+      { title: 'SEARCH ENGINE INDEXING' },
+      { title: 'CUSTOM ANALYTICS' }
+    ] %}
+
+    {% set featurePlans = [
+      {
+        name: 'Basic',
+        features: [true, true, false, false, false, false, false, false]
+      },
+      {
+        name: 'Pro',
+        features: [true, true, true, true, true, false, false, false]
+      },
+      {
+        name: 'Business',
+        features: [true, true, true, true, true, true, true, true]
+      }
+    ] %}
+
+    {% include 'components/feature-table/feature-table.twig' with {
+      features: features,
+      plans: featurePlans
+    } %}
+  </section>
+
+  {# Beta Section #}
+  {% include 'components/beta-section/beta-section.twig' %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const toggle = document.querySelector('[data-action="toggle-billing"]');
+    const cards = document.querySelectorAll('.price-card');
+    let isYearly = {{ isYearly ? 'true' : 'false' }};
+
+    function updatePrices() {
+      cards.forEach(card => {
+        const priceEl = card.querySelector('.price-card__price');
+        const periodEl = card.querySelector('.price-card__period');
+        const basePrice = parseInt(priceEl.dataset.basePrice || priceEl.textContent.replace(/[^0-9]/g, ''));
+        
+        if (isYearly) {
+          priceEl.textContent = '$' + (basePrice * 12).toFixed(2);
+          periodEl.textContent = 'per year';
+        } else {
+          priceEl.textContent = '$' + basePrice.toFixed(2);
+          periodEl.textContent = 'per month';
+        }
+
+        // Store the base price for future calculations
+        priceEl.dataset.basePrice = basePrice;
+      });
+    }
+
+    toggle?.addEventListener('click', function() {
+      isYearly = !isYearly;
+      this.setAttribute('aria-checked', isYearly);
+      this.classList.toggle('price-toggle__switch--yearly', isYearly);
+      
+      // Update labels
+      const monthlyLabel = document.querySelector('.price-toggle__label:first-of-type');
+      const yearlyLabel = document.querySelector('.price-toggle__label:last-of-type');
+      monthlyLabel.classList.toggle('price-toggle__label--active', !isYearly);
+      yearlyLabel.classList.toggle('price-toggle__label--active', isYearly);
+      
+      updatePrices();
+    });
+  });
+</script>
+{% endblock %}

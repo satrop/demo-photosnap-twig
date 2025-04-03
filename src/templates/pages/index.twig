@@ -1,3 +1,116 @@
-{% extends 'layouts/base.twig' %} {% block content %}
-<h1>Welcome to Photosnap</h1>
+{% extends 'layouts/base.twig' %}
+
+{% block content %}
+{# Create and Share Hero #}
+{% include 'components/hero/hero.twig' with {
+    variant: 'side-by-side',
+    image: 'images/home/desktop/create-and-share.jpg',
+    imageAlt: 'Create and share your photo stories.',
+    title: 'Create and share your photo stories.',
+    excerpt: 'Photosnap is a platform for photographers and visual storytellers. We make it easy to share photos, tell stories and connect with others.',
+    buttonText: 'Get an invite',
+    buttonHref: '/stories/',
+    backgroundColor: 'black',
+    imagePosition: 'right',
+    standout: true
+  } %}
+
+{# Beautiful Stories Hero #}
+{% include 'components/hero/hero.twig' with {
+    variant: 'side-by-side',
+    image: 'images/home/desktop/beautiful-stories.jpg',
+    imageAlt: 'Beautiful stories every time',
+    title: 'Beautiful stories every time.',
+    excerpt: 'We provide design templates to ensure your stories look terrific. Easily add photos, text, embed maps and media from other networks. Then share your story with everyone.',
+    buttonText: 'View the stories',
+    buttonHref: '/stories/',
+    backgroundColor: 'white'
+  } %}
+
+{# Designed for Everyone Hero #}
+{% include 'components/hero/hero.twig' with {
+    variant: 'side-by-side',
+    image: 'images/home/desktop/designed-for-everyone.jpg',
+    imageAlt: 'Designed for everyone',
+    title: 'Designed for everyone.',
+    excerpt: 'Photosnap can help you create stories that resonate with your audience. Our tool is designed for photographers of all levels, brands, businesses you name it.',
+    buttonText: 'View the stories',
+    buttonHref: '/stories/',
+    backgroundColor: 'white'
+  } %}
+
+{# Stories Section #}
+<section class="stories-section full-width">
+	<div class="story-cards-grid">
+		{% set stories = [
+        {
+          image: 'images/stories/desktop/mountains.jpg',
+          date: 'April 16th 2023',
+          title: 'The Mountains',
+          author: 'John Appleseed',
+          href: '/stories/'
+        },
+        {
+          image: 'images/stories/desktop/cityscapes.jpg',
+          date: 'April 14th 2023',
+          title: 'Sunset Cityscapes',
+          author: 'Benjamin Cruz',
+          href: '/stories/'
+        },
+        {
+          image: 'images/stories/desktop/18-days-voyage.jpg',
+          date: 'April 11th 2023',
+          title: '18 Days Voyage',
+          author: 'Alexei Borodin',
+          href: '/stories/'
+        },
+        {
+          image: 'images/stories/desktop/architecturals.jpg',
+          date: 'April 9th 2023',
+          title: 'Architecturals',
+          author: 'Samantha Brooks',
+          href: '/stories/'
+        }
+      ] %}
+
+		{% set displayStories = maxStories is defined ? stories|slice(0, maxStories) : stories %}
+
+		{% for story in displayStories %}
+			{% include 'components/story-card/story-card.twig' with story %}
+		{% endfor %}
+	</div>
+</section>
+
+{# Features Section #}
+<section class="features-section">
+	<div class="feature-cards-container">
+		{% set features = [
+        {
+          icon: 'images/features/desktop/responsive.svg',
+          title: '100% Responsive',
+          description: 'No matter which device you\'re on, our site is fully responsive and stories look beautiful on any screen.',
+          width: 72,
+          height: 72
+        },
+        {
+          icon: 'images/features/desktop/no-limit.svg',
+          title: 'No Photo Upload Limit',
+          description: 'Our tool has no limits on uploads or bandwidth. Freely upload in bulk and share all of your stories in one go.',
+          width: 72,
+          height: 36
+        },
+        {
+          icon: 'images/features/desktop/embed.svg',
+          title: 'Available to Embed',
+          description: 'Embed Tweets, Facebook posts, Instagram media, Vimeo or YouTube videos, Google Maps, and more.',
+          width: 71,
+          height: 72
+        }
+      ] %}
+
+      {% for feature in features %}
+        {% include 'components/feature-card/feature-card.twig' with feature %}
+      {% endfor %}
+    </div>
+  </section>
 {% endblock %}
