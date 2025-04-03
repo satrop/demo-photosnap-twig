@@ -1,91 +1,86 @@
 {# Navigation Component #}
 
 <nav class="nav grid-container" aria-label="Main">
-  <div class="navContainer main-width">
-    <a href="/" class="logoLink" aria-label="Photosnap home">
-      {% include 'components/logo/logo.twig' %}
-    </a>
+	<div class="navContainer main-width">
+		<a href="/" class="logoLink" aria-label="Photosnap home">
+			{% include 'components/logo/logo.twig' %}
+		</a>
 
-    <button type="button"
-            class="hamburger"
-            aria-label="Toggle menu"
-            aria-expanded="false"
-            aria-controls="main-menu"
-            data-menu-toggle>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </button>
+		<button type="button" class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-menu" data-menu-toggle>
+			<span aria-hidden="true"></span>
+			<span aria-hidden="true"></span>
+		</button>
 
-    <div id="main-menu" class="menuContainer" data-menu>
-      <ul class="menu" role="list">
-        <li>
-          <a href="/stories">Stories</a>
-        </li>
-        <li>
-          <a href="/features">Features</a>
-        </li>
-        <li>
-          <a href="/pricing">Pricing</a>
-        </li>
-      </ul>
-      {% include 'components/button/button.twig' with {
+		<div id="main-menu" class="menuContainer" data-menu>
+			<ul class="menu" role="list">
+				<li>
+					<a href="/stories">Stories</a>
+				</li>
+				<li>
+					<a href="/features">Features</a>
+				</li>
+				<li>
+					<a href="/pricing">Pricing</a>
+				</li>
+			</ul>
+			{% include 'components/button/button.twig' with {
         text: 'Get an Invite',
         variant: 'primary',
         ariaLabel: 'Get an invite',
         class: 'inviteButton'
       } %}
-    </div>
-  </div>
+		</div>
+	</div>
 </nav>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.querySelector('[data-menu-toggle]');
-    const menu = document.querySelector('[data-menu]');
-    const mainContent = document.querySelector('main');
-    let isOpen = false;
+	document.addEventListener('DOMContentLoaded', function () {
+const menuToggle = document.querySelector('[data-menu-toggle]');
+const menu = document.querySelector('[data-menu]');
+const mainContent = document.querySelector('main');
+let isOpen = false;
 
-    function checkMobile() {
-      return window.innerWidth < 768;
-    }
+function checkMobile() {
+return window.innerWidth < 768;
+}
 
-    function toggleMenu() {
-      isOpen = !isOpen;
-      menuToggle.classList.toggle('open', isOpen);
-      menu.classList.toggle('open', isOpen);
-      menuToggle.setAttribute('aria-expanded', isOpen);
-      
-      if (mainContent) {
-        if (isOpen) {
-          mainContent.inert = true;
-          // Focus first menu item when opening
-          setTimeout(() => {
-            const firstLink = menu.querySelector('a');
-            firstLink?.focus();
-          }, 100);
-        } else {
-          mainContent.inert = false;
-        }
-      }
-    }
+function toggleMenu() {
+isOpen = ! isOpen;
+menuToggle.classList.toggle('open', isOpen);
+menu.classList.toggle('open', isOpen);
+menuToggle.setAttribute('aria-expanded', isOpen);
 
-    menuToggle.addEventListener('click', toggleMenu);
+if (mainContent) {
+if (isOpen) {
+mainContent.inert = true;
+// Focus first menu item when opening
+setTimeout(() => {
+const firstLink = menu.querySelector('a');
+firstLink ?. focus();
+}, 100);
+} else {
+mainContent.inert = false;
+}
+}
+}
 
-    // Handle escape key
-    menu.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && isOpen) {
-        toggleMenu();
-      }
-    });
+menuToggle.addEventListener('click', toggleMenu);
 
-    // Update mobile state on resize
-    window.addEventListener('resize', () => {
-      const isMobile = checkMobile();
-      if (!isMobile && menu) {
-        menu.inert = false;
-      } else if (isMobile && menu) {
-        menu.inert = !isOpen;
-      }
-    });
-  });
+// Handle escape key
+menu.addEventListener('keydown', (e) => {
+if (e.key === 'Escape' && isOpen) {
+toggleMenu();
+}
+});
+
+// Update mobile state on resize
+window.addEventListener('resize', () => {
+const isMobile = checkMobile();
+if (! isMobile && menu) {
+menu.inert = false;
+} else if (isMobile && menu) {
+menu.inert = ! isOpen;
+}
+});
+});
 </script>

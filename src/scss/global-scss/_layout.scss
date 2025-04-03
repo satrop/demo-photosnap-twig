@@ -53,7 +53,7 @@
 
 .main-width {
   grid-column: main-start / main-end !important;
-  width: 100%;
+  width: calc(100% - var(--pad-sm) * 2);
   padding-inline: var(--pad-sm);
 
   @media (min-width: 768px) {
