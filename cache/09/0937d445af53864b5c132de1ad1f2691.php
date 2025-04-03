@@ -38,90 +38,103 @@ class __TwigTemplate_e8b1f7b951561c0c4c70a628697417e3 extends Template
     protected function doDisplay(array $context, array $blocks = []): iterable
     {
         $macros = $this->macros;
+        // line 1
+        $context["data"] = ($context["footer"] ?? null);
         // line 2
-        yield "<footer class=\"footer background--black grid-container\" role=\"contentinfo\">
-  <div class=\"container main-width\">
-    <div class=\"col\">
-      <div class=\"logoSection\">
-        <a href=\"/\" aria-label=\"Photosnap home\">
-          ";
-        // line 7
-        yield from $this->loadTemplate("components/logo/logo.twig", "components/footer/footer.twig", 7)->unwrap()->yield($context);
-        // line 8
-        yield "        </a>
-      </div>
-
-      <nav class=\"socialLinks\" aria-label=\"Social media links\">
-        <h2 class=\"visually-hidden\">Social Media Links</h2>
-        <ul role=\"list\">
-          <li>
-            <a href=\"https://facebook.com\" 
-               target=\"_blank\" 
-               rel=\"noopener noreferrer\"
-               aria-label=\"Visit our Facebook page (opens in new window)\">
-              <i class=\"fa fa-facebook\" aria-hidden=\"true\"></i>
-            </a>
-          </li>
-          <li>
-            <a href=\"https://youtube.com\" 
-               target=\"_blank\" 
-               rel=\"noopener noreferrer\"
-               aria-label=\"Visit our YouTube channel (opens in new window)\">
-              <i class=\"fa fa-youtube-play\" aria-hidden=\"true\"></i>
-            </a>
-          </li>
-          <li>
-            <a href=\"https://twitter.com\" 
-               target=\"_blank\" 
-               rel=\"noopener noreferrer\"
-               aria-label=\"Visit our Twitter page (opens in new window)\">
-              <i class=\"fa fa-twitter\" aria-hidden=\"true\"></i>
-            </a>
-          </li>
-          <li>
-            <a href=\"https://pinterest.com\" 
-               target=\"_blank\" 
-               rel=\"noopener noreferrer\"
-               aria-label=\"Visit our Pinterest page (opens in new window)\">
-              <i class=\"fa fa-pinterest\" aria-hidden=\"true\"></i>
-            </a>
-          </li>
-          <li>
-            <a href=\"https://instagram.com\" 
-               target=\"_blank\" 
-               rel=\"noopener noreferrer\"
-               aria-label=\"Visit our Instagram page (opens in new window)\">
-              <i class=\"fa fa-instagram\" aria-hidden=\"true\"></i>
-            </a>
-          </li>
-        </ul>
-      </nav>
-
-      <nav class=\"pageLinks\" aria-label=\"Site pages\">
-        <h2 class=\"visually-hidden\">Site Navigation</h2>
-        <ul role=\"list\">
-          <li><a href=\"/\">Home</a></li>
-          <li><a href=\"/stories\">Stories</a></li>
-          <li><a href=\"/features\">Features</a></li>
-          <li><a href=\"/pricing\">Pricing</a></li>
-        </ul>
-      </nav>
-    </div>
-
-    <div class=\"col\">
-      ";
-        // line 69
-        yield from $this->loadTemplate("components/button/button.twig", "components/footer/footer.twig", 69)->unwrap()->yield(CoreExtension::merge($context, ["text" => "Get an invite", "variant" => "secondary", "ariaLabel" => "Get an invite to join Photosnap", "class" => "inviteButton"]));
-        // line 75
         yield "
-      <div class=\"copyright\">
-        <p>Copyright ";
-        // line 77
+";
+        // line 4
+        yield "<footer class=\"footer background--black grid-container\" role=\"contentinfo\">
+\t<div class=\"container main-width\">
+\t\t<div class=\"col\">
+\t\t\t<div class=\"logoSection\">
+\t\t\t\t<a href=\"/\" aria-label=\"Photosnap home\">
+\t\t\t\t\t";
+        // line 9
+        yield from $this->loadTemplate("components/logo/logo.twig", "components/footer/footer.twig", 9)->unwrap()->yield($context);
+        // line 10
+        yield "\t\t\t\t</a>
+\t\t\t</div>
+
+\t\t\t<nav class=\"socialLinks\" aria-label=\"Social media links\">
+\t\t\t\t<h2 class=\"visually-hidden\">";
+        // line 14
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, ($context["data"] ?? null), "social", [], "any", false, false, false, 14), "title", [], "any", false, false, false, 14), "html", null, true);
+        yield "</h2>
+\t\t\t\t<ul role=\"list\">
+\t\t\t\t\t";
+        // line 16
+        $context['_parent'] = $context;
+        $context['_seq'] = CoreExtension::ensureTraversable(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, ($context["data"] ?? null), "social", [], "any", false, false, false, 16), "links", [], "any", false, false, false, 16));
+        foreach ($context['_seq'] as $context["_key"] => $context["link"]) {
+            // line 17
+            yield "\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t<a href=\"";
+            // line 18
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["link"], "url", [], "any", false, false, false, 18), "html", null, true);
+            yield "\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["link"], "label", [], "any", false, false, false, 18), "html", null, true);
+            yield " (opens in new window)\">
+\t\t\t\t\t\t\t\t<i class=\"fa ";
+            // line 19
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["link"], "icon", [], "any", false, false, false, 19), "html", null, true);
+            yield "\" aria-hidden=\"true\"></i>
+\t\t\t\t\t\t\t</a>
+\t\t\t\t\t\t</li>
+\t\t\t\t\t";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_key'], $context['link'], $context['_parent']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 23
+        yield "\t\t\t\t</ul>
+\t\t\t</nav>
+
+\t\t\t<nav class=\"pageLinks\" aria-label=\"Site pages\">
+\t\t\t\t<h2 class=\"visually-hidden\">";
+        // line 27
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, ($context["data"] ?? null), "navigation", [], "any", false, false, false, 27), "title", [], "any", false, false, false, 27), "html", null, true);
+        yield "</h2>
+\t\t\t\t<ul role=\"list\">
+\t\t\t\t\t";
+        // line 29
+        $context['_parent'] = $context;
+        $context['_seq'] = CoreExtension::ensureTraversable(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, ($context["data"] ?? null), "navigation", [], "any", false, false, false, 29), "links", [], "any", false, false, false, 29));
+        foreach ($context['_seq'] as $context["_key"] => $context["link"]) {
+            // line 30
+            yield "\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t<a href=\"";
+            // line 31
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["link"], "url", [], "any", false, false, false, 31), "html", null, true);
+            yield "\">";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["link"], "text", [], "any", false, false, false, 31), "html", null, true);
+            yield "</a>
+\t\t\t\t\t\t</li>
+\t\t\t\t\t";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_key'], $context['link'], $context['_parent']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 34
+        yield "\t\t\t\t</ul>
+\t\t\t</nav>
+\t\t</div>
+
+\t\t<div class=\"col\">
+\t\t\t";
+        // line 39
+        yield from $this->loadTemplate("components/button/button.twig", "components/footer/footer.twig", 39)->unwrap()->yield(CoreExtension::merge($context, ["text" => "Get an invite", "variant" => "secondary", "ariaLabel" => "Get an invite to join Photosnap", "class" => "inviteButton"]));
+        // line 45
+        yield "
+\t\t\t<div class=\"copyright\">
+\t\t\t\t<p>Copyright
+\t\t\t\t\t";
+        // line 48
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate("now", "Y"), "html", null, true);
         yield ". All Rights Reserved</p>
-      </div>
-    </div>
-  </div>
+\t\t\t</div>
+\t\t</div>
+\t</div>
 </footer>
 ";
         yield from [];
@@ -148,91 +161,62 @@ class __TwigTemplate_e8b1f7b951561c0c4c70a628697417e3 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  120 => 77,  116 => 75,  114 => 69,  51 => 8,  49 => 7,  42 => 2,);
+        return array (  133 => 48,  128 => 45,  126 => 39,  119 => 34,  108 => 31,  105 => 30,  101 => 29,  96 => 27,  90 => 23,  80 => 19,  74 => 18,  71 => 17,  67 => 16,  62 => 14,  56 => 10,  54 => 9,  47 => 4,  44 => 2,  42 => 1,);
     }
 
     public function getSourceContext(): Source
     {
-        return new Source("{# Footer Component #}
+        return new Source("{% set data = footer %}
+
+{# Footer Component #}
 <footer class=\"footer background--black grid-container\" role=\"contentinfo\">
-  <div class=\"container main-width\">
-    <div class=\"col\">
-      <div class=\"logoSection\">
-        <a href=\"/\" aria-label=\"Photosnap home\">
-          {% include 'components/logo/logo.twig' %}
-        </a>
-      </div>
+\t<div class=\"container main-width\">
+\t\t<div class=\"col\">
+\t\t\t<div class=\"logoSection\">
+\t\t\t\t<a href=\"/\" aria-label=\"Photosnap home\">
+\t\t\t\t\t{% include 'components/logo/logo.twig' %}
+\t\t\t\t</a>
+\t\t\t</div>
 
-      <nav class=\"socialLinks\" aria-label=\"Social media links\">
-        <h2 class=\"visually-hidden\">Social Media Links</h2>
-        <ul role=\"list\">
-          <li>
-            <a href=\"https://facebook.com\" 
-               target=\"_blank\" 
-               rel=\"noopener noreferrer\"
-               aria-label=\"Visit our Facebook page (opens in new window)\">
-              <i class=\"fa fa-facebook\" aria-hidden=\"true\"></i>
-            </a>
-          </li>
-          <li>
-            <a href=\"https://youtube.com\" 
-               target=\"_blank\" 
-               rel=\"noopener noreferrer\"
-               aria-label=\"Visit our YouTube channel (opens in new window)\">
-              <i class=\"fa fa-youtube-play\" aria-hidden=\"true\"></i>
-            </a>
-          </li>
-          <li>
-            <a href=\"https://twitter.com\" 
-               target=\"_blank\" 
-               rel=\"noopener noreferrer\"
-               aria-label=\"Visit our Twitter page (opens in new window)\">
-              <i class=\"fa fa-twitter\" aria-hidden=\"true\"></i>
-            </a>
-          </li>
-          <li>
-            <a href=\"https://pinterest.com\" 
-               target=\"_blank\" 
-               rel=\"noopener noreferrer\"
-               aria-label=\"Visit our Pinterest page (opens in new window)\">
-              <i class=\"fa fa-pinterest\" aria-hidden=\"true\"></i>
-            </a>
-          </li>
-          <li>
-            <a href=\"https://instagram.com\" 
-               target=\"_blank\" 
-               rel=\"noopener noreferrer\"
-               aria-label=\"Visit our Instagram page (opens in new window)\">
-              <i class=\"fa fa-instagram\" aria-hidden=\"true\"></i>
-            </a>
-          </li>
-        </ul>
-      </nav>
+\t\t\t<nav class=\"socialLinks\" aria-label=\"Social media links\">
+\t\t\t\t<h2 class=\"visually-hidden\">{{ data.social.title }}</h2>
+\t\t\t\t<ul role=\"list\">
+\t\t\t\t\t{% for link in data.social.links %}
+\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t<a href=\"{{ link.url }}\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"{{ link.label }} (opens in new window)\">
+\t\t\t\t\t\t\t\t<i class=\"fa {{ link.icon }}\" aria-hidden=\"true\"></i>
+\t\t\t\t\t\t\t</a>
+\t\t\t\t\t\t</li>
+\t\t\t\t\t{% endfor %}
+\t\t\t\t</ul>
+\t\t\t</nav>
 
-      <nav class=\"pageLinks\" aria-label=\"Site pages\">
-        <h2 class=\"visually-hidden\">Site Navigation</h2>
-        <ul role=\"list\">
-          <li><a href=\"/\">Home</a></li>
-          <li><a href=\"/stories\">Stories</a></li>
-          <li><a href=\"/features\">Features</a></li>
-          <li><a href=\"/pricing\">Pricing</a></li>
-        </ul>
-      </nav>
-    </div>
+\t\t\t<nav class=\"pageLinks\" aria-label=\"Site pages\">
+\t\t\t\t<h2 class=\"visually-hidden\">{{ data.navigation.title }}</h2>
+\t\t\t\t<ul role=\"list\">
+\t\t\t\t\t{% for link in data.navigation.links %}
+\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t<a href=\"{{ link.url }}\">{{ link.text }}</a>
+\t\t\t\t\t\t</li>
+\t\t\t\t\t{% endfor %}
+\t\t\t\t</ul>
+\t\t\t</nav>
+\t\t</div>
 
-    <div class=\"col\">
-      {% include 'components/button/button.twig' with {
+\t\t<div class=\"col\">
+\t\t\t{% include 'components/button/button.twig' with {
         text: 'Get an invite',
         variant: 'secondary',
         ariaLabel: 'Get an invite to join Photosnap',
         class: 'inviteButton'
       } %}
 
-      <div class=\"copyright\">
-        <p>Copyright {{ \"now\"|date(\"Y\") }}. All Rights Reserved</p>
-      </div>
-    </div>
-  </div>
+\t\t\t<div class=\"copyright\">
+\t\t\t\t<p>Copyright
+\t\t\t\t\t{{ \"now\"|date(\"Y\") }}. All Rights Reserved</p>
+\t\t\t</div>
+\t\t</div>
+\t</div>
 </footer>
 ", "components/footer/footer.twig", "/Users/stevenportas/WorkBox/Sites/demos/demo-photosnap-twig/src/templates/components/footer/footer.twig");
     }

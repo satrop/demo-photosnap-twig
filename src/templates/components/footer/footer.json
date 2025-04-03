@@ -1,0 +1,55 @@
+{
+  "footer": {
+    "social": {
+      "title": "Social Media Links",
+      "links": [
+        {
+          "url": "https://facebook.com",
+          "icon": "fa-facebook",
+          "label": "Visit our Facebook page"
+        },
+        {
+          "url": "https://youtube.com",
+          "icon": "fa-youtube-play",
+          "label": "Visit our YouTube channel"
+        },
+        {
+          "url": "https://twitter.com",
+          "icon": "fa-twitter",
+          "label": "Visit our Twitter page"
+        },
+        {
+          "url": "https://pinterest.com",
+          "icon": "fa-pinterest",
+          "label": "Visit our Pinterest page"
+        },
+        {
+          "url": "https://instagram.com",
+          "icon": "fa-instagram",
+          "label": "Visit our Instagram page"
+        }
+      ]
+    },
+    "navigation": {
+      "title": "Site Navigation",
+      "links": [
+        {
+          "url": "/",
+          "text": "Home"
+        },
+        {
+          "url": "/stories",
+          "text": "Stories"
+        },
+        {
+          "url": "/features",
+          "text": "Features"
+        },
+        {
+          "url": "/pricing",
+          "text": "Pricing"
+        }
+      ]
+    }
+  }
+}
