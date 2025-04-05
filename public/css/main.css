@@ -593,6 +593,13 @@ ul a:focus {
   color: white;
   height: 100%;
 }
+.price-card--popular .button--primary {
+  background-color: white;
+  color: black;
+}
+.price-card--popular .button--primary:hover {
+  background-color: var(--gray);
+}
 @media (min-width: 1024px) {
   .price-card--popular {
     padding-block: calc(3.5rem + 22px);

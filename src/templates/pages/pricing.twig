@@ -10,29 +10,8 @@
 		{% include 'components/price-toggle/price-toggle.twig' with { isYearly: isYearly } %}
 
 		<div class="pricing-cards">
-			{% set plans = [
-        {
-          title: 'Basic',
-          description: 'Includes basic usage of our platform. Recommended for new and aspiring photographers.',
-          price: 19,
-          popular: false
-        },
-        {
-          title: 'Pro',
-          description: 'More advanced features available. Recommended for photography veterans and professionals.',
-          price: 39,
-          popular: true
-        },
-        {
-          title: 'Business',
-          description: 'Additional features available such as more detailed metrics. Recommended for business owners.',
-          price: 99,
-          popular: false
-        }
-      ] %}
-
-			{% for plan in plans %}
-				{% include 'components/price-card/price-card.twig' with plan|merge({ isYearly: isYearly }) %}
+			{% for price in prices %}
+				{% include 'components/price-card/price-card.twig' with price|merge({ isYearly: isYearly }) %}
 			{% endfor %}
 		</div>
 
@@ -46,46 +25,5 @@
 {% endblock %}
 
 {% block scripts %}
-	<script>
-		document.addEventListener('DOMContentLoaded', function () {
-const toggle = document.querySelector('[data-action="toggle-billing"]');
-const cards = document.querySelectorAll('.price-card');
-let isYearly = {{ isYearly ? 'true' : 'false' }};
-
-function updatePrices() {
-cards.forEach(card => {
-const priceEl = card.querySelector('.price-card__price');
-const periodEl = card.querySelector('.price-card__period');
-const basePrice = parseInt(priceEl.dataset.basePrice || priceEl.textContent.replace(/[^0-9]/g, ''));
-
-if (isYearly) {
-priceEl.textContent = '$' + (
-basePrice * 12
-).toFixed(2);
-periodEl.textContent = 'per year';
-} else {
-priceEl.textContent = '$' + basePrice.toFixed(2);
-periodEl.textContent = 'per month';
-}
-
-// Store the base price for future calculations
-priceEl.dataset.basePrice = basePrice;
-});
-}
-
-toggle ?. addEventListener('click', function () {
-isYearly = ! isYearly;
-this.setAttribute('aria-checked', isYearly);
-this.classList.toggle('price-toggle__switch--yearly', isYearly);
-
-// Update labels
-const monthlyLabel = document.querySelector('.price-toggle__label:first-of-type');
-const yearlyLabel = document.querySelector('.price-toggle__label:last-of-type');
-monthlyLabel.classList.toggle('price-toggle__label--active', ! isYearly);
-yearlyLabel.classList.toggle('price-toggle__label--active', isYearly);
-
-updatePrices();
-});
-});
-	</script>
+	<script src="/js/components/price-card/pricing.js"></script>
 {% endblock %}

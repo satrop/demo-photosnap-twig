@@ -7,22 +7,19 @@
   @param {boolean} popular - Whether this is the popular plan
 #}
 
-{% set yearlyPrice = price * 12 %}
-{% set currentPrice = isYearly ? yearlyPrice : price %}
-
 <div class="price-card{{ popular ? ' price-card--popular' : '' }}">
   <div class="price-card__content">
     <h2 class="price-card__title">{{ title }}</h2>
     <p class="price-card__description">{{ description }}</p>
     <div class="price-card__price-container">
-      <p class="price-card__price">${{ '%0.2f'|format(currentPrice) }}</p>
+      <p class="price-card__price" data-base-price="{{ price }}">${{ isYearly ? (price * 12)|number_format(2) : price|number_format(2) }}</p>
       <p class="price-card__period">per {{ isYearly ? 'year' : 'month' }}</p>
     </div>
     {% include 'components/button/button.twig' with {
       text: 'Pick Plan',
       variant: 'primary',
       ariaLabel: 'Pick ' ~ title ~ ' plan',
-      class: 'price-card__button'
+      classes: 'price-card__button'
     } %}
   </div>
 </div>

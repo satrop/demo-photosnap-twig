@@ -72,9 +72,9 @@ elseif (file_exists(__DIR__ . "/../src/templates/pages/{$path}.twig")) {
             $data['featuredStory'] = $routes['hero']['featured_hero'];
             break;
         case 'pricing':
-            $data['pricing'] = $routes['price-card']['pricing'] ?? [];
+            $data['prices'] = $routes['price-card']['prices'];
             $data['featuredStory'] = $routes['hero']['featured_pricing'];
-            $data['features'] = $routes['feature-table']['features'] ?? [];
+            $data['features'] = $routes['feature-table']['features'];
             break;
     }
 

@@ -40,41 +40,36 @@ class __TwigTemplate_51bc67567cbaa294c442ea2a8661ee2a extends Template
         $macros = $this->macros;
         // line 9
         yield "
-";
-        // line 10
-        $context["yearlyPrice"] = (($context["price"] ?? null) * 12);
-        // line 11
-        $context["currentPrice"] = ((($context["isYearly"] ?? null)) ? (($context["yearlyPrice"] ?? null)) : (($context["price"] ?? null)));
-        // line 12
-        yield "
 <div class=\"price-card";
-        // line 13
+        // line 10
         yield ((($context["popular"] ?? null)) ? (" price-card--popular") : (""));
         yield "\">
   <div class=\"price-card__content\">
     <h2 class=\"price-card__title\">";
-        // line 15
+        // line 12
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["title"] ?? null), "html", null, true);
         yield "</h2>
     <p class=\"price-card__description\">";
-        // line 16
+        // line 13
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["description"] ?? null), "html", null, true);
         yield "</p>
     <div class=\"price-card__price-container\">
-      <p class=\"price-card__price\">\$";
-        // line 18
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(Twig\Extension\CoreExtension::sprintf("%0.2f", ($context["currentPrice"] ?? null)), "html", null, true);
+      <p class=\"price-card__price\" data-base-price=\"";
+        // line 15
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["price"] ?? null), "html", null, true);
+        yield "\">\$";
+        yield ((($context["isYearly"] ?? null)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatNumber((($context["price"] ?? null) * 12), 2), "html", null, true)) : ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatNumber(($context["price"] ?? null), 2), "html", null, true)));
         yield "</p>
       <p class=\"price-card__period\">per ";
-        // line 19
+        // line 16
         yield ((($context["isYearly"] ?? null)) ? ("year") : ("month"));
         yield "</p>
     </div>
     ";
-        // line 21
-        yield from $this->loadTemplate("components/button/button.twig", "components/price-card/price-card.twig", 21)->unwrap()->yield(CoreExtension::merge($context, ["text" => "Pick Plan", "variant" => "primary", "ariaLabel" => (("Pick " .         // line 24
-($context["title"] ?? null)) . " plan"), "class" => "price-card__button"]));
-        // line 27
+        // line 18
+        yield from $this->loadTemplate("components/button/button.twig", "components/price-card/price-card.twig", 18)->unwrap()->yield(CoreExtension::merge($context, ["text" => "Pick Plan", "variant" => "primary", "ariaLabel" => (("Pick " .         // line 21
+($context["title"] ?? null)) . " plan"), "classes" => "price-card__button"]));
+        // line 24
         yield "  </div>
 </div>";
         yield from [];
@@ -101,7 +96,7 @@ class __TwigTemplate_51bc67567cbaa294c442ea2a8661ee2a extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  78 => 27,  76 => 24,  75 => 21,  70 => 19,  66 => 18,  61 => 16,  57 => 15,  52 => 13,  49 => 12,  47 => 11,  45 => 10,  42 => 9,);
+        return array (  73 => 24,  71 => 21,  70 => 18,  65 => 16,  59 => 15,  54 => 13,  50 => 12,  45 => 10,  42 => 9,);
     }
 
     public function getSourceContext(): Source
@@ -115,22 +110,19 @@ class __TwigTemplate_51bc67567cbaa294c442ea2a8661ee2a extends Template
   @param {boolean} popular - Whether this is the popular plan
 #}
 
-{% set yearlyPrice = price * 12 %}
-{% set currentPrice = isYearly ? yearlyPrice : price %}
-
 <div class=\"price-card{{ popular ? ' price-card--popular' : '' }}\">
   <div class=\"price-card__content\">
     <h2 class=\"price-card__title\">{{ title }}</h2>
     <p class=\"price-card__description\">{{ description }}</p>
     <div class=\"price-card__price-container\">
-      <p class=\"price-card__price\">\${{ '%0.2f'|format(currentPrice) }}</p>
+      <p class=\"price-card__price\" data-base-price=\"{{ price }}\">\${{ isYearly ? (price * 12)|number_format(2) : price|number_format(2) }}</p>
       <p class=\"price-card__period\">per {{ isYearly ? 'year' : 'month' }}</p>
     </div>
     {% include 'components/button/button.twig' with {
       text: 'Pick Plan',
       variant: 'primary',
       ariaLabel: 'Pick ' ~ title ~ ' plan',
-      class: 'price-card__button'
+      classes: 'price-card__button'
     } %}
   </div>
 </div>", "components/price-card/price-card.twig", "/Users/stevenportas/WorkBox/Sites/demos/demo-photosnap-twig/src/templates/components/price-card/price-card.twig");

@@ -1,4 +1,4 @@
-@use '../global-scss/breakpoints' as bp;
+@use '../../../scss/global-scss/breakpoints' as bp;
 
 .pricing-section {
   padding-block: var(--pad-lg);
@@ -38,6 +38,15 @@
     background-color: black;
     color: white;
     height: 100%;
+
+    .button--primary {
+      background-color: white;
+      color: black;
+
+      &:hover {
+        background-color: var(--gray);
+      }
+    }
 
     @media (min-width: bp.$bp-lg) {
       padding-block: calc(3.5rem + 22px);

@@ -126,10 +126,11 @@ class __TwigTemplate_0953a4a40e39f219b0c96f8db958248f extends Template
         yield from $this->unwrap()->yieldBlock('footer', $context, $blocks);
         // line 52
         yield "
+    <script src=\"/js/main.js\"></script>
     ";
-        // line 53
-        yield from $this->unwrap()->yieldBlock('scripts', $context, $blocks);
         // line 54
+        yield from $this->unwrap()->yieldBlock('scripts', $context, $blocks);
+        // line 55
         yield "  </body>
 </html>
 ";
@@ -197,7 +198,7 @@ class __TwigTemplate_0953a4a40e39f219b0c96f8db958248f extends Template
         yield from [];
     }
 
-    // line 53
+    // line 54
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -228,7 +229,7 @@ class __TwigTemplate_0953a4a40e39f219b0c96f8db958248f extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  201 => 53,  196 => 51,  193 => 50,  186 => 49,  176 => 46,  171 => 43,  168 => 42,  161 => 41,  151 => 34,  140 => 6,  133 => 54,  131 => 53,  128 => 52,  126 => 49,  122 => 47,  120 => 46,  116 => 44,  114 => 41,  106 => 35,  104 => 34,  100 => 32,  96 => 29,  90 => 24,  78 => 14,  74 => 13,  69 => 12,  63 => 9,  58 => 6,  51 => 2,  48 => 1,);
+        return array (  202 => 54,  197 => 51,  194 => 50,  187 => 49,  177 => 46,  172 => 43,  169 => 42,  162 => 41,  152 => 34,  141 => 6,  134 => 55,  132 => 54,  128 => 52,  126 => 49,  122 => 47,  120 => 46,  116 => 44,  114 => 41,  106 => 35,  104 => 34,  100 => 32,  96 => 29,  90 => 24,  78 => 14,  74 => 13,  69 => 12,  63 => 9,  58 => 6,  51 => 2,  48 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -285,6 +286,7 @@ class __TwigTemplate_0953a4a40e39f219b0c96f8db958248f extends Template
       {% include 'components/footer/footer.twig' %}
     {% endblock %}
 
+    <script src=\"/js/main.js\"></script>
     {% block scripts %}{% endblock %}
   </body>
 </html>
