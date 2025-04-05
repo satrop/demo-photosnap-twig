@@ -1,5 +1,5 @@
-@use '..//global-scss/breakpoints' as bp;
-@use '..//global-scss/mixins';
+@use '../../../scss/global-scss/_breakpoints.scss' as bp;
+@use '../../../scss/global-scss/mixins';
 
 .beta-section {
   color: white;

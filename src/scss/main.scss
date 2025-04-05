@@ -9,14 +9,14 @@
 
 // Import all component styles
 @use '../templates/components/hero/hero';
-@use 'components/button';
+@use '../templates/components/button/button';
 @use '../templates/components/story-card/story-card';
-@use 'components/feature-card';
+@use '../templates/components/feature-card/feature-card';
 @use '../templates/components/price-card/price-card';
-@use 'components/price-toggle';
+@use '../templates/components/price-toggle/price-toggle';
 @use '../templates/components/feature-table/feature-table';
-@use 'components/beta-section';
-@use 'components/navigation';
+@use '../templates/components/beta-section/beta-section';
+@use '../templates/components/navigation/navigation';
 @use '../templates/components/footer/footer';
 
 body,
