@@ -1,3 +1,5 @@
+@use '../../../scss/global-scss/mixins';
+
 .button {
   font-size: var(--sm);
   font-weight: var(--bold);
@@ -21,6 +23,7 @@
     height: 1px;
     position: relative;
     background-color: var(--color);
+    transition: width var(--anim);
 
     &::before {
       content: '';
@@ -40,14 +43,14 @@
     background-color: black;
     color: white;
 
-    &:hover {
+    &:hover,
+    &:focus-visible {
       background-color: var(--gray);
       color: black;
     }
 
-    &:focus {
-      outline-offset: 3px;
-      outline: 3px solid black;
+    &:focus-visible {
+      @include mixins.focus;
     }
   }
 
@@ -56,16 +59,26 @@
     color: black;
 
     .background--black & {
-      background-color: black;
       color: white;
 
       span {
         --color: white;
       }
+
+      &:focus-visible {
+        @include mixins.focus-white;
+      }
     }
 
-    &:hover {
-      text-decoration: underline;
+    &:hover,
+    &:focus-visible {
+      span {
+        width: 52px;
+      }
+    }
+
+    &:focus-visible {
+      @include mixins.focus;
     }
   }
 }

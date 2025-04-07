@@ -24,14 +24,7 @@
 			<p class="story-card__author">by
 				{{ author }}</p>
 			<hr class="story-card__divider" aria-hidden="true"/>
-			<div class="story-card__cta">
-				{% include 'components/button/button.twig' with {
-          text: 'Read Story',
-          variant: 'secondary',
-          ariaLabel: 'Read story about ' ~ title,
-          ariaHidden: true,
-          tabindex: -1
-        } %}
+			<div class="story-card__faux-button button button--secondary" aria-labelledby="story-title-{{ title|replace({' ': '-'})|lower }}" aria-hidden="true">Read Story<span></span>
 			</div>
 		</div>
 	</a>

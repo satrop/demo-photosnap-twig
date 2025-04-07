@@ -366,6 +366,7 @@ ul a:focus {
   height: 1px;
   position: relative;
   background-color: var(--color);
+  transition: width var(--anim);
 }
 .button span::before {
   content: "";
@@ -383,11 +384,11 @@ ul a:focus {
   background-color: black;
   color: white;
 }
-.button--primary:hover {
+.button--primary:hover, .button--primary:focus-visible {
   background-color: var(--gray);
   color: black;
 }
-.button--primary:focus {
+.button--primary:focus-visible {
   outline-offset: 3px;
   outline: 3px solid black;
 }
@@ -396,14 +397,21 @@ ul a:focus {
   color: black;
 }
 .background--black .button--secondary {
-  background-color: black;
   color: white;
 }
 .background--black .button--secondary span {
   --color: white;
 }
-.button--secondary:hover {
-  text-decoration: underline;
+.background--black .button--secondary:focus-visible {
+  outline-offset: 3px;
+  outline: 3px solid white;
+}
+.button--secondary:hover span, .button--secondary:focus-visible span {
+  width: 52px;
+}
+.button--secondary:focus-visible {
+  outline-offset: 3px;
+  outline: 3px solid black;
 }
 
 .stories-section:not([data-featured]) .story-card .story-card__date {
@@ -464,10 +472,12 @@ ul a:focus {
   width: 100%;
   height: 100%;
 }
-.story-card:hover .story-card__image {
+.story-card:hover .story-card__image,
+.story-card :focus-visible .story-card__image {
   transform: scale(1.02);
 }
-.story-card:hover::after {
+.story-card:hover::after,
+.story-card :focus-visible::after {
   opacity: 1;
   transform: translateY(0);
 }
@@ -497,14 +507,12 @@ ul a:focus {
   border-top: 1px solid rgba(255, 255, 255, 0.25);
   margin-bottom: 1rem;
 }
-.story-card__cta .button {
-  pointer-events: none;
+.story-card__faux-button {
   color: white;
-  padding: 0;
   width: 100%;
   justify-content: space-between;
 }
-.story-card__cta .button span {
+.story-card__faux-button span {
   --color: white;
 }
 
@@ -601,6 +609,10 @@ ul a:focus {
 }
 .price-card--popular .button--primary:hover {
   background-color: var(--gray);
+}
+.price-card--popular .button--primary:focus-visible {
+  outline-offset: 3px;
+  outline: 3px solid white;
 }
 @media (min-width: 1024px) {
   .price-card--popular {
@@ -1027,6 +1039,15 @@ ul a:focus {
   display: grid;
   grid-template-columns: 1fr;
   justify-items: center;
+}
+.footer .container .logoSection a {
+  transition: outline var(--anim);
+  outline-offset: 3px;
+  outline: 3px solid transparent;
+}
+.footer .container .logoSection a:focus-visible {
+  outline-offset: 3px;
+  outline: 3px solid white;
 }
 @media (min-width: 768px) {
   .footer .container {

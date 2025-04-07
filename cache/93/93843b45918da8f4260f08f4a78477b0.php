@@ -86,13 +86,11 @@ class __TwigTemplate_61d3125a3f12a82a4af5670b49e312b2 extends Template
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["author"] ?? null), "html", null, true);
         yield "</p>
 \t\t\t<hr class=\"story-card__divider\" aria-hidden=\"true\"/>
-\t\t\t<div class=\"story-card__cta\">
-\t\t\t\t";
-        // line 28
-        yield from $this->loadTemplate("components/button/button.twig", "components/story-card/story-card.twig", 28)->unwrap()->yield(CoreExtension::merge($context, ["text" => "Read Story", "variant" => "secondary", "ariaLabel" => ("Read story about " .         // line 31
-($context["title"] ?? null)), "ariaHidden" => true, "tabindex" =>  -1]));
-        // line 35
-        yield "\t\t\t</div>
+\t\t\t<div class=\"story-card__faux-button button button--secondary\" aria-labelledby=\"story-title-";
+        // line 27
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(Twig\Extension\CoreExtension::lower($this->env->getCharset(), Twig\Extension\CoreExtension::replace(($context["title"] ?? null), [" " => "-"])), "html", null, true);
+        yield "\" aria-hidden=\"true\">Read Story<span></span>
+\t\t\t</div>
 \t\t</div>
 \t</a>
 </article>
@@ -121,7 +119,7 @@ class __TwigTemplate_61d3125a3f12a82a4af5670b49e312b2 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  95 => 35,  93 => 31,  92 => 28,  86 => 25,  80 => 22,  75 => 21,  69 => 19,  67 => 18,  60 => 15,  53 => 14,  51 => 13,  49 => 12,  45 => 10,  42 => 9,);
+        return array (  91 => 27,  86 => 25,  80 => 22,  75 => 21,  69 => 19,  67 => 18,  60 => 15,  53 => 14,  51 => 13,  49 => 12,  45 => 10,  42 => 9,);
     }
 
     public function getSourceContext(): Source
@@ -152,14 +150,7 @@ class __TwigTemplate_61d3125a3f12a82a4af5670b49e312b2 extends Template
 \t\t\t<p class=\"story-card__author\">by
 \t\t\t\t{{ author }}</p>
 \t\t\t<hr class=\"story-card__divider\" aria-hidden=\"true\"/>
-\t\t\t<div class=\"story-card__cta\">
-\t\t\t\t{% include 'components/button/button.twig' with {
-          text: 'Read Story',
-          variant: 'secondary',
-          ariaLabel: 'Read story about ' ~ title,
-          ariaHidden: true,
-          tabindex: -1
-        } %}
+\t\t\t<div class=\"story-card__faux-button button button--secondary\" aria-labelledby=\"story-title-{{ title|replace({' ': '-'})|lower }}\" aria-hidden=\"true\">Read Story<span></span>
 \t\t\t</div>
 \t\t</div>
 \t</a>
