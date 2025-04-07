@@ -31,24 +31,77 @@ function copyDir($src, $dst) {
 // Copy public assets to build directory
 copyDir(__DIR__ . '/public', $buildDir);
 
+// Load JSON data from components
+$componentsDir = __DIR__ . '/src/templates/components/';
+$routes = [];
+
+foreach (scandir($componentsDir) as $component) {
+    if ($component === '.' || $component === '..') continue;
+
+    $jsonPath = $componentsDir . $component . '/' . $component . '.json';
+    if (file_exists($jsonPath)) {
+        $routes[$component] = json_decode(file_get_contents($jsonPath), true);
+    }
+}
+
+// Load footer data
+$footerData = json_decode(file_get_contents($componentsDir . 'footer/footer.json'), true);
+
+// Common data for all templates
+$commonData = [
+    'font_classes' => 'font-dm-sans',
+    'footer' => $footerData['footer']
+];
+
 // Set up Twig
 $loader = new \Twig\Loader\FilesystemLoader($templatesDir);
 $twig = new \Twig\Environment($loader);
 
-// Compile templates
+// Compile templates with their required data
 $pages = [
-    'pages/index.twig' => 'index.html',
-    'pages/stories.twig' => 'stories.html',
-    'pages/features.twig' => 'features.html',
-    'pages/pricing.twig' => 'pricing.html'
+    'pages/index.twig' => [
+        'output' => 'index.html',
+        'data' => array_merge($commonData, [
+            'title' => 'Photosnap',
+            'maxStories' => 4,
+            'stories' => $routes['story-card']['stories'] ?? null,
+            'heros' => $routes['hero']['heros'] ?? null,
+            'features' => $routes['feature-card']['features'] ?? null,
+        ])
+    ],
+    'pages/stories.twig' => [
+        'output' => 'stories.html',
+        'data' => array_merge($commonData, [
+            'title' => 'Stories - Photosnap',
+            'stories' => $routes['story-card']['stories'] ?? null,
+            'featuredStory' => $routes['hero']['featured_story'] ?? null,
+        ])
+    ],
+    'pages/features.twig' => [
+        'output' => 'features.html',
+        'data' => array_merge($commonData, [
+            'title' => 'Features - Photosnap',
+            'features' => $routes['feature-card']['features'] ?? null,
+            'featuredStory' => $routes['hero']['featured_hero'] ?? null,
+        ])
+    ],
+    'pages/pricing.twig' => [
+        'output' => 'pricing.html',
+        'data' => array_merge($commonData, [
+            'title' => 'Pricing - Photosnap',
+            'prices' => $routes['price-card']['prices'] ?? null,
+            'featuredStory' => $routes['hero']['featured_pricing'] ?? null,
+            'features' => $routes['feature-table']['features'] ?? null,
+        ])
+    ]
 ];
 
-foreach ($pages as $template => $outputFile) {
+foreach ($pages as $template => $config) {
     try {
-        $html = $twig->render($template);
-        file_put_contents($buildDir . '/' . $outputFile, $html);
-        echo "Generated $outputFile\n";
+        $html = $twig->render($template, $config['data']);
+        file_put_contents($buildDir . '/' . $config['output'], $html);
+        echo "Generated {$config['output']}\n";
     } catch (Exception $e) {
-        echo "Error generating $outputFile: " . $e->getMessage() . "\n";
+        echo "Error generating {$config['output']}: " . $e->getMessage() . "\n";
     }
 }

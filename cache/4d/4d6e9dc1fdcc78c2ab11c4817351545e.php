@@ -57,13 +57,13 @@ class __TwigTemplate_397c7d699e03d37b53b519a376ed264b extends Template
 \t\t<div id=\"main-menu\" class=\"menuContainer\" data-menu>
 \t\t\t<ul class=\"menu\" role=\"list\">
 \t\t\t\t<li>
-\t\t\t\t\t<a href=\"/stories\">Stories TEST</a>
+\t\t\t\t\t<a href=\"stories.html\">Stories</a>
 \t\t\t\t</li>
 \t\t\t\t<li>
-\t\t\t\t\t<a href=\"/features\">Features</a>
+\t\t\t\t\t<a href=\"features.html\">Features</a>
 \t\t\t\t</li>
 \t\t\t\t<li>
-\t\t\t\t\t<a href=\"/pricing\">Pricing</a>
+\t\t\t\t\t<a href=\"pricing.html\">Pricing</a>
 \t\t\t\t</li>
 \t\t\t</ul>
 \t\t\t";
@@ -171,13 +171,13 @@ menu.inert = ! isOpen;
 \t\t<div id=\"main-menu\" class=\"menuContainer\" data-menu>
 \t\t\t<ul class=\"menu\" role=\"list\">
 \t\t\t\t<li>
-\t\t\t\t\t<a href=\"/stories\">Stories TEST</a>
+\t\t\t\t\t<a href=\"stories.html\">Stories</a>
 \t\t\t\t</li>
 \t\t\t\t<li>
-\t\t\t\t\t<a href=\"/features\">Features</a>
+\t\t\t\t\t<a href=\"features.html\">Features</a>
 \t\t\t\t</li>
 \t\t\t\t<li>
-\t\t\t\t\t<a href=\"/pricing\">Pricing</a>
+\t\t\t\t\t<a href=\"pricing.html\">Pricing</a>
 \t\t\t\t</li>
 \t\t\t</ul>
 \t\t\t{% include 'components/button/button.twig' with {
