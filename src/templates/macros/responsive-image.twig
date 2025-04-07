@@ -1,0 +1,49 @@
+{# 
+  Responsive Image Macro
+  @param {string} imagePath - The base path to the image (without desktop/tablet/mobile folder)
+  @param {string} alt - Alt text for the image
+  @param {string} className - Optional CSS class name(s)
+  @param {boolean} decorative - If true, image is decorative and alt text will be empty
+  @param {boolean} ariaHidden - If true, adds aria-hidden="true"
+#}
+
+{% macro responsiveImage(imagePath, alt, className = '', decorative = false, ariaHidden = false) %}
+    <picture>
+        {# Mobile WebP #}
+        <source
+            srcset="{{ imagePath }}/mobile/{{ imagePath|split('/')|last }}.webp"
+            media="(max-width: 767px)"
+            type="image/webp"
+        >
+        {# Mobile JPG fallback #}
+        <source
+            srcset="{{ imagePath }}/mobile/{{ imagePath|split('/')|last }}.jpg"
+            media="(max-width: 767px)"
+            type="image/jpeg"
+        >
+        {# Tablet WebP #}
+        <source
+            srcset="{{ imagePath }}/tablet/{{ imagePath|split('/')|last }}.webp"
+            media="(max-width: 1023px)"
+            type="image/webp"
+        >
+        {# Tablet JPG fallback #}
+        <source
+            srcset="{{ imagePath }}/tablet/{{ imagePath|split('/')|last }}.jpg"
+            media="(max-width: 1023px)"
+            type="image/jpeg"
+        >
+        {# Desktop WebP #}
+        <source
+            srcset="{{ imagePath }}/desktop/{{ imagePath|split('/')|last }}.webp"
+            type="image/webp"
+        >
+        {# Desktop JPG fallback #}
+        <img 
+            src="{{ imagePath }}/desktop/{{ imagePath|split('/')|last }}.jpg"
+            alt="{{ decorative ? '' : alt }}"
+            class="{{ className }}"
+            {{ ariaHidden ? 'aria-hidden="true"' : '' }}
+        >
+    </picture>
+{% endmacro %}

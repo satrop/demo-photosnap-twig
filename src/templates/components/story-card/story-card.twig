@@ -1,18 +1,26 @@
 {# 
   StoryCard Component
-  @param {string} image - The image URL
+  @param {string} image - The base image path (without desktop/tablet/mobile folder)
   @param {string} date - Optional date of the story
   @param {string} title - The story title
   @param {string} author - The author name
   @param {string} href - The link URL
 #}
 
+{% import "macros/responsive-image.twig" as images %}
+
 <article class="story-card" aria-labelledby="story-title-{{ title|replace({' ': '-'})|lower }}">
 	{# The article element is used to indicate that this is a self-contained piece of content #}
 	{# The aria-labelledby attribute associates the title with the article for screen readers #}
 	{# The href attribute is used to link to the story page #}
 		<a href="{{ href }}" aria-labelledby="story-title-{{ title|replace({' ': '-'})|lower }}"> <div class="story-card__image-container">
-			<img src="{{ image }}" alt="" {# Decorative image, content described in title/text #} class="story-card__image" aria-hidden="true"/>
+			{{ images.responsiveImage(
+				image,
+				'',
+				'story-card__image',
+				true,
+				true
+			) }}
 		</div>
 		<div class="story-card__content">
 			{% if date %}

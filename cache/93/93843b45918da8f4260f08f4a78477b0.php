@@ -40,54 +40,60 @@ class __TwigTemplate_61d3125a3f12a82a4af5670b49e312b2 extends Template
         $macros = $this->macros;
         // line 9
         yield "
-<article class=\"story-card\" aria-labelledby=\"story-title-";
+";
         // line 10
+        $macros["images"] = $this->macros["images"] = $this->loadTemplate("macros/responsive-image.twig", "components/story-card/story-card.twig", 10)->unwrap();
+        // line 11
+        yield "
+<article class=\"story-card\" aria-labelledby=\"story-title-";
+        // line 12
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(Twig\Extension\CoreExtension::lower($this->env->getCharset(), Twig\Extension\CoreExtension::replace(($context["title"] ?? null), [" " => "-"])), "html", null, true);
         yield "\">
 \t";
-        // line 12
-        yield "\t";
-        // line 13
-        yield "\t";
         // line 14
+        yield "\t";
+        // line 15
+        yield "\t";
+        // line 16
         yield "\t\t<a href=\"";
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["href"] ?? null), "html", null, true);
         yield "\" aria-labelledby=\"story-title-";
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(Twig\Extension\CoreExtension::lower($this->env->getCharset(), Twig\Extension\CoreExtension::replace(($context["title"] ?? null), [" " => "-"])), "html", null, true);
         yield "\"> <div class=\"story-card__image-container\">
-\t\t\t<img src=\"";
-        // line 15
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["image"] ?? null), "html", null, true);
-        yield "\" alt=\"\" ";
-        yield " class=\"story-card__image\" aria-hidden=\"true\"/>
+\t\t\t";
+        // line 17
+        yield $macros["images"]->getTemplateForMacro("macro_responsiveImage", $context, 17, $this->getSourceContext())->macro_responsiveImage(...[        // line 18
+($context["image"] ?? null), "", "story-card__image", true, true]);
+        // line 23
+        yield "
 \t\t</div>
 \t\t<div class=\"story-card__content\">
 \t\t\t";
-        // line 18
+        // line 26
         if (($context["date"] ?? null)) {
-            // line 19
+            // line 27
             yield "\t\t\t\t<time class=\"story-card__date\">";
             yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["date"] ?? null), "html", null, true);
             yield "</time>
 \t\t\t";
         }
-        // line 21
+        // line 29
         yield "\t\t\t<h3 id=\"story-title-";
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(Twig\Extension\CoreExtension::lower($this->env->getCharset(), Twig\Extension\CoreExtension::replace(($context["title"] ?? null), [" " => "-"])), "html", null, true);
         yield "\" class=\"story-card__title\">
 \t\t\t\t";
-        // line 22
+        // line 30
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["title"] ?? null), "html", null, true);
         yield "
 \t\t\t</h3>
 \t\t\t<p class=\"story-card__author\">by
 \t\t\t\t";
-        // line 25
+        // line 33
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["author"] ?? null), "html", null, true);
         yield "</p>
 \t\t\t<hr class=\"story-card__divider\" aria-hidden=\"true\"/>
 \t\t\t<div class=\"story-card__faux-button button button--secondary\" aria-labelledby=\"story-title-";
-        // line 27
+        // line 35
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(Twig\Extension\CoreExtension::lower($this->env->getCharset(), Twig\Extension\CoreExtension::replace(($context["title"] ?? null), [" " => "-"])), "html", null, true);
         yield "\" aria-hidden=\"true\">Read Story<span></span>
 \t\t\t</div>
@@ -119,26 +125,34 @@ class __TwigTemplate_61d3125a3f12a82a4af5670b49e312b2 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  91 => 27,  86 => 25,  80 => 22,  75 => 21,  69 => 19,  67 => 18,  60 => 15,  53 => 14,  51 => 13,  49 => 12,  45 => 10,  42 => 9,);
+        return array (  97 => 35,  92 => 33,  86 => 30,  81 => 29,  75 => 27,  73 => 26,  68 => 23,  66 => 18,  65 => 17,  58 => 16,  56 => 15,  54 => 14,  50 => 12,  47 => 11,  45 => 10,  42 => 9,);
     }
 
     public function getSourceContext(): Source
     {
         return new Source("{# 
   StoryCard Component
-  @param {string} image - The image URL
+  @param {string} image - The base image path (without desktop/tablet/mobile folder)
   @param {string} date - Optional date of the story
   @param {string} title - The story title
   @param {string} author - The author name
   @param {string} href - The link URL
 #}
 
+{% import \"macros/responsive-image.twig\" as images %}
+
 <article class=\"story-card\" aria-labelledby=\"story-title-{{ title|replace({' ': '-'})|lower }}\">
 \t{# The article element is used to indicate that this is a self-contained piece of content #}
 \t{# The aria-labelledby attribute associates the title with the article for screen readers #}
 \t{# The href attribute is used to link to the story page #}
 \t\t<a href=\"{{ href }}\" aria-labelledby=\"story-title-{{ title|replace({' ': '-'})|lower }}\"> <div class=\"story-card__image-container\">
-\t\t\t<img src=\"{{ image }}\" alt=\"\" {# Decorative image, content described in title/text #} class=\"story-card__image\" aria-hidden=\"true\"/>
+\t\t\t{{ images.responsiveImage(
+\t\t\t\timage,
+\t\t\t\t'',
+\t\t\t\t'story-card__image',
+\t\t\t\ttrue,
+\t\t\t\ttrue
+\t\t\t) }}
 \t\t</div>
 \t\t<div class=\"story-card__content\">
 \t\t\t{% if date %}
