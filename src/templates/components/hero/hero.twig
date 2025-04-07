@@ -14,6 +14,7 @@
   @param {string} backgroundColor - Background color (black|white)
   @param {boolean} standout - Whether to show standout content
   @param {boolean} short - Whether to show short version
+  @param {boolean} isFirstSection - Whether this is the first section on the page
 #}
 
 {% set backgroundClass = backgroundColor == 'black' ? 'background--black' : 'background--white' %}
@@ -42,7 +43,8 @@
 		<p class="eyebrow h4" aria-level="2" role="heading">{{ params.eyebrow }}</p>
 	{% endif %}
 
-	<h1 id="hero-title-{{ params.title|replace({' ': '-'})|lower }}" class="title">{{ params.title }}</h1>
+	{% set headingLevel = params.isFirstSection|default(false) ? 'h1' : 'h2' %}
+	<{{ headingLevel }} id="hero-title-{{ params.title|replace({' ': '-'})|lower }}" class="title {% if not params.isFirstSection %}h1{% endif %}">{{ params.title }}</{{ headingLevel }}>
 
 	{% if params.date or params.author %}
 		<div class="meta">

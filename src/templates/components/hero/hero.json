@@ -9,7 +9,8 @@
       "backgroundColor": "black",
       "standout": true,
       "buttonText": "Get an invite",
-      "buttonHref": "/stories/"
+      "buttonHref": "/stories/",
+      "isFirstSection": true
     },
     {
       "title": "Beautiful stories.",
