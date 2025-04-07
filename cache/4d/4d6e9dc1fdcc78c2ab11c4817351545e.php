@@ -42,7 +42,10 @@ class __TwigTemplate_397c7d699e03d37b53b519a376ed264b extends Template
         yield "
 <nav class=\"nav grid-container\" aria-label=\"Main\">
 \t<div class=\"navContainer main-width\">
-\t\t<a href=\"/\" class=\"logoLink\" aria-label=\"Photosnap home\">
+\t\t<a href=\"";
+        // line 5
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["base_path"] ?? null), "html", null, true);
+        yield "/\" class=\"logoLink\" aria-label=\"Photosnap home\">
 \t\t\t";
         // line 6
         yield from $this->loadTemplate("components/logo/logo.twig", "components/navigation/navigation.twig", 6)->unwrap()->yield($context);
@@ -57,13 +60,22 @@ class __TwigTemplate_397c7d699e03d37b53b519a376ed264b extends Template
 \t\t<div id=\"main-menu\" class=\"menuContainer\" data-menu>
 \t\t\t<ul class=\"menu\" role=\"list\">
 \t\t\t\t<li>
-\t\t\t\t\t<a href=\"stories.html\">Stories</a>
+\t\t\t\t\t<a href=\"";
+        // line 17
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["base_path"] ?? null), "html", null, true);
+        yield "/stories.html\">Stories</a>
 \t\t\t\t</li>
 \t\t\t\t<li>
-\t\t\t\t\t<a href=\"features.html\">Features</a>
+\t\t\t\t\t<a href=\"";
+        // line 20
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["base_path"] ?? null), "html", null, true);
+        yield "/features.html\">Features</a>
 \t\t\t\t</li>
 \t\t\t\t<li>
-\t\t\t\t\t<a href=\"pricing.html\">Pricing</a>
+\t\t\t\t\t<a href=\"";
+        // line 23
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["base_path"] ?? null), "html", null, true);
+        yield "/pricing.html\">Pricing</a>
 \t\t\t\t</li>
 \t\t\t</ul>
 \t\t\t";
@@ -76,54 +88,54 @@ class __TwigTemplate_397c7d699e03d37b53b519a376ed264b extends Template
 
 <script>
 \tdocument.addEventListener('DOMContentLoaded', function () {
-const menuToggle = document.querySelector('[data-menu-toggle]');
-const menu = document.querySelector('[data-menu]');
-const mainContent = document.querySelector('main');
-let isOpen = false;
+\t\tconst menuToggle = document.querySelector('[data-menu-toggle]');
+\t\tconst menu = document.querySelector('[data-menu]');
+\t\tconst mainContent = document.querySelector('main');
+\t\tlet isOpen = false;
 
-function checkMobile() {
-return window.innerWidth < 768;
-}
+\t\tfunction checkMobile() {
+\t\t\treturn window.innerWidth < 768;
+\t\t}
 
-function toggleMenu() {
-isOpen = ! isOpen;
-menuToggle.classList.toggle('open', isOpen);
-menu.classList.toggle('open', isOpen);
-menuToggle.setAttribute('aria-expanded', isOpen);
+\t\tfunction toggleMenu() {
+\t\t\tisOpen = !isOpen;
+\t\t\tmenuToggle.classList.toggle('open', isOpen);
+\t\t\tmenu.classList.toggle('open', isOpen);
+\t\t\tmenuToggle.setAttribute('aria-expanded', isOpen);
 
-if (mainContent) {
-if (isOpen) {
-mainContent.inert = true;
-// Focus first menu item when opening
-setTimeout(() => {
-const firstLink = menu.querySelector('a');
-firstLink ?. focus();
-}, 100);
-} else {
-mainContent.inert = false;
-}
-}
-}
+\t\t\tif (mainContent) {
+\t\t\t\tif (isOpen) {
+\t\t\t\t\tmainContent.inert = true;
+\t\t\t\t\t// Focus first menu item when opening
+\t\t\t\t\tsetTimeout(() => {
+\t\t\t\t\t\tconst firstLink = menu.querySelector('a');
+\t\t\t\t\t\tfirstLink?.focus();
+\t\t\t\t\t}, 100);
+\t\t\t\t} else {
+\t\t\t\t\tmainContent.inert = false;
+\t\t\t\t}
+\t\t\t}
+\t\t}
 
-menuToggle.addEventListener('click', toggleMenu);
+\t\tmenuToggle.addEventListener('click', toggleMenu);
 
-// Handle escape key
-menu.addEventListener('keydown', (e) => {
-if (e.key === 'Escape' && isOpen) {
-toggleMenu();
-}
-});
+\t\t// Handle escape key
+\t\tmenu.addEventListener('keydown', (e) => {
+\t\t\tif (e.key === 'Escape' && isOpen) {
+\t\t\t\ttoggleMenu();
+\t\t\t}
+\t\t});
 
-// Update mobile state on resize
-window.addEventListener('resize', () => {
-const isMobile = checkMobile();
-if (! isMobile && menu) {
-menu.inert = false;
-} else if (isMobile && menu) {
-menu.inert = ! isOpen;
-}
-});
-});
+\t\t// Update mobile state on resize
+\t\twindow.addEventListener('resize', () => {
+\t\t\tconst isMobile = checkMobile();
+\t\t\tif (!isMobile && menu) {
+\t\t\t\tmenu.inert = false;
+\t\t\t} else if (isMobile && menu) {
+\t\t\t\tmenu.inert = !isOpen;
+\t\t\t}
+\t\t});
+\t});
 </script>
 ";
         yield from [];
@@ -150,7 +162,7 @@ menu.inert = ! isOpen;
      */
     public function getDebugInfo(): array
     {
-        return array (  73 => 32,  71 => 26,  50 => 7,  48 => 6,  42 => 2,);
+        return array (  85 => 32,  83 => 26,  77 => 23,  71 => 20,  65 => 17,  53 => 7,  51 => 6,  47 => 5,  42 => 2,);
     }
 
     public function getSourceContext(): Source
@@ -159,7 +171,7 @@ menu.inert = ! isOpen;
 
 <nav class=\"nav grid-container\" aria-label=\"Main\">
 \t<div class=\"navContainer main-width\">
-\t\t<a href=\"/\" class=\"logoLink\" aria-label=\"Photosnap home\">
+\t\t<a href=\"{{ base_path }}/\" class=\"logoLink\" aria-label=\"Photosnap home\">
 \t\t\t{% include 'components/logo/logo.twig' %}
 \t\t</a>
 
@@ -171,13 +183,13 @@ menu.inert = ! isOpen;
 \t\t<div id=\"main-menu\" class=\"menuContainer\" data-menu>
 \t\t\t<ul class=\"menu\" role=\"list\">
 \t\t\t\t<li>
-\t\t\t\t\t<a href=\"stories.html\">Stories</a>
+\t\t\t\t\t<a href=\"{{ base_path }}/stories.html\">Stories</a>
 \t\t\t\t</li>
 \t\t\t\t<li>
-\t\t\t\t\t<a href=\"features.html\">Features</a>
+\t\t\t\t\t<a href=\"{{ base_path }}/features.html\">Features</a>
 \t\t\t\t</li>
 \t\t\t\t<li>
-\t\t\t\t\t<a href=\"pricing.html\">Pricing</a>
+\t\t\t\t\t<a href=\"{{ base_path }}/pricing.html\">Pricing</a>
 \t\t\t\t</li>
 \t\t\t</ul>
 \t\t\t{% include 'components/button/button.twig' with {
@@ -192,54 +204,54 @@ menu.inert = ! isOpen;
 
 <script>
 \tdocument.addEventListener('DOMContentLoaded', function () {
-const menuToggle = document.querySelector('[data-menu-toggle]');
-const menu = document.querySelector('[data-menu]');
-const mainContent = document.querySelector('main');
-let isOpen = false;
+\t\tconst menuToggle = document.querySelector('[data-menu-toggle]');
+\t\tconst menu = document.querySelector('[data-menu]');
+\t\tconst mainContent = document.querySelector('main');
+\t\tlet isOpen = false;
 
-function checkMobile() {
-return window.innerWidth < 768;
-}
+\t\tfunction checkMobile() {
+\t\t\treturn window.innerWidth < 768;
+\t\t}
 
-function toggleMenu() {
-isOpen = ! isOpen;
-menuToggle.classList.toggle('open', isOpen);
-menu.classList.toggle('open', isOpen);
-menuToggle.setAttribute('aria-expanded', isOpen);
+\t\tfunction toggleMenu() {
+\t\t\tisOpen = !isOpen;
+\t\t\tmenuToggle.classList.toggle('open', isOpen);
+\t\t\tmenu.classList.toggle('open', isOpen);
+\t\t\tmenuToggle.setAttribute('aria-expanded', isOpen);
 
-if (mainContent) {
-if (isOpen) {
-mainContent.inert = true;
-// Focus first menu item when opening
-setTimeout(() => {
-const firstLink = menu.querySelector('a');
-firstLink ?. focus();
-}, 100);
-} else {
-mainContent.inert = false;
-}
-}
-}
+\t\t\tif (mainContent) {
+\t\t\t\tif (isOpen) {
+\t\t\t\t\tmainContent.inert = true;
+\t\t\t\t\t// Focus first menu item when opening
+\t\t\t\t\tsetTimeout(() => {
+\t\t\t\t\t\tconst firstLink = menu.querySelector('a');
+\t\t\t\t\t\tfirstLink?.focus();
+\t\t\t\t\t}, 100);
+\t\t\t\t} else {
+\t\t\t\t\tmainContent.inert = false;
+\t\t\t\t}
+\t\t\t}
+\t\t}
 
-menuToggle.addEventListener('click', toggleMenu);
+\t\tmenuToggle.addEventListener('click', toggleMenu);
 
-// Handle escape key
-menu.addEventListener('keydown', (e) => {
-if (e.key === 'Escape' && isOpen) {
-toggleMenu();
-}
-});
+\t\t// Handle escape key
+\t\tmenu.addEventListener('keydown', (e) => {
+\t\t\tif (e.key === 'Escape' && isOpen) {
+\t\t\t\ttoggleMenu();
+\t\t\t}
+\t\t});
 
-// Update mobile state on resize
-window.addEventListener('resize', () => {
-const isMobile = checkMobile();
-if (! isMobile && menu) {
-menu.inert = false;
-} else if (isMobile && menu) {
-menu.inert = ! isOpen;
-}
-});
-});
+\t\t// Update mobile state on resize
+\t\twindow.addEventListener('resize', () => {
+\t\t\tconst isMobile = checkMobile();
+\t\t\tif (!isMobile && menu) {
+\t\t\t\tmenu.inert = false;
+\t\t\t} else if (isMobile && menu) {
+\t\t\t\tmenu.inert = !isOpen;
+\t\t\t}
+\t\t});
+\t});
 </script>
 ", "components/navigation/navigation.twig", "/Users/stevenportas/WorkBox/Sites/demos/demo-photosnap-twig/src/templates/components/navigation/navigation.twig");
     }

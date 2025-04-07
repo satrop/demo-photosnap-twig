@@ -2,7 +2,7 @@
 
 <nav class="nav grid-container" aria-label="Main">
 	<div class="navContainer main-width">
-		<a href="/" class="logoLink" aria-label="Photosnap home">
+		<a href="{{ base_path }}/" class="logoLink" aria-label="Photosnap home">
 			{% include 'components/logo/logo.twig' %}
 		</a>
 
@@ -14,13 +14,13 @@
 		<div id="main-menu" class="menuContainer" data-menu>
 			<ul class="menu" role="list">
 				<li>
-					<a href="stories.html">Stories</a>
+					<a href="{{ base_path }}/stories.html">Stories</a>
 				</li>
 				<li>
-					<a href="features.html">Features</a>
+					<a href="{{ base_path }}/features.html">Features</a>
 				</li>
 				<li>
-					<a href="pricing.html">Pricing</a>
+					<a href="{{ base_path }}/pricing.html">Pricing</a>
 				</li>
 			</ul>
 			{% include 'components/button/button.twig' with {
@@ -35,52 +35,52 @@
 
 <script>
 	document.addEventListener('DOMContentLoaded', function () {
-const menuToggle = document.querySelector('[data-menu-toggle]');
-const menu = document.querySelector('[data-menu]');
-const mainContent = document.querySelector('main');
-let isOpen = false;
+		const menuToggle = document.querySelector('[data-menu-toggle]');
+		const menu = document.querySelector('[data-menu]');
+		const mainContent = document.querySelector('main');
+		let isOpen = false;
 
-function checkMobile() {
-return window.innerWidth < 768;
-}
+		function checkMobile() {
+			return window.innerWidth < 768;
+		}
 
-function toggleMenu() {
-isOpen = ! isOpen;
-menuToggle.classList.toggle('open', isOpen);
-menu.classList.toggle('open', isOpen);
-menuToggle.setAttribute('aria-expanded', isOpen);
+		function toggleMenu() {
+			isOpen = !isOpen;
+			menuToggle.classList.toggle('open', isOpen);
+			menu.classList.toggle('open', isOpen);
+			menuToggle.setAttribute('aria-expanded', isOpen);
 
-if (mainContent) {
-if (isOpen) {
-mainContent.inert = true;
-// Focus first menu item when opening
-setTimeout(() => {
-const firstLink = menu.querySelector('a');
-firstLink ?. focus();
-}, 100);
-} else {
-mainContent.inert = false;
-}
-}
-}
+			if (mainContent) {
+				if (isOpen) {
+					mainContent.inert = true;
+					// Focus first menu item when opening
+					setTimeout(() => {
+						const firstLink = menu.querySelector('a');
+						firstLink?.focus();
+					}, 100);
+				} else {
+					mainContent.inert = false;
+				}
+			}
+		}
 
-menuToggle.addEventListener('click', toggleMenu);
+		menuToggle.addEventListener('click', toggleMenu);
 
-// Handle escape key
-menu.addEventListener('keydown', (e) => {
-if (e.key === 'Escape' && isOpen) {
-toggleMenu();
-}
-});
+		// Handle escape key
+		menu.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape' && isOpen) {
+				toggleMenu();
+			}
+		});
 
-// Update mobile state on resize
-window.addEventListener('resize', () => {
-const isMobile = checkMobile();
-if (! isMobile && menu) {
-menu.inert = false;
-} else if (isMobile && menu) {
-menu.inert = ! isOpen;
-}
-});
-});
+		// Update mobile state on resize
+		window.addEventListener('resize', () => {
+			const isMobile = checkMobile();
+			if (!isMobile && menu) {
+				menu.inert = false;
+			} else if (isMobile && menu) {
+				menu.inert = !isOpen;
+			}
+		});
+	});
 </script>

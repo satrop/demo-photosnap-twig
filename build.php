@@ -57,6 +57,9 @@ $commonData = [
 $loader = new \Twig\Loader\FilesystemLoader($templatesDir);
 $twig = new \Twig\Environment($loader);
 
+// Add global variable for base URL in GitHub Pages
+$twig->addGlobal('base_path', '/demo-photosnap-twig');
+
 // Compile templates with their required data
 $pages = [
     'pages/index.twig' => [

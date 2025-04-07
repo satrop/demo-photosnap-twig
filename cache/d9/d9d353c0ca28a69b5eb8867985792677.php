@@ -80,7 +80,10 @@ class __TwigTemplate_0953a4a40e39f219b0c96f8db958248f extends Template
     <meta property=\"og:site_name\" content=\"Photosnap\">
     <meta property=\"og:locale\" content=\"en-US\">
     <meta property=\"og:type\" content=\"website\">
-    <meta property=\"og:image\" content=\"/images/og-image.png\">
+    <meta property=\"og:image\" content=\"";
+        // line 18
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["base_path"] ?? null), "html", null, true);
+        yield "/images/og-image.png\">
     <meta property=\"og:image:width\" content=\"1200\">
     <meta property=\"og:image:height\" content=\"630\">
     <meta property=\"og:image:alt\" content=\"Photosnap Website\">
@@ -97,7 +100,9 @@ class __TwigTemplate_0953a4a40e39f219b0c96f8db958248f extends Template
 
     ";
         // line 32
-        yield "    <link rel=\"stylesheet\" href=\"/css/main.css\" />
+        yield "    <link rel=\"stylesheet\" href=\"";
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["base_path"] ?? null), "html", null, true);
+        yield "/css/main.css\" />
 
     ";
         // line 34
@@ -126,7 +131,10 @@ class __TwigTemplate_0953a4a40e39f219b0c96f8db958248f extends Template
         yield from $this->unwrap()->yieldBlock('footer', $context, $blocks);
         // line 52
         yield "
-    <script src=\"/js/main.js\"></script>
+    <script src=\"";
+        // line 53
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["base_path"] ?? null), "html", null, true);
+        yield "/js/main.js\"></script>
     ";
         // line 54
         yield from $this->unwrap()->yieldBlock('scripts', $context, $blocks);
@@ -229,7 +237,7 @@ class __TwigTemplate_0953a4a40e39f219b0c96f8db958248f extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  202 => 54,  197 => 51,  194 => 50,  187 => 49,  177 => 46,  172 => 43,  169 => 42,  162 => 41,  152 => 34,  141 => 6,  134 => 55,  132 => 54,  128 => 52,  126 => 49,  122 => 47,  120 => 46,  116 => 44,  114 => 41,  106 => 35,  104 => 34,  100 => 32,  96 => 29,  90 => 24,  78 => 14,  74 => 13,  69 => 12,  63 => 9,  58 => 6,  51 => 2,  48 => 1,);
+        return array (  210 => 54,  205 => 51,  202 => 50,  195 => 49,  185 => 46,  180 => 43,  177 => 42,  170 => 41,  160 => 34,  149 => 6,  142 => 55,  140 => 54,  136 => 53,  133 => 52,  131 => 49,  127 => 47,  125 => 46,  121 => 44,  119 => 41,  111 => 35,  109 => 34,  103 => 32,  99 => 29,  93 => 24,  85 => 18,  78 => 14,  74 => 13,  69 => 12,  63 => 9,  58 => 6,  51 => 2,  48 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -251,7 +259,7 @@ class __TwigTemplate_0953a4a40e39f219b0c96f8db958248f extends Template
     <meta property=\"og:site_name\" content=\"Photosnap\">
     <meta property=\"og:locale\" content=\"en-US\">
     <meta property=\"og:type\" content=\"website\">
-    <meta property=\"og:image\" content=\"/images/og-image.png\">
+    <meta property=\"og:image\" content=\"{{ base_path }}/images/og-image.png\">
     <meta property=\"og:image:width\" content=\"1200\">
     <meta property=\"og:image:height\" content=\"630\">
     <meta property=\"og:image:alt\" content=\"Photosnap Website\">
@@ -265,7 +273,7 @@ class __TwigTemplate_0953a4a40e39f219b0c96f8db958248f extends Template
     <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">
 
     {# Styles #}
-    <link rel=\"stylesheet\" href=\"/css/main.css\" />
+    <link rel=\"stylesheet\" href=\"{{ base_path }}/css/main.css\" />
 
     {% block head %}{% endblock %}
   </head>
@@ -286,7 +294,7 @@ class __TwigTemplate_0953a4a40e39f219b0c96f8db958248f extends Template
       {% include 'components/footer/footer.twig' %}
     {% endblock %}
 
-    <script src=\"/js/main.js\"></script>
+    <script src=\"{{ base_path }}/js/main.js\"></script>
     {% block scripts %}{% endblock %}
   </body>
 </html>

@@ -48,7 +48,10 @@ class __TwigTemplate_e8b1f7b951561c0c4c70a628697417e3 extends Template
 \t<div class=\"container main-width\">
 \t\t<div class=\"col\">
 \t\t\t<div class=\"logoSection\">
-\t\t\t\t<a href=\"/\" aria-label=\"Photosnap home\">
+\t\t\t\t<a href=\"";
+        // line 8
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["base_path"] ?? null), "html", null, true);
+        yield "/\" aria-label=\"Photosnap home\">
 \t\t\t\t\t";
         // line 9
         yield from $this->loadTemplate("components/logo/logo.twig", "components/footer/footer.twig", 9)->unwrap()->yield($context);
@@ -105,6 +108,7 @@ class __TwigTemplate_e8b1f7b951561c0c4c70a628697417e3 extends Template
             yield "\t\t\t\t\t\t<li>
 \t\t\t\t\t\t\t<a href=\"";
             // line 31
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["base_path"] ?? null), "html", null, true);
             yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["link"], "url", [], "any", false, false, false, 31), "html", null, true);
             yield "\">";
             yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["link"], "text", [], "any", false, false, false, 31), "html", null, true);
@@ -161,7 +165,7 @@ class __TwigTemplate_e8b1f7b951561c0c4c70a628697417e3 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  133 => 48,  128 => 45,  126 => 39,  119 => 34,  108 => 31,  105 => 30,  101 => 29,  96 => 27,  90 => 23,  80 => 19,  74 => 18,  71 => 17,  67 => 16,  62 => 14,  56 => 10,  54 => 9,  47 => 4,  44 => 2,  42 => 1,);
+        return array (  137 => 48,  132 => 45,  130 => 39,  123 => 34,  111 => 31,  108 => 30,  104 => 29,  99 => 27,  93 => 23,  83 => 19,  77 => 18,  74 => 17,  70 => 16,  65 => 14,  59 => 10,  57 => 9,  53 => 8,  47 => 4,  44 => 2,  42 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -173,7 +177,7 @@ class __TwigTemplate_e8b1f7b951561c0c4c70a628697417e3 extends Template
 \t<div class=\"container main-width\">
 \t\t<div class=\"col\">
 \t\t\t<div class=\"logoSection\">
-\t\t\t\t<a href=\"/\" aria-label=\"Photosnap home\">
+\t\t\t\t<a href=\"{{ base_path }}/\" aria-label=\"Photosnap home\">
 \t\t\t\t\t{% include 'components/logo/logo.twig' %}
 \t\t\t\t</a>
 \t\t\t</div>
@@ -196,7 +200,7 @@ class __TwigTemplate_e8b1f7b951561c0c4c70a628697417e3 extends Template
 \t\t\t\t<ul role=\"list\">
 \t\t\t\t\t{% for link in data.navigation.links %}
 \t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t<a href=\"{{ link.url }}\">{{ link.text }}</a>
+\t\t\t\t\t\t\t<a href=\"{{ base_path }}{{ link.url }}\">{{ link.text }}</a>
 \t\t\t\t\t\t</li>
 \t\t\t\t\t{% endfor %}
 \t\t\t\t</ul>

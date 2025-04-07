@@ -5,7 +5,7 @@
 	<div class="container main-width">
 		<div class="col">
 			<div class="logoSection">
-				<a href="/" aria-label="Photosnap home">
+				<a href="{{ base_path }}/" aria-label="Photosnap home">
 					{% include 'components/logo/logo.twig' %}
 				</a>
 			</div>
@@ -28,7 +28,7 @@
 				<ul role="list">
 					{% for link in data.navigation.links %}
 						<li>
-							<a href="{{ link.url }}">{{ link.text }}</a>
+							<a href="{{ base_path }}{{ link.url }}">{{ link.text }}</a>
 						</li>
 					{% endfor %}
 				</ul>
