@@ -38,7 +38,9 @@ $twig = new \Twig\Environment($loader);
 // Compile templates
 $pages = [
     'pages/index.twig' => 'index.html',
-    // Add more pages here as needed
+    'pages/stories.twig' => 'stories.html',
+    'pages/features.twig' => 'features.html',
+    'pages/pricing.twig' => 'pricing.html'
 ];
 
 foreach ($pages as $template => $outputFile) {
