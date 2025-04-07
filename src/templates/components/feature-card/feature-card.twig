@@ -7,17 +7,13 @@
   @param {number} height - Optional icon height
 #}
 
-<article class="feature-card">
-  <div class="feature-card__icon" aria-hidden="true">
-    <img src="{{ icon }}"
-         alt=""
-         width="{{ width|default(72) }}"
-         height="{{ height|default(72) }}"
-         aria-hidden="true"
-    />
-  </div>
-  <h3 class="feature-card__title">{{ title }}</h3>
-  <p class="feature-card__description" style="color: var(--text-muted)">
-    {{ description }}
-  </p>
+<article class="feature-card" aria-labelledby="feature-title-{{ title|replace({' ': '-'})|lower }}">
+	{# The article element is used to indicate that this is a self-contained piece of content #}
+	{# The aria-labelledby attribute associates the title with the article for screen readers #}
+		<div class="feature-card__icon" aria-hidden="true"> <img src="{{ icon }}" alt="" width="{{ width|default(72) }}" height="{{ height|default(72) }}" aria-hidden="true"/>
+	</div>
+	<h3 class="feature-card__title" id="feature-title-{{ title|replace({' ': '-'})|lower }}">{{ title }}</h3>
+	<p class="feature-card__description" style="color: var(--text-muted)">
+		{{ description }}
+	</p>
 </article>

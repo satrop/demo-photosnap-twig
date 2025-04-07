@@ -7,9 +7,11 @@
   @param {string} href - The link URL
 #}
 
-<article class="story-card">
-	<a href="{{ href }}"  aria-labelledby="story-title-{{ title|replace({' ': '-'})|lower }}">
-		<div class="story-card__image-container">
+<article class="story-card" aria-labelledby="story-title-{{ title|replace({' ': '-'})|lower }}">
+	{# The article element is used to indicate that this is a self-contained piece of content #}
+	{# The aria-labelledby attribute associates the title with the article for screen readers #}
+	{# The href attribute is used to link to the story page #}
+		<a href="{{ href }}" aria-labelledby="story-title-{{ title|replace({' ': '-'})|lower }}"> <div class="story-card__image-container">
 			<img src="{{ image }}" alt="" {# Decorative image, content described in title/text #} class="story-card__image" aria-hidden="true"/>
 		</div>
 		<div class="story-card__content">

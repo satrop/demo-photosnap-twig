@@ -40,35 +40,36 @@ class __TwigTemplate_9edf02a776ce74eef5a9b242f7513e7b extends Template
         $macros = $this->macros;
         // line 9
         yield "
-<article class=\"feature-card\">
-  <div class=\"feature-card__icon\" aria-hidden=\"true\">
-    <img src=\"";
+<article class=\"feature-card\" aria-labelledby=\"feature-title-";
+        // line 10
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(Twig\Extension\CoreExtension::lower($this->env->getCharset(), Twig\Extension\CoreExtension::replace(($context["title"] ?? null), [" " => "-"])), "html", null, true);
+        yield "\">
+\t";
         // line 12
+        yield "\t";
+        // line 13
+        yield "\t\t<div class=\"feature-card__icon\" aria-hidden=\"true\"> <img src=\"";
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["icon"] ?? null), "html", null, true);
-        yield "\"
-         alt=\"\"
-         width=\"";
-        // line 14
+        yield "\" alt=\"\" width=\"";
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((array_key_exists("width", $context)) ? (Twig\Extension\CoreExtension::default(($context["width"] ?? null), 72)) : (72)), "html", null, true);
-        yield "\"
-         height=\"";
-        // line 15
+        yield "\" height=\"";
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((array_key_exists("height", $context)) ? (Twig\Extension\CoreExtension::default(($context["height"] ?? null), 72)) : (72)), "html", null, true);
-        yield "\"
-         aria-hidden=\"true\"
-    />
-  </div>
-  <h3 class=\"feature-card__title\">";
-        // line 19
+        yield "\" aria-hidden=\"true\"/>
+\t</div>
+\t<h3 class=\"feature-card__title\" id=\"feature-title-";
+        // line 15
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(Twig\Extension\CoreExtension::lower($this->env->getCharset(), Twig\Extension\CoreExtension::replace(($context["title"] ?? null), [" " => "-"])), "html", null, true);
+        yield "\">";
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["title"] ?? null), "html", null, true);
         yield "</h3>
-  <p class=\"feature-card__description\" style=\"color: var(--text-muted)\">
-    ";
-        // line 21
+\t<p class=\"feature-card__description\" style=\"color: var(--text-muted)\">
+\t\t";
+        // line 17
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["description"] ?? null), "html", null, true);
         yield "
-  </p>
-</article>";
+\t</p>
+</article>
+";
         yield from [];
     }
 
@@ -93,7 +94,7 @@ class __TwigTemplate_9edf02a776ce74eef5a9b242f7513e7b extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  68 => 21,  63 => 19,  56 => 15,  52 => 14,  47 => 12,  42 => 9,);
+        return array (  68 => 17,  61 => 15,  51 => 13,  49 => 12,  45 => 10,  42 => 9,);
     }
 
     public function getSourceContext(): Source
@@ -107,19 +108,16 @@ class __TwigTemplate_9edf02a776ce74eef5a9b242f7513e7b extends Template
   @param {number} height - Optional icon height
 #}
 
-<article class=\"feature-card\">
-  <div class=\"feature-card__icon\" aria-hidden=\"true\">
-    <img src=\"{{ icon }}\"
-         alt=\"\"
-         width=\"{{ width|default(72) }}\"
-         height=\"{{ height|default(72) }}\"
-         aria-hidden=\"true\"
-    />
-  </div>
-  <h3 class=\"feature-card__title\">{{ title }}</h3>
-  <p class=\"feature-card__description\" style=\"color: var(--text-muted)\">
-    {{ description }}
-  </p>
-</article>", "components/feature-card/feature-card.twig", "/Users/stevenportas/WorkBox/Sites/demos/demo-photosnap-twig/src/templates/components/feature-card/feature-card.twig");
+<article class=\"feature-card\" aria-labelledby=\"feature-title-{{ title|replace({' ': '-'})|lower }}\">
+\t{# The article element is used to indicate that this is a self-contained piece of content #}
+\t{# The aria-labelledby attribute associates the title with the article for screen readers #}
+\t\t<div class=\"feature-card__icon\" aria-hidden=\"true\"> <img src=\"{{ icon }}\" alt=\"\" width=\"{{ width|default(72) }}\" height=\"{{ height|default(72) }}\" aria-hidden=\"true\"/>
+\t</div>
+\t<h3 class=\"feature-card__title\" id=\"feature-title-{{ title|replace({' ': '-'})|lower }}\">{{ title }}</h3>
+\t<p class=\"feature-card__description\" style=\"color: var(--text-muted)\">
+\t\t{{ description }}
+\t</p>
+</article>
+", "components/feature-card/feature-card.twig", "/Users/stevenportas/WorkBox/Sites/demos/demo-photosnap-twig/src/templates/components/feature-card/feature-card.twig");
     }
 }
