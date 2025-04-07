@@ -1,44 +1,69 @@
-.feature-cards-container {
-  display: grid;
-  gap: 3.5rem;
-  padding: 5rem 2rem;
-  max-width: var(--main-width);
-  margin: 0 auto;
-  text-align: center;
+@use '../../../scss/global-scss/_breakpoints.scss' as bp;
 
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem 1rem;
-    padding: 7.5rem 2.5rem;
+// Feature Card Container Layout
+.feature-cards-container {
+  --difference: 3.5rem;
+  gap: var(--difference);
+  display: grid;
+  justify-items: center;
+  padding: var(--pad-lg) var(--pad-sm);
+  grid-template-columns: repeat(auto-fit, minmax(min(310px, 100%), 1fr));
+
+  .feature-card {
+    max-width: 310px;
   }
 
-  @media (min-width: 1024px) {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 4rem 2rem;
-    padding: 10rem 2.5rem;
+  &:not(:has(:nth-child(4))) {
+    grid-template-columns: 1fr;
+
+    .feature-card {
+      max-width: 475px;
+    }
+
+    @media (min-width: bp.$bp-md) {
+      grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr));
+    }
+  }
+
+  @media (min-width: bp.$bp-md) {
+    --difference: 1.875rem;
+    row-gap: 5rem;
+    padding-block: var(--pad-xl);
+
+    .feature-card {
+      max-width: 350px;
+    }
+  }
+
+  @media (min-width: bp.$bp-lg) {
+    row-gap: 6.5rem;
   }
 }
 
+// Feature Card Layout
 .feature-card {
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3rem;
+  gap: 2rem;
 
   &__icon {
-    height: 72px;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    width: 72px;
+    height: 72px;
   }
 
   &__title {
-    margin-bottom: 1rem;
+    font-size: var(--lg);
+    color: var(--color-text);
   }
 
   &__description {
+    font-size: var(--sm);
+    line-height: 1.5;
     opacity: 0.6;
-    max-width: 21.875rem;
-    margin: 0 auto;
   }
 }

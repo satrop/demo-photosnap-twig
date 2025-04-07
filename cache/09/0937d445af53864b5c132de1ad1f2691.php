@@ -109,7 +109,7 @@ class __TwigTemplate_e8b1f7b951561c0c4c70a628697417e3 extends Template
 \t\t\t\t\t\t\t<a href=\"";
             // line 31
             yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["base_path"] ?? null), "html", null, true);
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["link"], "url", [], "any", false, false, false, 31), "html", null, true);
+            yield ((($context["is_github_pages"] ?? null)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((CoreExtension::getAttribute($this->env, $this->source, $context["link"], "url", [], "any", false, false, false, 31) . ".html"), "html", null, true)) : ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["link"], "url", [], "any", false, false, false, 31), "html", null, true)));
             yield "\">";
             yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["link"], "text", [], "any", false, false, false, 31), "html", null, true);
             yield "</a>
@@ -200,7 +200,7 @@ class __TwigTemplate_e8b1f7b951561c0c4c70a628697417e3 extends Template
 \t\t\t\t<ul role=\"list\">
 \t\t\t\t\t{% for link in data.navigation.links %}
 \t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t<a href=\"{{ base_path }}{{ link.url }}\">{{ link.text }}</a>
+\t\t\t\t\t\t\t<a href=\"{{ base_path }}{{ is_github_pages ? link.url ~ '.html' : link.url }}\">{{ link.text }}</a>
 \t\t\t\t\t\t</li>
 \t\t\t\t\t{% endfor %}
 \t\t\t\t</ul>

@@ -63,19 +63,25 @@ class __TwigTemplate_397c7d699e03d37b53b519a376ed264b extends Template
 \t\t\t\t\t<a href=\"";
         // line 17
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["base_path"] ?? null), "html", null, true);
-        yield "/stories.html\">Stories</a>
+        yield "/";
+        yield ((($context["is_github_pages"] ?? null)) ? ("stories.html") : ("stories"));
+        yield "\">Stories</a>
 \t\t\t\t</li>
 \t\t\t\t<li>
 \t\t\t\t\t<a href=\"";
         // line 20
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["base_path"] ?? null), "html", null, true);
-        yield "/features.html\">Features</a>
+        yield "/";
+        yield ((($context["is_github_pages"] ?? null)) ? ("features.html") : ("features"));
+        yield "\">Features</a>
 \t\t\t\t</li>
 \t\t\t\t<li>
 \t\t\t\t\t<a href=\"";
         // line 23
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["base_path"] ?? null), "html", null, true);
-        yield "/pricing.html\">Pricing</a>
+        yield "/";
+        yield ((($context["is_github_pages"] ?? null)) ? ("pricing.html") : ("pricing"));
+        yield "\">Pricing</a>
 \t\t\t\t</li>
 \t\t\t</ul>
 \t\t\t";
@@ -162,7 +168,7 @@ class __TwigTemplate_397c7d699e03d37b53b519a376ed264b extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  85 => 32,  83 => 26,  77 => 23,  71 => 20,  65 => 17,  53 => 7,  51 => 6,  47 => 5,  42 => 2,);
+        return array (  91 => 32,  89 => 26,  81 => 23,  73 => 20,  65 => 17,  53 => 7,  51 => 6,  47 => 5,  42 => 2,);
     }
 
     public function getSourceContext(): Source
@@ -183,13 +189,13 @@ class __TwigTemplate_397c7d699e03d37b53b519a376ed264b extends Template
 \t\t<div id=\"main-menu\" class=\"menuContainer\" data-menu>
 \t\t\t<ul class=\"menu\" role=\"list\">
 \t\t\t\t<li>
-\t\t\t\t\t<a href=\"{{ base_path }}/stories.html\">Stories</a>
+\t\t\t\t\t<a href=\"{{ base_path }}/{{ is_github_pages ? 'stories.html' : 'stories' }}\">Stories</a>
 \t\t\t\t</li>
 \t\t\t\t<li>
-\t\t\t\t\t<a href=\"{{ base_path }}/features.html\">Features</a>
+\t\t\t\t\t<a href=\"{{ base_path }}/{{ is_github_pages ? 'features.html' : 'features' }}\">Features</a>
 \t\t\t\t</li>
 \t\t\t\t<li>
-\t\t\t\t\t<a href=\"{{ base_path }}/pricing.html\">Pricing</a>
+\t\t\t\t\t<a href=\"{{ base_path }}/{{ is_github_pages ? 'pricing.html' : 'pricing' }}\">Pricing</a>
 \t\t\t\t</li>
 \t\t\t</ul>
 \t\t\t{% include 'components/button/button.twig' with {

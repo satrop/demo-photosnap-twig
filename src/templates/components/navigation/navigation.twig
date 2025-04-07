@@ -14,13 +14,13 @@
 		<div id="main-menu" class="menuContainer" data-menu>
 			<ul class="menu" role="list">
 				<li>
-					<a href="{{ base_path }}/stories.html">Stories</a>
+					<a href="{{ base_path }}/{{ is_github_pages ? 'stories.html' : 'stories' }}">Stories</a>
 				</li>
 				<li>
-					<a href="{{ base_path }}/features.html">Features</a>
+					<a href="{{ base_path }}/{{ is_github_pages ? 'features.html' : 'features' }}">Features</a>
 				</li>
 				<li>
-					<a href="{{ base_path }}/pricing.html">Pricing</a>
+					<a href="{{ base_path }}/{{ is_github_pages ? 'pricing.html' : 'pricing' }}">Pricing</a>
 				</li>
 			</ul>
 			{% include 'components/button/button.twig' with {

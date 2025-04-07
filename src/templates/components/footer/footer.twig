@@ -28,7 +28,7 @@
 				<ul role="list">
 					{% for link in data.navigation.links %}
 						<li>
-							<a href="{{ base_path }}{{ link.url }}">{{ link.text }}</a>
+							<a href="{{ base_path }}{{ is_github_pages ? link.url ~ '.html' : link.url }}">{{ link.text }}</a>
 						</li>
 					{% endfor %}
 				</ul>

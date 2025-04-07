@@ -8,6 +8,10 @@ $twig = new \Twig\Environment($loader, [
 ]);
 $twig->addExtension(new \Twig\Extension\DebugExtension());
 
+// Add empty base_path for local development
+$twig->addGlobal('base_path', '');
+$twig->addGlobal('is_github_pages', false);
+
 // Add global function to load JSON data
 $twig->addFunction(new \Twig\TwigFunction('load_json', function ($path) use ($loader) {
     $fullPath = dirname($loader->getSourceContext($path . '.json')->getPath());
