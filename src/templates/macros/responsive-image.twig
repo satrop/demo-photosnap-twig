@@ -5,9 +5,10 @@
   @param {string} className - Optional CSS class name(s)
   @param {boolean} decorative - If true, image is decorative and alt text will be empty
   @param {boolean} ariaHidden - If true, adds aria-hidden="true"
+  @param {string} imageFolder - Optional folder name within images/ (default: 'stories')
 #}
 
-{% macro responsiveImage(imagePath, alt, className = '', decorative = false, ariaHidden = false) %}
+{% macro responsiveImage(imagePath, alt, className = '', decorative = false, ariaHidden = false, imageFolder = 'stories') %}
     {# Handle path construction #}
     {% set parts = imagePath|split('/') %}
     {% set filename = parts|last|replace({'.jpg': '', '.webp': ''}) %}
@@ -20,36 +21,24 @@
     <picture>
         {# Mobile WebP #}
         <source
-            srcset="{{ prefix }}/images/stories/mobile/{{ filename }}.webp"
+            srcset="{{ prefix }}/images/{{ imageFolder }}/mobile/{{ filename }}.webp"
             media="(max-width: 767px)"
             type="image/webp"
         >
         {# Mobile JPG fallback #}
         <source
-            srcset="{{ prefix }}/images/stories/mobile/{{ filename }}.jpg"
+            srcset="{{ prefix }}/images/{{ imageFolder }}/mobile/{{ filename }}.jpg"
             media="(max-width: 767px)"
             type="image/jpeg"
         >
-        {# Tablet WebP #}
-        {# <source
-            srcset="{{ prefix }}/images/stories/tablet/{{ filename }}.webp"
-            media="(max-width: 1023px)"
-            type="image/webp"
-        > #}
-        {# Tablet JPG fallback #}
-        {# <source
-            srcset="{{ prefix }}/images/stories/tablet/{{ filename }}.jpg"
-            media="(max-width: 1023px)"
-            type="image/jpeg"
-        > #}
         {# Desktop WebP #}
         <source
-            srcset="{{ prefix }}/images/stories/desktop/{{ filename }}.webp"
+            srcset="{{ prefix }}/images/{{ imageFolder }}/desktop/{{ filename }}.webp"
             type="image/webp"
         >
         {# Desktop JPG fallback #}
         <img 
-            src="{{ prefix }}/images/stories/desktop/{{ filename }}.jpg"
+            src="{{ prefix }}/images/{{ imageFolder }}/desktop/{{ filename }}.jpg"
             alt="{{ decorative ? '' : alt }}"
             class="{{ className }}"
             {{ ariaHidden ? 'aria-hidden="true"' : '' }}

@@ -38,18 +38,18 @@ class __TwigTemplate_21620fc9b0b3d930ed320bb4e4db4f79 extends Template
     protected function doDisplay(array $context, array $blocks = []): iterable
     {
         $macros = $this->macros;
-        // line 9
+        // line 10
         yield "
 ";
-        // line 43
+        // line 48
         yield "
 
 ";
         yield from [];
     }
 
-    // line 10
-    public function macro_responsiveImage($imagePath = null, $alt = null, $className = "", $decorative = false, $ariaHidden = false, ...$varargs): string|Markup
+    // line 11
+    public function macro_responsiveImage($imagePath = null, $alt = null, $className = "", $decorative = false, $ariaHidden = false, $imageFolder = "stories", ...$varargs): string|Markup
     {
         $macros = $this->macros;
         $context = [
@@ -58,38 +58,35 @@ class __TwigTemplate_21620fc9b0b3d930ed320bb4e4db4f79 extends Template
             "className" => $className,
             "decorative" => $decorative,
             "ariaHidden" => $ariaHidden,
+            "imageFolder" => $imageFolder,
             "varargs" => $varargs,
         ] + $this->env->getGlobals();
 
         $blocks = [];
 
         return ('' === $tmp = \Twig\Extension\CoreExtension::captureOutput((function () use (&$context, $macros, $blocks) {
-            // line 11
-            yield "    ";
             // line 12
             yield "    ";
-            $context["parts"] = Twig\Extension\CoreExtension::split($this->env->getCharset(), ($context["imagePath"] ?? null), "/");
             // line 13
             yield "    ";
-            $context["filename"] = Twig\Extension\CoreExtension::replace(Twig\Extension\CoreExtension::last($this->env->getCharset(), ($context["parts"] ?? null)), [".jpg" => "", ".webp" => ""]);
+            $context["parts"] = Twig\Extension\CoreExtension::split($this->env->getCharset(), ($context["imagePath"] ?? null), "/");
             // line 14
             yield "    ";
-            $context["parts"] = Twig\Extension\CoreExtension::slice($this->env->getCharset(), ($context["parts"] ?? null), 0,  -1);
+            $context["filename"] = Twig\Extension\CoreExtension::replace(Twig\Extension\CoreExtension::last($this->env->getCharset(), ($context["parts"] ?? null)), [".jpg" => "", ".webp" => ""]);
             // line 15
             yield "    ";
-            $context["basePath"] = Twig\Extension\CoreExtension::join(($context["parts"] ?? null), "/");
+            $context["parts"] = Twig\Extension\CoreExtension::slice($this->env->getCharset(), ($context["parts"] ?? null), 0,  -1);
             // line 16
+            yield "    ";
+            $context["basePath"] = Twig\Extension\CoreExtension::join(($context["parts"] ?? null), "/");
+            // line 17
             yield "    
     ";
-            // line 18
-            yield "    ";
-            $context["prefix"] = ((($context["is_github_pages"] ?? null)) ? ((((array_key_exists("base_path", $context) && ($context["base_path"] ?? null))) ? (($context["base_path"] ?? null)) : ("/demo-photosnap-twig"))) : (""));
             // line 19
             yield "    ";
-            $context["subfolder"] = "stories";
-            yield " ";
+            $context["prefix"] = ((($context["is_github_pages"] ?? null)) ? (($context["base_path"] ?? null)) : (""));
             // line 20
-            yield "
+            yield "    
     <picture>
         ";
             // line 23
@@ -98,12 +95,12 @@ class __TwigTemplate_21620fc9b0b3d930ed320bb4e4db4f79 extends Template
             // line 24
             yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["prefix"] ?? null), "html", null, true);
             yield "/images/";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["subfolder"] ?? null), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["imageFolder"] ?? null), "html", null, true);
             yield "/mobile/";
             yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["filename"] ?? null), "html", null, true);
-            yield ".jpg\"
+            yield ".webp\"
             media=\"(max-width: 767px)\"
-            type=\"image/jpeg\"
+            type=\"image/webp\"
         >
         ";
             // line 29
@@ -112,34 +109,47 @@ class __TwigTemplate_21620fc9b0b3d930ed320bb4e4db4f79 extends Template
             // line 30
             yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["prefix"] ?? null), "html", null, true);
             yield "/images/";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["subfolder"] ?? null), "html", null, true);
-            yield "/tablet/";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["imageFolder"] ?? null), "html", null, true);
+            yield "/mobile/";
             yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["filename"] ?? null), "html", null, true);
             yield ".jpg\"
-            media=\"(max-width: 1023px)\"
+            media=\"(max-width: 767px)\"
             type=\"image/jpeg\"
         >
         ";
             // line 35
-            yield "        <img 
-            src=\"";
+            yield "        <source
+            srcset=\"";
             // line 36
             yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["prefix"] ?? null), "html", null, true);
             yield "/images/";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["subfolder"] ?? null), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["imageFolder"] ?? null), "html", null, true);
+            yield "/desktop/";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["filename"] ?? null), "html", null, true);
+            yield ".webp\"
+            type=\"image/webp\"
+        >
+        ";
+            // line 40
+            yield "        <img 
+            src=\"";
+            // line 41
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["prefix"] ?? null), "html", null, true);
+            yield "/images/";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["imageFolder"] ?? null), "html", null, true);
             yield "/desktop/";
             yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["filename"] ?? null), "html", null, true);
             yield ".jpg\"
             alt=\"";
-            // line 37
+            // line 42
             yield ((($context["decorative"] ?? null)) ? ("") : ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["alt"] ?? null), "html", null, true)));
             yield "\"
             class=\"";
-            // line 38
+            // line 43
             yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["className"] ?? null), "html", null, true);
             yield "\"
             ";
-            // line 39
+            // line 44
             yield ((($context["ariaHidden"] ?? null)) ? ("aria-hidden=\"true\"") : (""));
             yield "
         >
@@ -170,7 +180,7 @@ class __TwigTemplate_21620fc9b0b3d930ed320bb4e4db4f79 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  143 => 39,  139 => 38,  135 => 37,  127 => 36,  124 => 35,  113 => 30,  110 => 29,  99 => 24,  96 => 23,  92 => 20,  88 => 19,  85 => 18,  82 => 16,  79 => 15,  76 => 14,  73 => 13,  70 => 12,  68 => 11,  52 => 10,  45 => 43,  42 => 9,);
+        return array (  153 => 44,  149 => 43,  145 => 42,  137 => 41,  134 => 40,  124 => 36,  121 => 35,  110 => 30,  107 => 29,  96 => 24,  93 => 23,  89 => 20,  86 => 19,  83 => 17,  80 => 16,  77 => 15,  74 => 14,  71 => 13,  69 => 12,  52 => 11,  45 => 48,  42 => 10,);
     }
 
     public function getSourceContext(): Source
@@ -182,9 +192,10 @@ class __TwigTemplate_21620fc9b0b3d930ed320bb4e4db4f79 extends Template
   @param {string} className - Optional CSS class name(s)
   @param {boolean} decorative - If true, image is decorative and alt text will be empty
   @param {boolean} ariaHidden - If true, adds aria-hidden=\"true\"
+  @param {string} imageFolder - Optional folder name within images/ (default: 'stories')
 #}
 
-{% macro responsiveImage(imagePath, alt, className = '', decorative = false, ariaHidden = false) %}
+{% macro responsiveImage(imagePath, alt, className = '', decorative = false, ariaHidden = false, imageFolder = 'stories') %}
     {# Handle path construction #}
     {% set parts = imagePath|split('/') %}
     {% set filename = parts|last|replace({'.jpg': '', '.webp': ''}) %}
@@ -192,25 +203,29 @@ class __TwigTemplate_21620fc9b0b3d930ed320bb4e4db4f79 extends Template
     {% set basePath = parts|join('/') %}
     
     {# Handle GitHub Pages base path #}
-    {% set prefix = is_github_pages ? (base_path is defined and base_path ? base_path : '/demo-photosnap-twig') : '' %}
-    {% set subfolder = 'stories' %} {# Ensure the correct subfolder is used #}
-
+    {% set prefix = is_github_pages ? base_path : '' %}
+    
     <picture>
+        {# Mobile WebP #}
+        <source
+            srcset=\"{{ prefix }}/images/{{ imageFolder }}/mobile/{{ filename }}.webp\"
+            media=\"(max-width: 767px)\"
+            type=\"image/webp\"
+        >
         {# Mobile JPG fallback #}
         <source
-            srcset=\"{{ prefix }}/images/{{ subfolder }}/mobile/{{ filename }}.jpg\"
+            srcset=\"{{ prefix }}/images/{{ imageFolder }}/mobile/{{ filename }}.jpg\"
             media=\"(max-width: 767px)\"
             type=\"image/jpeg\"
         >
-        {# Tablet JPG fallback #}
+        {# Desktop WebP #}
         <source
-            srcset=\"{{ prefix }}/images/{{ subfolder }}/tablet/{{ filename }}.jpg\"
-            media=\"(max-width: 1023px)\"
-            type=\"image/jpeg\"
+            srcset=\"{{ prefix }}/images/{{ imageFolder }}/desktop/{{ filename }}.webp\"
+            type=\"image/webp\"
         >
         {# Desktop JPG fallback #}
         <img 
-            src=\"{{ prefix }}/images/{{ subfolder }}/desktop/{{ filename }}.jpg\"
+            src=\"{{ prefix }}/images/{{ imageFolder }}/desktop/{{ filename }}.jpg\"
             alt=\"{{ decorative ? '' : alt }}\"
             class=\"{{ className }}\"
             {{ ariaHidden ? 'aria-hidden=\"true\"' : '' }}

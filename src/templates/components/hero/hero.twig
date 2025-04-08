@@ -15,6 +15,7 @@
   @param {boolean} standout - Whether to show standout content
   @param {boolean} short - Whether to show short version
   @param {boolean} isFirstSection - Whether this is the first section on the page
+  @param {string} imageFolder - Optional image folder path
 #}
 
 {% set backgroundClass = backgroundColor == 'black' ? 'background--black' : 'background--white' %}
@@ -22,9 +23,18 @@
 {% set shortClass = short ? 'short' : '' %}
 {% set classes = ['hero', variant, imagePositionClass, 'full-width', backgroundClass, shortClass]|join(' ')|trim %}
 
+{% import "macros/responsive-image.twig" as images %}
+
 <section class="{{ classes }}" aria-labelledby="hero-title-{{ title|replace({' ': '-'})|lower }}">
 	<div class="imageContainer" {% if variant == 'overlay' %} aria-hidden="true" {% endif %}>
-		<img src="{{ image }}" alt="{{ imageAlt }}" class="heroImage" width="100%" height="100%" loading="eager"/>
+		{{ images.responsiveImage(
+				image,
+				'',
+				'heroImage',
+				true,
+				true,
+				'home'
+			) }}
 	</div>
 
 	<div class="content">
@@ -74,4 +84,17 @@
       ariaLabel: params.buttonText ~ ' - ' ~ params.title
     } %}
 	{% endif %}
+
+    {# Dynamically set the image path based on the `imageFolder` parameter #}
+    {% if params.imageFolder and params.image %}
+        <div class="dynamic-image">
+            {{ images.responsiveImage(
+                params.imageFolder ~ '/' ~ params.image,
+                params.imageAlt|default(''),
+                'heroImage',
+                true,
+                true
+            ) }}
+        </div>
+    {% endif %}
 {% endmacro %}
