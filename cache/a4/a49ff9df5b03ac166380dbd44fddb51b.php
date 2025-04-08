@@ -31,7 +31,6 @@ class __TwigTemplate_2427e33c91ca53d08ccbac1d943dd081 extends Template
 
         $this->blocks = [
             'content' => [$this, 'block_content'],
-            'scripts' => [$this, 'block_scripts'],
         ];
     }
 
@@ -127,19 +126,6 @@ class __TwigTemplate_2427e33c91ca53d08ccbac1d943dd081 extends Template
         yield from [];
     }
 
-    // line 27
-    /**
-     * @return iterable<null|scalar|\Stringable>
-     */
-    public function block_scripts(array $context, array $blocks = []): iterable
-    {
-        $macros = $this->macros;
-        // line 28
-        yield "\t<script src=\"/js/components/price-card/pricing.js\"></script>
-";
-        yield from [];
-    }
-
     /**
      * @codeCoverageIgnore
      */
@@ -161,7 +147,7 @@ class __TwigTemplate_2427e33c91ca53d08ccbac1d943dd081 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  138 => 28,  131 => 27,  125 => 24,  121 => 21,  119 => 20,  113 => 16,  99 => 15,  96 => 14,  79 => 13,  75 => 11,  72 => 10,  70 => 9,  67 => 8,  64 => 6,  61 => 5,  59 => 4,  52 => 3,  41 => 1,);
+        return array (  124 => 24,  120 => 21,  118 => 20,  112 => 16,  98 => 15,  95 => 14,  78 => 13,  74 => 11,  71 => 10,  69 => 9,  66 => 8,  63 => 6,  60 => 5,  58 => 4,  51 => 3,  40 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -190,11 +176,6 @@ class __TwigTemplate_2427e33c91ca53d08ccbac1d943dd081 extends Template
 
 \t{# Beta Section #}
 \t{% include 'components/beta-section/beta-section.twig' %}
-{% endblock %}
-
-{% block scripts %}
-\t<script src=\"/js/components/price-card/pricing.js\"></script>
-{% endblock %}
-", "pages/pricing.twig", "/Users/stevenportas/WorkBox/Sites/demos/demo-photosnap-twig/src/templates/pages/pricing.twig");
+{% endblock %}", "pages/pricing.twig", "/Users/stevenportas/WorkBox/Sites/demos/demo-photosnap-twig/src/templates/pages/pricing.twig");
     }
 }
