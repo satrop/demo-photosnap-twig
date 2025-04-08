@@ -3,7 +3,7 @@
     {
       "title": "Create and share your photo stories.",
       "variant": "side-by-side",
-      "image": "images/home/desktop/create-and-share.jpg",
+      "image": "images/home/desktop/create-and-share",
       "imageAlt": "Create and share your photo stories.",
       "excerpt": "Photosnap is a platform for photographers and visual storytellers. We make it easy to share photos, tell stories and connect with others.",
       "backgroundColor": "black",
@@ -15,7 +15,7 @@
     {
       "title": "Beautiful stories.",
       "variant": "side-by-side",
-      "image": "images/home/desktop/beautiful-stories.jpg",
+      "image": "images/home/desktop/beautiful-stories",
       "imageAlt": "Beautiful stories.",
       "excerpt": "We provide the tools and help you need to create stunning photos that will inspire and captivate your audience.",
       "backgroundColor": "white",
@@ -26,7 +26,7 @@
     {
       "title": "Designed for everyone.",
       "variant": "side-by-side",
-      "image": "images/home/desktop/designed-for-everyone.jpg",
+      "image": "images/home/desktop/designed-for-everyone",
       "imageAlt": "Designed for everyone",
       "excerpt": "Photosnap can help you create stories that resonate with your audience. Our tool is designed for photographers of all levels, brands, businesses you name it.",
       "backgroundColor": "white",
@@ -39,7 +39,7 @@
   "featured_hero": {
     "title": "Features",
     "variant": "side-by-side",
-    "image": "images/features/desktop/hero.jpg",
+    "image": "images/features/desktop/hero",
     "imageAlt": "Person taking a photo with a vintage camera",
     "excerpt": "We make sure all of our features are designed to be loved by every aspiring and even professional photographers who wanted to share their stories.",
     "backgroundColor": "black",
@@ -50,7 +50,7 @@
   "featured_story": {
     "title": "Hazy full moon of Appalachia",
     "variant": "overlay",
-    "image": "images/stories/desktop/moon-of-appalacia.jpg",
+    "image": "images/stories/desktop/moon-of-appalacia",
     "imageAlt": "Hazy full moon of Appalachia",
     "excerpt": "The dissected plateau area, while not actually made up of geological mountains, is popularly called \"mountains,\" especially in eastern Kentucky and West Virginia, and while the ridges are not high, the terrain is extremely rugged.",
     "backgroundColor": "black",
@@ -64,7 +64,7 @@
   "featured_pricing": {
     "title": "Pricing",
     "variant": "side-by-side",
-    "image": "images/pricing/desktop/hero.jpg",
+    "image": "images/pricing/desktop/hero",
     "imageAlt": "Professional camera on a tripod",
     "excerpt": "Create a your stories, Photosnap is a platform for photographers and visual storytellers. It's the simple way to create and share your photos.",
     "backgroundColor": "black",

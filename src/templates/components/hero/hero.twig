@@ -23,18 +23,14 @@
 {% set shortClass = short ? 'short' : '' %}
 {% set classes = ['hero', variant, imagePositionClass, 'full-width', backgroundClass, shortClass]|join(' ')|trim %}
 
-{% import "macros/responsive-image.twig" as images %}
-
 <section class="{{ classes }}" aria-labelledby="hero-title-{{ title|replace({' ': '-'})|lower }}">
 	<div class="imageContainer" {% if variant == 'overlay' %} aria-hidden="true" {% endif %}>
-		{{ images.responsiveImage(
-				image,
-				'',
-				'heroImage',
-				true,
-				true,
-				'home'
-			) }}
+		<picture>
+			<source srcset="{{ image }}.webp" media="(max-width: 767px)" type="image/webp">
+			<source srcset="{{ image }}.jpg" media="(max-width: 767px)" type="image/jpeg">
+			<source srcset="{{ image }}.webp" type="image/webp">
+			<img src="{{ image }}.webp" alt="{{ imageAlt }}" class="heroImage">
+		</picture>
 	</div>
 
 	<div class="content">
