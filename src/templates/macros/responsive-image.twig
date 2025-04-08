@@ -19,11 +19,11 @@
     
     <picture>
         {# Mobile WebP #}
-        <source
+        {# <source
             srcset="{{ prefix }}/images/stories/mobile/{{ filename }}.webp"
             media="(max-width: 767px)"
             type="image/webp"
-        >
+        > #}
         {# Mobile JPG fallback #}
         <source
             srcset="{{ prefix }}/images/stories/mobile/{{ filename }}.jpg"
@@ -31,11 +31,11 @@
             type="image/jpeg"
         >
         {# Tablet WebP #}
-        <source
+        {# <source
             srcset="{{ prefix }}/images/stories/tablet/{{ filename }}.webp"
             media="(max-width: 1023px)"
             type="image/webp"
-        >
+        > #}
         {# Tablet JPG fallback #}
         <source
             srcset="{{ prefix }}/images/stories/tablet/{{ filename }}.jpg"
@@ -43,10 +43,10 @@
             type="image/jpeg"
         >
         {# Desktop WebP #}
-        <source
+        {# <source
             srcset="{{ prefix }}/images/stories/desktop/{{ filename }}.webp"
             type="image/webp"
-        >
+        > #}
         {# Desktop JPG fallback #}
         <img 
             src="{{ prefix }}/images/stories/desktop/{{ filename }}.jpg"

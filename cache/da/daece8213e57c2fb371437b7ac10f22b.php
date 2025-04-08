@@ -89,17 +89,9 @@ class __TwigTemplate_21620fc9b0b3d930ed320bb4e4db4f79 extends Template
     <picture>
         ";
             // line 22
-            yield "        <source
-            srcset=\"";
-            // line 23
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["prefix"] ?? null), "html", null, true);
-            yield "/images/stories/mobile/";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["filename"] ?? null), "html", null, true);
-            yield ".webp\"
-            media=\"(max-width: 767px)\"
-            type=\"image/webp\"
-        >
-        ";
+            yield "        ";
+            // line 27
+            yield "        ";
             // line 28
             yield "        <source
             srcset=\"";
@@ -113,17 +105,9 @@ class __TwigTemplate_21620fc9b0b3d930ed320bb4e4db4f79 extends Template
         >
         ";
             // line 34
-            yield "        <source
-            srcset=\"";
-            // line 35
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["prefix"] ?? null), "html", null, true);
-            yield "/images/stories/tablet/";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["filename"] ?? null), "html", null, true);
-            yield ".webp\"
-            media=\"(max-width: 1023px)\"
-            type=\"image/webp\"
-        >
-        ";
+            yield "        ";
+            // line 39
+            yield "        ";
             // line 40
             yield "        <source
             srcset=\"";
@@ -137,16 +121,9 @@ class __TwigTemplate_21620fc9b0b3d930ed320bb4e4db4f79 extends Template
         >
         ";
             // line 46
-            yield "        <source
-            srcset=\"";
-            // line 47
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["prefix"] ?? null), "html", null, true);
-            yield "/images/stories/desktop/";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["filename"] ?? null), "html", null, true);
-            yield ".webp\"
-            type=\"image/webp\"
-        >
-        ";
+            yield "        ";
+            // line 50
+            yield "        ";
             // line 51
             yield "        <img 
             src=\"";
@@ -195,7 +172,7 @@ class __TwigTemplate_21620fc9b0b3d930ed320bb4e4db4f79 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  168 => 55,  164 => 54,  160 => 53,  154 => 52,  151 => 51,  143 => 47,  140 => 46,  131 => 41,  128 => 40,  119 => 35,  116 => 34,  107 => 29,  104 => 28,  95 => 23,  92 => 22,  88 => 19,  85 => 18,  82 => 16,  79 => 15,  76 => 14,  73 => 13,  70 => 12,  68 => 11,  52 => 10,  45 => 59,  42 => 9,);
+        return array (  145 => 55,  141 => 54,  137 => 53,  131 => 52,  128 => 51,  126 => 50,  124 => 46,  115 => 41,  112 => 40,  110 => 39,  108 => 34,  99 => 29,  96 => 28,  94 => 27,  92 => 22,  88 => 19,  85 => 18,  82 => 16,  79 => 15,  76 => 14,  73 => 13,  70 => 12,  68 => 11,  52 => 10,  45 => 59,  42 => 9,);
     }
 
     public function getSourceContext(): Source
@@ -221,11 +198,11 @@ class __TwigTemplate_21620fc9b0b3d930ed320bb4e4db4f79 extends Template
     
     <picture>
         {# Mobile WebP #}
-        <source
+        {# <source
             srcset=\"{{ prefix }}/images/stories/mobile/{{ filename }}.webp\"
             media=\"(max-width: 767px)\"
             type=\"image/webp\"
-        >
+        > #}
         {# Mobile JPG fallback #}
         <source
             srcset=\"{{ prefix }}/images/stories/mobile/{{ filename }}.jpg\"
@@ -233,11 +210,11 @@ class __TwigTemplate_21620fc9b0b3d930ed320bb4e4db4f79 extends Template
             type=\"image/jpeg\"
         >
         {# Tablet WebP #}
-        <source
+        {# <source
             srcset=\"{{ prefix }}/images/stories/tablet/{{ filename }}.webp\"
             media=\"(max-width: 1023px)\"
             type=\"image/webp\"
-        >
+        > #}
         {# Tablet JPG fallback #}
         <source
             srcset=\"{{ prefix }}/images/stories/tablet/{{ filename }}.jpg\"
@@ -245,10 +222,10 @@ class __TwigTemplate_21620fc9b0b3d930ed320bb4e4db4f79 extends Template
             type=\"image/jpeg\"
         >
         {# Desktop WebP #}
-        <source
+        {# <source
             srcset=\"{{ prefix }}/images/stories/desktop/{{ filename }}.webp\"
             type=\"image/webp\"
-        >
+        > #}
         {# Desktop JPG fallback #}
         <img 
             src=\"{{ prefix }}/images/stories/desktop/{{ filename }}.jpg\"
