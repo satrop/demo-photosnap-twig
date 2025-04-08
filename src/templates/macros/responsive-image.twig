@@ -8,39 +8,42 @@
 #}
 
 {% macro responsiveImage(imagePath, alt, className = '', decorative = false, ariaHidden = false) %}
+    {% set filename = imagePath|split('/')|last %}
+    {% set basePath = imagePath|replace('/' ~ filename, '') %}
+    
     <picture>
         {# Mobile WebP #}
         <source
-            srcset="{{ imagePath }}/mobile/{{ imagePath|split('/')|last }}.webp"
+            srcset="{{ basePath }}/mobile/{{ filename }}.webp"
             media="(max-width: 767px)"
             type="image/webp"
         >
         {# Mobile JPG fallback #}
         <source
-            srcset="{{ imagePath }}/mobile/{{ imagePath|split('/')|last }}.jpg"
+            srcset="{{ basePath }}/mobile/{{ filename }}.jpg"
             media="(max-width: 767px)"
             type="image/jpeg"
         >
         {# Tablet WebP #}
         <source
-            srcset="{{ imagePath }}/tablet/{{ imagePath|split('/')|last }}.webp"
+            srcset="{{ basePath }}/tablet/{{ filename }}.webp"
             media="(max-width: 1023px)"
             type="image/webp"
         >
         {# Tablet JPG fallback #}
         <source
-            srcset="{{ imagePath }}/tablet/{{ imagePath|split('/')|last }}.jpg"
+            srcset="{{ basePath }}/tablet/{{ filename }}.jpg"
             media="(max-width: 1023px)"
             type="image/jpeg"
         >
         {# Desktop WebP #}
         <source
-            srcset="{{ imagePath }}/desktop/{{ imagePath|split('/')|last }}.webp"
+            srcset="{{ basePath }}/desktop/{{ filename }}.webp"
             type="image/webp"
         >
         {# Desktop JPG fallback #}
         <img 
-            src="{{ imagePath }}/desktop/{{ imagePath|split('/')|last }}.jpg"
+            src="{{ basePath }}/desktop/{{ filename }}.jpg"
             alt="{{ decorative ? '' : alt }}"
             class="{{ className }}"
             {{ ariaHidden ? 'aria-hidden="true"' : '' }}
