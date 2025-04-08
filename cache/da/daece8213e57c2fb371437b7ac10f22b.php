@@ -62,94 +62,105 @@ class __TwigTemplate_21620fc9b0b3d930ed320bb4e4db4f79 extends Template
         return ('' === $tmp = \Twig\Extension\CoreExtension::captureOutput((function () use (&$context, $macros, $blocks) {
             // line 11
             yield "    ";
-            $context["parts"] = Twig\Extension\CoreExtension::split($this->env->getCharset(), ($context["imagePath"] ?? null), "/");
             // line 12
             yield "    ";
-            $context["filename"] = Twig\Extension\CoreExtension::last($this->env->getCharset(), ($context["parts"] ?? null));
+            $context["parts"] = Twig\Extension\CoreExtension::split($this->env->getCharset(), ($context["imagePath"] ?? null), "/");
             // line 13
             yield "    ";
-            $context["basePath"] = Twig\Extension\CoreExtension::join(Twig\Extension\CoreExtension::slice($this->env->getCharset(), ($context["parts"] ?? null), 0,  -1), "/");
+            $context["filename"] = Twig\Extension\CoreExtension::replace(Twig\Extension\CoreExtension::last($this->env->getCharset(), ($context["parts"] ?? null)), [".jpg" => "", ".webp" => ""]);
             // line 14
+            yield "    ";
+            $context["parts"] = Twig\Extension\CoreExtension::slice($this->env->getCharset(), ($context["parts"] ?? null), 0,  -1);
+            // line 15
+            yield "    ";
+            $context["basePath"] = Twig\Extension\CoreExtension::join(($context["parts"] ?? null), "/");
+            // line 16
+            yield "    
+    ";
+            // line 18
+            yield "    ";
+            $context["prefix"] = ((($context["is_github_pages"] ?? null)) ? (($context["base_path"] ?? null)) : (""));
+            // line 19
             yield "    
     <picture>
         ";
-            // line 17
+            // line 22
             yield "        <source
             srcset=\"";
-            // line 18
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["basePath"] ?? null), "html", null, true);
-            yield "/mobile/";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["filename"] ?? null), "html", null, true);
-            yield ".webp\"
-            media=\"(max-width: 767px)\"
-            type=\"image/webp\"
-        >
-        ";
             // line 23
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["prefix"] ?? null), "html", null, true);
+            yield "images/stories/mobile/";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["filename"] ?? null), "html", null, true);
+            yield ".webp\"
+            media=\"(max-width: 767px)\"
+            type=\"image/webp\"
+        >
+        ";
+            // line 28
             yield "        <source
             srcset=\"";
-            // line 24
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["basePath"] ?? null), "html", null, true);
-            yield "/mobile/";
+            // line 29
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["prefix"] ?? null), "html", null, true);
+            yield "images/stories/mobile/";
             yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["filename"] ?? null), "html", null, true);
             yield ".jpg\"
             media=\"(max-width: 767px)\"
             type=\"image/jpeg\"
         >
         ";
-            // line 29
+            // line 34
             yield "        <source
             srcset=\"";
-            // line 30
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["basePath"] ?? null), "html", null, true);
-            yield "/tablet/";
+            // line 35
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["prefix"] ?? null), "html", null, true);
+            yield "images/stories/tablet/";
             yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["filename"] ?? null), "html", null, true);
             yield ".webp\"
             media=\"(max-width: 1023px)\"
             type=\"image/webp\"
         >
         ";
-            // line 35
+            // line 40
             yield "        <source
             srcset=\"";
-            // line 36
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["basePath"] ?? null), "html", null, true);
-            yield "/tablet/";
+            // line 41
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["prefix"] ?? null), "html", null, true);
+            yield "images/stories/tablet/";
             yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["filename"] ?? null), "html", null, true);
             yield ".jpg\"
             media=\"(max-width: 1023px)\"
             type=\"image/jpeg\"
-        >
-        ";
-            // line 41
-            yield "        <source
-            srcset=\"";
-            // line 42
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["basePath"] ?? null), "html", null, true);
-            yield "/desktop/";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["filename"] ?? null), "html", null, true);
-            yield ".webp\"
-            type=\"image/webp\"
         >
         ";
             // line 46
+            yield "        <source
+            srcset=\"";
+            // line 47
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["prefix"] ?? null), "html", null, true);
+            yield "images/stories/desktop/";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["filename"] ?? null), "html", null, true);
+            yield ".webp\"
+            type=\"image/webp\"
+        >
+        ";
+            // line 51
             yield "        <img 
             src=\"";
-            // line 47
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["basePath"] ?? null), "html", null, true);
-            yield "/desktop/";
+            // line 52
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["prefix"] ?? null), "html", null, true);
+            yield "images/stories/desktop/";
             yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["filename"] ?? null), "html", null, true);
             yield ".jpg\"
             alt=\"";
-            // line 48
+            // line 53
             yield ((($context["decorative"] ?? null)) ? ("") : ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["alt"] ?? null), "html", null, true)));
             yield "\"
             class=\"";
-            // line 49
+            // line 54
             yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["className"] ?? null), "html", null, true);
             yield "\"
             ";
-            // line 50
+            // line 55
             yield ((($context["ariaHidden"] ?? null)) ? ("aria-hidden=\"true\"") : (""));
             yield "
         >
@@ -180,14 +191,14 @@ class __TwigTemplate_21620fc9b0b3d930ed320bb4e4db4f79 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  153 => 50,  149 => 49,  145 => 48,  139 => 47,  136 => 46,  128 => 42,  125 => 41,  116 => 36,  113 => 35,  104 => 30,  101 => 29,  92 => 24,  89 => 23,  80 => 18,  77 => 17,  73 => 14,  70 => 13,  67 => 12,  64 => 11,  48 => 10,  42 => 9,);
+        return array (  164 => 55,  160 => 54,  156 => 53,  150 => 52,  147 => 51,  139 => 47,  136 => 46,  127 => 41,  124 => 40,  115 => 35,  112 => 34,  103 => 29,  100 => 28,  91 => 23,  88 => 22,  84 => 19,  81 => 18,  78 => 16,  75 => 15,  72 => 14,  69 => 13,  66 => 12,  64 => 11,  48 => 10,  42 => 9,);
     }
 
     public function getSourceContext(): Source
     {
         return new Source("{# 
   Responsive Image Macro
-  @param {string} imagePath - The base path to the image (without desktop/tablet/mobile folder)
+  @param {string} imagePath - The full path to the desktop version of the image
   @param {string} alt - Alt text for the image
   @param {string} className - Optional CSS class name(s)
   @param {boolean} decorative - If true, image is decorative and alt text will be empty
@@ -195,43 +206,48 @@ class __TwigTemplate_21620fc9b0b3d930ed320bb4e4db4f79 extends Template
 #}
 
 {% macro responsiveImage(imagePath, alt, className = '', decorative = false, ariaHidden = false) %}
+    {# Handle path construction #}
     {% set parts = imagePath|split('/') %}
-    {% set filename = parts|last %}
-    {% set basePath = parts[0:-1]|join('/') %}
+    {% set filename = parts|last|replace({'.jpg': '', '.webp': ''}) %}
+    {% set parts = parts[:-1] %}
+    {% set basePath = parts|join('/') %}
+    
+    {# Handle GitHub Pages base path #}
+    {% set prefix = is_github_pages ? base_path : '' %}
     
     <picture>
         {# Mobile WebP #}
         <source
-            srcset=\"{{ basePath }}/mobile/{{ filename }}.webp\"
+            srcset=\"{{ prefix }}images/stories/mobile/{{ filename }}.webp\"
             media=\"(max-width: 767px)\"
             type=\"image/webp\"
         >
         {# Mobile JPG fallback #}
         <source
-            srcset=\"{{ basePath }}/mobile/{{ filename }}.jpg\"
+            srcset=\"{{ prefix }}images/stories/mobile/{{ filename }}.jpg\"
             media=\"(max-width: 767px)\"
             type=\"image/jpeg\"
         >
         {# Tablet WebP #}
         <source
-            srcset=\"{{ basePath }}/tablet/{{ filename }}.webp\"
+            srcset=\"{{ prefix }}images/stories/tablet/{{ filename }}.webp\"
             media=\"(max-width: 1023px)\"
             type=\"image/webp\"
         >
         {# Tablet JPG fallback #}
         <source
-            srcset=\"{{ basePath }}/tablet/{{ filename }}.jpg\"
+            srcset=\"{{ prefix }}images/stories/tablet/{{ filename }}.jpg\"
             media=\"(max-width: 1023px)\"
             type=\"image/jpeg\"
         >
         {# Desktop WebP #}
         <source
-            srcset=\"{{ basePath }}/desktop/{{ filename }}.webp\"
+            srcset=\"{{ prefix }}images/stories/desktop/{{ filename }}.webp\"
             type=\"image/webp\"
         >
         {# Desktop JPG fallback #}
         <img 
-            src=\"{{ basePath }}/desktop/{{ filename }}.jpg\"
+            src=\"{{ prefix }}images/stories/desktop/{{ filename }}.jpg\"
             alt=\"{{ decorative ? '' : alt }}\"
             class=\"{{ className }}\"
             {{ ariaHidden ? 'aria-hidden=\"true\"' : '' }}

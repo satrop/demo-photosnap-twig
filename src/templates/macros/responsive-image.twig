@@ -1,6 +1,6 @@
 {# 
   Responsive Image Macro
-  @param {string} imagePath - The base path to the image (without desktop/tablet/mobile folder)
+  @param {string} imagePath - The full path to the desktop version of the image
   @param {string} alt - Alt text for the image
   @param {string} className - Optional CSS class name(s)
   @param {boolean} decorative - If true, image is decorative and alt text will be empty
@@ -8,43 +8,48 @@
 #}
 
 {% macro responsiveImage(imagePath, alt, className = '', decorative = false, ariaHidden = false) %}
+    {# Handle path construction #}
     {% set parts = imagePath|split('/') %}
-    {% set filename = parts|last %}
-    {% set basePath = parts[0:-1]|join('/') %}
+    {% set filename = parts|last|replace({'.jpg': '', '.webp': ''}) %}
+    {% set parts = parts[:-1] %}
+    {% set basePath = parts|join('/') %}
+    
+    {# Handle GitHub Pages base path #}
+    {% set prefix = is_github_pages ? base_path : '' %}
     
     <picture>
         {# Mobile WebP #}
         <source
-            srcset="{{ basePath }}/mobile/{{ filename }}.webp"
+            srcset="{{ prefix }}images/stories/mobile/{{ filename }}.webp"
             media="(max-width: 767px)"
             type="image/webp"
         >
         {# Mobile JPG fallback #}
         <source
-            srcset="{{ basePath }}/mobile/{{ filename }}.jpg"
+            srcset="{{ prefix }}images/stories/mobile/{{ filename }}.jpg"
             media="(max-width: 767px)"
             type="image/jpeg"
         >
         {# Tablet WebP #}
         <source
-            srcset="{{ basePath }}/tablet/{{ filename }}.webp"
+            srcset="{{ prefix }}images/stories/tablet/{{ filename }}.webp"
             media="(max-width: 1023px)"
             type="image/webp"
         >
         {# Tablet JPG fallback #}
         <source
-            srcset="{{ basePath }}/tablet/{{ filename }}.jpg"
+            srcset="{{ prefix }}images/stories/tablet/{{ filename }}.jpg"
             media="(max-width: 1023px)"
             type="image/jpeg"
         >
         {# Desktop WebP #}
         <source
-            srcset="{{ basePath }}/desktop/{{ filename }}.webp"
+            srcset="{{ prefix }}images/stories/desktop/{{ filename }}.webp"
             type="image/webp"
         >
         {# Desktop JPG fallback #}
         <img 
-            src="{{ basePath }}/desktop/{{ filename }}.jpg"
+            src="{{ prefix }}images/stories/desktop/{{ filename }}.jpg"
             alt="{{ decorative ? '' : alt }}"
             class="{{ className }}"
             {{ ariaHidden ? 'aria-hidden="true"' : '' }}
