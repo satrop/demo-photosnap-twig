@@ -61,85 +61,95 @@ class __TwigTemplate_21620fc9b0b3d930ed320bb4e4db4f79 extends Template
 
         return ('' === $tmp = \Twig\Extension\CoreExtension::captureOutput((function () use (&$context, $macros, $blocks) {
             // line 11
-            yield "    <picture>
-        ";
+            yield "    ";
+            $context["parts"] = Twig\Extension\CoreExtension::split($this->env->getCharset(), ($context["imagePath"] ?? null), "/");
+            // line 12
+            yield "    ";
+            $context["filename"] = Twig\Extension\CoreExtension::last($this->env->getCharset(), ($context["parts"] ?? null));
             // line 13
-            yield "        <source
-            srcset=\"";
+            yield "    ";
+            $context["basePath"] = Twig\Extension\CoreExtension::join(Twig\Extension\CoreExtension::slice($this->env->getCharset(), ($context["parts"] ?? null), 0,  -1), "/");
             // line 14
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["imagePath"] ?? null), "html", null, true);
+            yield "    
+    <picture>
+        ";
+            // line 17
+            yield "        <source
+            srcset=\"";
+            // line 18
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["basePath"] ?? null), "html", null, true);
             yield "/mobile/";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(Twig\Extension\CoreExtension::last($this->env->getCharset(), Twig\Extension\CoreExtension::split($this->env->getCharset(), ($context["imagePath"] ?? null), "/")), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["filename"] ?? null), "html", null, true);
             yield ".webp\"
             media=\"(max-width: 767px)\"
             type=\"image/webp\"
         >
         ";
-            // line 19
+            // line 23
             yield "        <source
             srcset=\"";
-            // line 20
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["imagePath"] ?? null), "html", null, true);
+            // line 24
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["basePath"] ?? null), "html", null, true);
             yield "/mobile/";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(Twig\Extension\CoreExtension::last($this->env->getCharset(), Twig\Extension\CoreExtension::split($this->env->getCharset(), ($context["imagePath"] ?? null), "/")), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["filename"] ?? null), "html", null, true);
             yield ".jpg\"
             media=\"(max-width: 767px)\"
             type=\"image/jpeg\"
         >
         ";
-            // line 25
+            // line 29
             yield "        <source
             srcset=\"";
-            // line 26
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["imagePath"] ?? null), "html", null, true);
+            // line 30
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["basePath"] ?? null), "html", null, true);
             yield "/tablet/";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(Twig\Extension\CoreExtension::last($this->env->getCharset(), Twig\Extension\CoreExtension::split($this->env->getCharset(), ($context["imagePath"] ?? null), "/")), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["filename"] ?? null), "html", null, true);
             yield ".webp\"
             media=\"(max-width: 1023px)\"
             type=\"image/webp\"
         >
         ";
-            // line 31
+            // line 35
             yield "        <source
             srcset=\"";
-            // line 32
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["imagePath"] ?? null), "html", null, true);
+            // line 36
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["basePath"] ?? null), "html", null, true);
             yield "/tablet/";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(Twig\Extension\CoreExtension::last($this->env->getCharset(), Twig\Extension\CoreExtension::split($this->env->getCharset(), ($context["imagePath"] ?? null), "/")), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["filename"] ?? null), "html", null, true);
             yield ".jpg\"
             media=\"(max-width: 1023px)\"
             type=\"image/jpeg\"
         >
         ";
-            // line 37
+            // line 41
             yield "        <source
             srcset=\"";
-            // line 38
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["imagePath"] ?? null), "html", null, true);
-            yield "/desktop/";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(Twig\Extension\CoreExtension::last($this->env->getCharset(), Twig\Extension\CoreExtension::split($this->env->getCharset(), ($context["imagePath"] ?? null), "/")), "html", null, true);
-            yield ".webp\"
-            type=\"image/webp\"
-        >
-        ";
             // line 42
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["basePath"] ?? null), "html", null, true);
+            yield "/desktop/";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["filename"] ?? null), "html", null, true);
+            yield ".webp\"
+            type=\"image/webp\"
+        >
+        ";
+            // line 46
             yield "        <img 
             src=\"";
-            // line 43
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["imagePath"] ?? null), "html", null, true);
+            // line 47
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["basePath"] ?? null), "html", null, true);
             yield "/desktop/";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(Twig\Extension\CoreExtension::last($this->env->getCharset(), Twig\Extension\CoreExtension::split($this->env->getCharset(), ($context["imagePath"] ?? null), "/")), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["filename"] ?? null), "html", null, true);
             yield ".jpg\"
             alt=\"";
-            // line 44
+            // line 48
             yield ((($context["decorative"] ?? null)) ? ("") : ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["alt"] ?? null), "html", null, true)));
             yield "\"
             class=\"";
-            // line 45
+            // line 49
             yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["className"] ?? null), "html", null, true);
             yield "\"
             ";
-            // line 46
+            // line 50
             yield ((($context["ariaHidden"] ?? null)) ? ("aria-hidden=\"true\"") : (""));
             yield "
         >
@@ -170,7 +180,7 @@ class __TwigTemplate_21620fc9b0b3d930ed320bb4e4db4f79 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  143 => 46,  139 => 45,  135 => 44,  129 => 43,  126 => 42,  118 => 38,  115 => 37,  106 => 32,  103 => 31,  94 => 26,  91 => 25,  82 => 20,  79 => 19,  70 => 14,  67 => 13,  64 => 11,  48 => 10,  42 => 9,);
+        return array (  153 => 50,  149 => 49,  145 => 48,  139 => 47,  136 => 46,  128 => 42,  125 => 41,  116 => 36,  113 => 35,  104 => 30,  101 => 29,  92 => 24,  89 => 23,  80 => 18,  77 => 17,  73 => 14,  70 => 13,  67 => 12,  64 => 11,  48 => 10,  42 => 9,);
     }
 
     public function getSourceContext(): Source
@@ -185,39 +195,43 @@ class __TwigTemplate_21620fc9b0b3d930ed320bb4e4db4f79 extends Template
 #}
 
 {% macro responsiveImage(imagePath, alt, className = '', decorative = false, ariaHidden = false) %}
+    {% set parts = imagePath|split('/') %}
+    {% set filename = parts|last %}
+    {% set basePath = parts[0:-1]|join('/') %}
+    
     <picture>
         {# Mobile WebP #}
         <source
-            srcset=\"{{ imagePath }}/mobile/{{ imagePath|split('/')|last }}.webp\"
+            srcset=\"{{ basePath }}/mobile/{{ filename }}.webp\"
             media=\"(max-width: 767px)\"
             type=\"image/webp\"
         >
         {# Mobile JPG fallback #}
         <source
-            srcset=\"{{ imagePath }}/mobile/{{ imagePath|split('/')|last }}.jpg\"
+            srcset=\"{{ basePath }}/mobile/{{ filename }}.jpg\"
             media=\"(max-width: 767px)\"
             type=\"image/jpeg\"
         >
         {# Tablet WebP #}
         <source
-            srcset=\"{{ imagePath }}/tablet/{{ imagePath|split('/')|last }}.webp\"
+            srcset=\"{{ basePath }}/tablet/{{ filename }}.webp\"
             media=\"(max-width: 1023px)\"
             type=\"image/webp\"
         >
         {# Tablet JPG fallback #}
         <source
-            srcset=\"{{ imagePath }}/tablet/{{ imagePath|split('/')|last }}.jpg\"
+            srcset=\"{{ basePath }}/tablet/{{ filename }}.jpg\"
             media=\"(max-width: 1023px)\"
             type=\"image/jpeg\"
         >
         {# Desktop WebP #}
         <source
-            srcset=\"{{ imagePath }}/desktop/{{ imagePath|split('/')|last }}.webp\"
+            srcset=\"{{ basePath }}/desktop/{{ filename }}.webp\"
             type=\"image/webp\"
         >
         {# Desktop JPG fallback #}
         <img 
-            src=\"{{ imagePath }}/desktop/{{ imagePath|split('/')|last }}.jpg\"
+            src=\"{{ basePath }}/desktop/{{ filename }}.jpg\"
             alt=\"{{ decorative ? '' : alt }}\"
             class=\"{{ className }}\"
             {{ ariaHidden ? 'aria-hidden=\"true\"' : '' }}

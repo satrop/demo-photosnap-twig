@@ -8,8 +8,9 @@
 #}
 
 {% macro responsiveImage(imagePath, alt, className = '', decorative = false, ariaHidden = false) %}
-    {% set filename = imagePath|split('/')|last %}
-    {% set basePath = imagePath|replace('/' ~ filename, '') %}
+    {% set parts = imagePath|split('/') %}
+    {% set filename = parts|last %}
+    {% set basePath = parts[0:-1]|join('/') %}
     
     <picture>
         {# Mobile WebP #}
