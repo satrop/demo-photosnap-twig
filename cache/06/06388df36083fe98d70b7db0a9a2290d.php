@@ -77,7 +77,9 @@ class __TwigTemplate_458783cd27b34eb7728ed57ac3db4304 extends Template
                     // line 24
                     if (CoreExtension::inFilter($context["plan"], CoreExtension::getAttribute($this->env, $this->source, $context["feature"], "feature_set", [], "any", false, false, false, 24))) {
                         // line 25
-                        yield "\t\t\t\t\t\t\t\t\t<img src=\"/images/pricing/desktop/check.svg\" alt=\"";
+                        yield "\t\t\t\t\t\t\t\t\t<img src=\"";
+                        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["base_path"] ?? null), "html", null, true);
+                        yield "/images/pricing/desktop/check.svg\" alt=\"";
                         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["feature"], "title", [], "any", false, false, false, 25), "html", null, true);
                         yield " is included in ";
                         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($context["plan"], "html", null, true);
@@ -106,7 +108,9 @@ class __TwigTemplate_458783cd27b34eb7728ed57ac3db4304 extends Template
                 // line 33
                 if (CoreExtension::getAttribute($this->env, $this->source, $context["feature"], "basic", [], "any", false, false, false, 33)) {
                     // line 34
-                    yield "                <img src=\"/images/pricing/desktop/check.svg\" alt=\"";
+                    yield "                <img src=\"";
+                    yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["base_path"] ?? null), "html", null, true);
+                    yield "/images/pricing/desktop/check.svg\" alt=\"";
                     yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["feature"], "title", [], "any", false, false, false, 34), "html", null, true);
                     yield " is included in basic plan\" width=\"16\" height=\"12\"/>
               ";
@@ -122,7 +126,9 @@ class __TwigTemplate_458783cd27b34eb7728ed57ac3db4304 extends Template
                 // line 40
                 if (CoreExtension::getAttribute($this->env, $this->source, $context["feature"], "pro", [], "any", false, false, false, 40)) {
                     // line 41
-                    yield "                <img src=\"/images/pricing/desktop/check.svg\" alt=\"";
+                    yield "                <img src=\"";
+                    yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["base_path"] ?? null), "html", null, true);
+                    yield "/images/pricing/desktop/check.svg\" alt=\"";
                     yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["feature"], "title", [], "any", false, false, false, 41), "html", null, true);
                     yield " is included in pro plan\" width=\"16\" height=\"12\"/>
               ";
@@ -138,7 +144,9 @@ class __TwigTemplate_458783cd27b34eb7728ed57ac3db4304 extends Template
                 // line 47
                 if (CoreExtension::getAttribute($this->env, $this->source, $context["feature"], "business", [], "any", false, false, false, 47)) {
                     // line 48
-                    yield "                <img src=\"/images/pricing/desktop/check.svg\" alt=\"";
+                    yield "                <img src=\"";
+                    yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["base_path"] ?? null), "html", null, true);
+                    yield "/images/pricing/desktop/check.svg\" alt=\"";
                     yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["feature"], "title", [], "any", false, false, false, 48), "html", null, true);
                     yield " is included in business plan\" width=\"16\" height=\"12\"/>
               ";
@@ -187,7 +195,7 @@ class __TwigTemplate_458783cd27b34eb7728ed57ac3db4304 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  162 => 56,  155 => 54,  151 => 52,  147 => 50,  141 => 48,  139 => 47,  135 => 45,  131 => 43,  125 => 41,  123 => 40,  119 => 38,  115 => 36,  109 => 34,  107 => 33,  104 => 32,  101 => 31,  94 => 29,  88 => 27,  80 => 25,  78 => 24,  75 => 23,  70 => 22,  68 => 21,  64 => 20,  61 => 19,  57 => 18,  42 => 5,);
+        return array (  170 => 56,  163 => 54,  159 => 52,  155 => 50,  147 => 48,  145 => 47,  141 => 45,  137 => 43,  129 => 41,  127 => 40,  123 => 38,  119 => 36,  111 => 34,  109 => 33,  106 => 32,  103 => 31,  96 => 29,  90 => 27,  80 => 25,  78 => 24,  75 => 23,  70 => 22,  68 => 21,  64 => 20,  61 => 19,  57 => 18,  42 => 5,);
     }
 
     public function getSourceContext(): Source
@@ -216,7 +224,7 @@ class __TwigTemplate_458783cd27b34eb7728ed57ac3db4304 extends Template
 \t\t\t\t\t\t{% for plan in ['basic', 'pro', 'business'] %}
 \t\t\t\t\t\t\t<td>
 \t\t\t\t\t\t\t\t{% if plan in feature.feature_set %}
-\t\t\t\t\t\t\t\t\t<img src=\"/images/pricing/desktop/check.svg\" alt=\"{{ feature.title }} is included in {{ plan }} plan\" width=\"16\" height=\"12\"/>
+\t\t\t\t\t\t\t\t\t<img src=\"{{ base_path }}/images/pricing/desktop/check.svg\" alt=\"{{ feature.title }} is included in {{ plan }} plan\" width=\"16\" height=\"12\"/>
 \t\t\t\t\t\t\t\t{% else %}
 \t\t\t\t\t\t\t\t\t<span class=\"visually-hidden\">Not included in {{ plan }} plan</span>
 \t\t\t\t\t\t\t\t{% endif %}
@@ -225,21 +233,21 @@ class __TwigTemplate_458783cd27b34eb7728ed57ac3db4304 extends Template
 \t\t\t\t\t{% else %}
 \t\t\t\t\t\t<td>
               {% if feature.basic %}
-                <img src=\"/images/pricing/desktop/check.svg\" alt=\"{{ feature.title }} is included in basic plan\" width=\"16\" height=\"12\"/>
+                <img src=\"{{ base_path }}/images/pricing/desktop/check.svg\" alt=\"{{ feature.title }} is included in basic plan\" width=\"16\" height=\"12\"/>
               {% else %}
                 <span class=\"visually-hidden\">Not included in basic plan</span>
               {% endif %}
             </td>
 \t\t\t\t\t\t<td>
               {% if feature.pro %}
-                <img src=\"/images/pricing/desktop/check.svg\" alt=\"{{ feature.title }} is included in pro plan\" width=\"16\" height=\"12\"/>
+                <img src=\"{{ base_path }}/images/pricing/desktop/check.svg\" alt=\"{{ feature.title }} is included in pro plan\" width=\"16\" height=\"12\"/>
               {% else %}
                 <span class=\"visually-hidden\">Not included in pro plan</span>
               {% endif %}
             </td>
 \t\t\t\t\t\t<td>
               {% if feature.business %}
-                <img src=\"/images/pricing/desktop/check.svg\" alt=\"{{ feature.title }} is included in business plan\" width=\"16\" height=\"12\"/>
+                <img src=\"{{ base_path }}/images/pricing/desktop/check.svg\" alt=\"{{ feature.title }} is included in business plan\" width=\"16\" height=\"12\"/>
               {% else %}
                 <span class=\"visually-hidden\">Not included in business plan</span>
               {% endif %}

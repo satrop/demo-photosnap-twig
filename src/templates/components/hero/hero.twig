@@ -80,17 +80,4 @@
       ariaLabel: params.buttonText ~ ' - ' ~ params.title
     } %}
 	{% endif %}
-
-    {# Dynamically set the image path based on the `imageFolder` parameter #}
-    {% if params.imageFolder and params.image %}
-        <div class="dynamic-image">
-            {{ images.responsiveImage(
-                params.imageFolder ~ '/' ~ params.image,
-                params.imageAlt|default(''),
-                'heroImage',
-                true,
-                true
-            ) }}
-        </div>
-    {% endif %}
 {% endmacro %}

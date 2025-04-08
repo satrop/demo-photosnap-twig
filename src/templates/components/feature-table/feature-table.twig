@@ -22,7 +22,7 @@
 						{% for plan in ['basic', 'pro', 'business'] %}
 							<td>
 								{% if plan in feature.feature_set %}
-									<img src="/images/pricing/desktop/check.svg" alt="{{ feature.title }} is included in {{ plan }} plan" width="16" height="12"/>
+									<img src="{{ base_path }}/images/pricing/desktop/check.svg" alt="{{ feature.title }} is included in {{ plan }} plan" width="16" height="12"/>
 								{% else %}
 									<span class="visually-hidden">Not included in {{ plan }} plan</span>
 								{% endif %}
@@ -31,21 +31,21 @@
 					{% else %}
 						<td>
               {% if feature.basic %}
-                <img src="/images/pricing/desktop/check.svg" alt="{{ feature.title }} is included in basic plan" width="16" height="12"/>
+                <img src="{{ base_path }}/images/pricing/desktop/check.svg" alt="{{ feature.title }} is included in basic plan" width="16" height="12"/>
               {% else %}
                 <span class="visually-hidden">Not included in basic plan</span>
               {% endif %}
             </td>
 						<td>
               {% if feature.pro %}
-                <img src="/images/pricing/desktop/check.svg" alt="{{ feature.title }} is included in pro plan" width="16" height="12"/>
+                <img src="{{ base_path }}/images/pricing/desktop/check.svg" alt="{{ feature.title }} is included in pro plan" width="16" height="12"/>
               {% else %}
                 <span class="visually-hidden">Not included in pro plan</span>
               {% endif %}
             </td>
 						<td>
               {% if feature.business %}
-                <img src="/images/pricing/desktop/check.svg" alt="{{ feature.title }} is included in business plan" width="16" height="12"/>
+                <img src="{{ base_path }}/images/pricing/desktop/check.svg" alt="{{ feature.title }} is included in business plan" width="16" height="12"/>
               {% else %}
                 <span class="visually-hidden">Not included in business plan</span>
               {% endif %}

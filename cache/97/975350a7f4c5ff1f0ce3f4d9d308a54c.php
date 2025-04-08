@@ -211,24 +211,6 @@ class __TwigTemplate_6dc431587667dbd52804603acffa5546 extends Template
                 // line 82
                 yield "\t";
             }
-            // line 83
-            yield "
-    ";
-            // line 85
-            yield "    ";
-            if ((CoreExtension::getAttribute($this->env, $this->source, ($context["params"] ?? null), "imageFolder", [], "any", false, false, false, 85) && CoreExtension::getAttribute($this->env, $this->source, ($context["params"] ?? null), "image", [], "any", false, false, false, 85))) {
-                // line 86
-                yield "        <div class=\"dynamic-image\">
-            ";
-                // line 87
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, ($context["images"] ?? null), "responsiveImage", [((CoreExtension::getAttribute($this->env, $this->source,                 // line 88
-($context["params"] ?? null), "imageFolder", [], "any", false, false, false, 88) . "/") . CoreExtension::getAttribute($this->env, $this->source, ($context["params"] ?? null), "image", [], "any", false, false, false, 88)), ((CoreExtension::getAttribute($this->env, $this->source,                 // line 89
-($context["params"] ?? null), "imageAlt", [], "any", true, true, false, 89)) ? (Twig\Extension\CoreExtension::default(CoreExtension::getAttribute($this->env, $this->source, ($context["params"] ?? null), "imageAlt", [], "any", false, false, false, 89), "")) : ("")), "heroImage", true, true], "method", false, false, false, 87), "html", null, true);
-                // line 93
-                yield "
-        </div>
-    ";
-            }
             yield from [];
         })())) ? '' : new Markup($tmp, $this->env->getCharset());
     }
@@ -254,7 +236,7 @@ class __TwigTemplate_6dc431587667dbd52804603acffa5546 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  228 => 93,  226 => 89,  225 => 88,  224 => 87,  221 => 86,  218 => 85,  215 => 83,  212 => 82,  210 => 80,  209 => 78,  208 => 77,  206 => 76,  204 => 75,  201 => 74,  195 => 72,  193 => 71,  190 => 70,  186 => 68,  180 => 65,  174 => 61,  171 => 60,  165 => 58,  163 => 57,  160 => 56,  158 => 55,  142 => 53,  140 => 52,  137 => 51,  131 => 49,  128 => 48,  116 => 47,  108 => 44,  102 => 42,  96 => 39,  93 => 38,  91 => 37,  81 => 32,  77 => 31,  73 => 30,  69 => 29,  62 => 27,  56 => 26,  53 => 25,  51 => 24,  49 => 23,  47 => 22,  45 => 21,  42 => 20,);
+        return array (  212 => 82,  210 => 80,  209 => 78,  208 => 77,  206 => 76,  204 => 75,  201 => 74,  195 => 72,  193 => 71,  190 => 70,  186 => 68,  180 => 65,  174 => 61,  171 => 60,  165 => 58,  163 => 57,  160 => 56,  158 => 55,  142 => 53,  140 => 52,  137 => 51,  131 => 49,  128 => 48,  116 => 47,  108 => 44,  102 => 42,  96 => 39,  93 => 38,  91 => 37,  81 => 32,  77 => 31,  73 => 30,  69 => 29,  62 => 27,  56 => 26,  53 => 25,  51 => 24,  49 => 23,  47 => 22,  45 => 21,  42 => 20,);
     }
 
     public function getSourceContext(): Source
@@ -341,19 +323,6 @@ class __TwigTemplate_6dc431587667dbd52804603acffa5546 extends Template
       ariaLabel: params.buttonText ~ ' - ' ~ params.title
     } %}
 \t{% endif %}
-
-    {# Dynamically set the image path based on the `imageFolder` parameter #}
-    {% if params.imageFolder and params.image %}
-        <div class=\"dynamic-image\">
-            {{ images.responsiveImage(
-                params.imageFolder ~ '/' ~ params.image,
-                params.imageAlt|default(''),
-                'heroImage',
-                true,
-                true
-            ) }}
-        </div>
-    {% endif %}
 {% endmacro %}
 ", "components/hero/hero.twig", "/Users/stevenportas/WorkBox/Sites/demos/demo-photosnap-twig/src/templates/components/hero/hero.twig");
     }
