@@ -15,7 +15,7 @@
     {% set basePath = parts|join('/') %}
     
     {# Handle GitHub Pages base path #}
-    {% set prefix = is_github_pages ? base_path : '' %}
+    {% set prefix = is_github_pages ? (base_path is defined and base_path ? base_path : '/demo-photosnap-twig') : '' %}
     
     <picture>
         {# Mobile WebP #}
